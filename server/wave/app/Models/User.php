@@ -19,17 +19,27 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
         'password',
-        'phone_number'
+        'phone'
     ];
 
-    // protected $guarded = [
-    //     'created_at',
-    //     'updated_at'
-    // ];
 
-    
+    protected $casts = [
+        'phone_verified_at' => 'datetime',
+    ];
+
+
+    public function hasVerifiedPhone()
+    {
+        return !is_null($this->phone_verified_at);
+    }
+
+    public function markPhoneAsVerified()
+    {
+        return $this->forceFill([
+            'phone_verified_at' => $this->freshTimestamp(),
+        ])->save();
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -46,14 +56,11 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+
 
 
     public function services()
     {
         return $this->belongsToMany(Service::class);
     }
-
 }

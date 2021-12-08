@@ -11,29 +11,31 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
-    
+
+    public function username()
+    {
+        return 'phone';
+    }
+
     public function register(Request $request)
     {
 
         $validator = Validator::make($request->all(), [
-            'name'=> ['required','string','max:255','min:3'],
-            'email' => ['required','email','unique:users,email','max:255'],
-            'password' => ['required', 'string', 'min:8','max:255', 'confirmed'],
-            'phone_number' => 'min:5|string',
+            'name' => ['required', 'string', 'max:255', 'min:3'],
+            'phone' => ['required', 'string', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed'],
         ]);
 
 
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             return 'invalid data';
         }
 
 
         $user = User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>Hash::make($request->password),
-            'phone_number'=>$request->phone_number,
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'password' => Hash::make($request->password),
         ]);
 
 
@@ -54,7 +56,7 @@ class AuthController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
+            'phone' => 'required',
             'password' => 'required',
         ]);
 
