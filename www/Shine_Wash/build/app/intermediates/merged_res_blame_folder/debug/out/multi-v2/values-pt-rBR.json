@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Job\\Joob\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rBR\\values-pt-rBR.xml",
+            "outputFile": "E:\\Job\\wave\\www\\Shine_Wash\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rBR\\values-pt-rBR.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\c7b4e6298bd2cda14acbe015b7d4ec33\\jetified-play-services-base-17.5.0\\res\\values-pt-rBR\\values.xml",

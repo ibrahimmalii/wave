@@ -24,9 +24,9 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  final _emailController = TextEditingController();
+  final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
-  FocusNode email = FocusNode();
+  FocusNode phone = FocusNode();
   FocusNode password = FocusNode();
   var showSnipper = false;
   String playerIddd = "";
@@ -120,7 +120,7 @@ class _SignInState extends State<SignIn> {
           resData = body['data'];
           if (body['success'] == true) {
             if (body['data']['is_verified'] == 1) {
-              _emailController.text = '';
+              _phoneController.text = '';
               _passwordController.text = '';
               SharedPreferences localStorage =
                   await SharedPreferences.getInstance();
@@ -140,7 +140,7 @@ class _SignInState extends State<SignIn> {
                   actions: <Widget>[
                     TextButton(
                       onPressed: () async {
-                        _emailController.text = '';
+                        _phoneController.text = '';
                         _passwordController.text = '';
                         SharedPreferences localStorage =
                             await SharedPreferences.getInstance();
@@ -301,25 +301,25 @@ class _SignInState extends State<SignIn> {
                                             )
                                           ]),
                                       child: TextFormField(
-                                        controller: _emailController,
-                                        focusNode: email,
+                                        controller: _phoneController,
+                                        focusNode: phone,
                                         onFieldSubmitted: (a) {
-                                          email.unfocus();
+                                          phone.unfocus();
                                           FocusScope.of(context)
                                               .requestFocus(password);
                                         },
                                         validator: (value) {
                                           Pattern pattern =
-                                              r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                                              r'(^(?:[+0]9)?[0-9]{10,12}$)';
                                           RegExp regex =
                                               new RegExp(pattern as String);
                                           // Null check
                                           if (value!.isEmpty) {
-                                            return 'please enter your email';
+                                            return 'please enter your  mobile number';
                                           }
                                           // Valid email formatting check
                                           else if (!regex.hasMatch(value)) {
-                                            return 'Enter valid email address';
+                                            return 'Enter valid  mobile number';
                                           }
                                           // success condition
                                           return null;
@@ -330,11 +330,17 @@ class _SignInState extends State<SignIn> {
                                         decoration: InputDecoration(
                                           contentPadding: EdgeInsets.all(15),
                                           border: InputBorder.none,
-                                          suffixIcon: SvgPicture.asset(
-                                            'assets/icons/usericon.svg',
-                                            fit: BoxFit.scaleDown,
+                                          suffixIcon: Icon(
+                                            Icons.phone,
+                                            color: darkBlue,
+                                            size: 22,
                                           ),
-                                          hintText: 'E-mail Address',
+                                          // SvgPicture.asset(
+                                          //   'assets/icons/',
+                                          //   fit: BoxFit.scaleDown,
+                                          // ),
+
+                                          hintText: 'Phone Number',
                                           hintStyle: TextStyle(
                                             color: darkBlue,
                                             fontSize: 16,
@@ -436,7 +442,7 @@ class _SignInState extends State<SignIn> {
                                       onPressed: () {
                                         if (_formKey.currentState!.validate()) {
                                           final body = {
-                                            "email": _emailController.text,
+                                            "email": _phoneController.text,
                                             "password":
                                                 _passwordController.text,
                                             "provider": "LOCAL",

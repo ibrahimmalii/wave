@@ -90,7 +90,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                     Padding(
                                       padding: const EdgeInsets.all(20.0),
                                       child: Text(
-                                        'Please enter your email and we will send an OTP number',
+                                        'Please enter your mobile and we will send an OTP number',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: extraDarkBlue,
@@ -119,16 +119,16 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                     controller: _emailController,
                                     validator: (value) {
                                       Pattern pattern =
-                                          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                                          r'(^(?:[+0]9)?[0-9]{10,12}$)';
                                       RegExp regex =
                                           new RegExp(pattern as String);
                                       // Null check
                                       if (value!.isEmpty) {
-                                        return 'please enter your email';
+                                        return 'please enter your mobile number';
                                       }
                                       // Valid email formatting check
                                       else if (!regex.hasMatch(value)) {
-                                        return 'Enter valid email address';
+                                        return 'Enter valid mobile number';
                                       }
                                       // success condition
                                       return null;
@@ -138,7 +138,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                     decoration: InputDecoration(
                                       contentPadding: EdgeInsets.all(15),
                                       border: InputBorder.none,
-                                      hintText: 'Email / Mobile',
+                                      hintText: 'Mobile',
                                       hintStyle: TextStyle(
                                         color: extraDarkBlue,
                                         fontSize: 16,
@@ -247,8 +247,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       } else {
         showDialog(
           builder: (context) => AlertDialog(
-            title: Text('Email Error'),
-            content: Text('please enter valid Email'),
+            title: Text('Phone Error'),
+            content: Text('please enter valid Phone'),
             actions: <Widget>[
               TextButton(
                 onPressed: () {
@@ -267,7 +267,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     } catch (e) {
       showDialog(
         builder: (context) => AlertDialog(
-          title: Text('Email/Phone Error'),
+          title: Text('Phone Error'),
           content: Text(e.toString()),
           actions: <Widget>[
             TextButton(

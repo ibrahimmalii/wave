@@ -12,17 +12,17 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->E:\Job\Joob\android\app\src\debug\AndroidManifest.xml:6:5-66
-14-->E:\Job\Joob\android\app\src\debug\AndroidManifest.xml:6:22-64
+14-->E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml:6:5-66
+14-->E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml:6:22-64
 15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-15-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:54:5-55:66
-15-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:55:9-63
+15-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:54:5-55:66
+15-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:55:9-63
 16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-16-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:57:5-58:68
-16-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:58:9-65
+16-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:57:5-58:68
+16-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:58:9-65
 17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
-17-->[:connectivity] E:\Job\Joob\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
-17-->[:connectivity] E:\Job\Joob\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
+17-->[:connectivity] E:\Job\wave\www\Shine_Wash\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
+17-->[:connectivity] E:\Job\wave\www\Shine_Wash\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
 18    <permission
 18-->[com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:7:5-9:47
 19        android:name="com.shinewash.permission.C2D_MESSAGE"
@@ -129,41 +129,41 @@
 68         FlutterApplication and put your custom class here.
 69    -->
 70    <application
-70-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:8:5-53:19
+70-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:8:5-53:19
 71        android:name="io.flutter.app.FlutterApplication"
-71-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:9:9-57
+71-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:9:9-57
 72        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 72-->[androidx.core:core:1.6.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\b6cbabf8eb93129946bc40e7c30cf929\core-1.6.0\AndroidManifest.xml:24:18-86
 73        android:debuggable="true"
 74        android:icon="@mipmap/ic_launcher"
-74-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:12:9-43
+74-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:12:9-43
 75        android:label="Shinewash"
-75-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:11:9-34
+75-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:11:9-34
 76        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-76-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:11:18-74
+76-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:11:18-74
 77        android:usesCleartextTraffic="true" >
-77-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:10:9-44
+77-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:10:9-44
 78        <meta-data
-78-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:14:9-15:64
+78-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:14:9-15:64
 79            android:name="com.google.android.geo.API_KEY"
-79-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:14:20-65
+79-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:14:20-65
 80            android:value="ENTER_YOUR_GOOGLE_MAP_ANDROID_KEY" />
-80-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:15:13-62
+80-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:15:13-62
 81
 82        <activity
-82-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:18:9-47:20
+82-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:18:9-47:20
 83            android:name="com.shinewash.MainActivity"
-83-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:19:13-41
+83-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:19:13-41
 84            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-84-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:22:13-163
+84-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:22:13-163
 85            android:hardwareAccelerated="true"
-85-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:23:13-47
+85-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:23:13-47
 86            android:launchMode="singleTop"
-86-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:20:13-43
+86-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:20:13-43
 87            android:theme="@style/LaunchTheme"
-87-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:21:13-47
+87-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:21:13-47
 88            android:windowSoftInputMode="adjustResize" >
-88-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:24:13-55
+88-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:24:13-55
 89
 90            <!--
 91                 Specifies an Android theme to apply to this Activity as soon as
@@ -172,11 +172,11 @@
 94                 to determine the Window background behind the Flutter UI.
 95            -->
 96            <meta-data
-96-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:30:13-33:17
+96-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:30:13-33:17
 97                android:name="io.flutter.embedding.android.NormalTheme"
-97-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:31:15-70
+97-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:31:15-70
 98                android:resource="@style/NormalTheme" />
-98-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:32:15-52
+98-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:32:15-52
 99            <!--
 100                 Displays an Android View that continues showing the launch screen
 101                 Drawable until Flutter paints its first frame, then this splash
@@ -185,21 +185,21 @@
 104                 Flutter's first frame.
 105            -->
 106            <meta-data
-106-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:39:13-42:17
+106-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:39:13-42:17
 107                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-107-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:40:15-79
+107-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:40:15-79
 108                android:resource="@drawable/launch_background" />
-108-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:41:15-61
+108-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:41:15-61
 109
 110            <intent-filter>
-110-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:43:13-46:29
+110-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:43:13-46:29
 111                <action android:name="android.intent.action.MAIN" />
-111-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:44:17-68
-111-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:44:25-66
+111-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:44:17-68
+111-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:44:25-66
 112
 113                <category android:name="android.intent.category.LAUNCHER" />
-113-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:45:17-76
-113-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:45:27-74
+113-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:45:17-76
+113-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:45:27-74
 114            </intent-filter>
 115        </activity>
 116        <!--
@@ -207,117 +207,117 @@
 118             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 119        -->
 120        <meta-data
-120-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:50:9-52:33
+120-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:50:9-52:33
 121            android:name="flutterEmbedding"
-121-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:51:13-44
+121-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:51:13-44
 122            android:value="2" />
-122-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:52:13-30
+122-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:52:13-30
 123
 124        <activity
-124-->[:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-12:54
+124-->[:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-12:54
 125            android:name="co.paystack.flutterpaystack.AuthActivity"
-125-->[:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-68
+125-->[:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-68
 126            android:theme="@style/Paystack.Dialog" />
-126-->[:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-51
+126-->[:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-51
 127
 128        <meta-data
-128-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-14:36
+128-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-14:36
 129            android:name="com.google.android.gms.wallet.api.enabled"
-129-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-69
+129-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-69
 130            android:value="true" />
-130-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-33
+130-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-33
 131
 132        <activity
-132-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-20:75
+132-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-20:75
 133            android:name="com.gettipsi.stripe.OpenBrowserActivity"
-133-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-67
+133-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-67
 134            android:exported="false"
-134-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
+134-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
 135            android:launchMode="singleTask"
-135-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-44
+135-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-44
 136            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-136-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-72
+136-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-72
 137        <activity
-137-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:21:9-34:20
+137-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:21:9-34:20
 138            android:name="com.gettipsi.stripe.RedirectUriReceiver"
-138-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-67
+138-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-67
 139            android:exported="true"
-139-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-36
+139-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-36
 140            android:launchMode="singleTask"
-140-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-44
+140-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-44
 141            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
-141-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:25:13-83
+141-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:25:13-83
 142            <intent-filter>
-142-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:26:13-33:29
+142-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:26:13-33:29
 143                <action android:name="android.intent.action.VIEW" />
-143-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:17-69
-143-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:25-66
+143-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:17-69
+143-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:25-66
 144
 145                <category android:name="android.intent.category.DEFAULT" />
-145-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:17-76
-145-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:27-73
+145-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:17-76
+145-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:27-73
 146                <category android:name="android.intent.category.BROWSABLE" />
-146-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:17-78
-146-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:27-75
+146-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:17-78
+146-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:27-75
 147
 148                <data android:scheme="example" />
-148-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:17-50
-148-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:23-47
+148-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:17-50
+148-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:23-47
 149            </intent-filter>
 150        </activity>
 151
 152        <provider
-152-->[:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
+152-->[:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
 153            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-153-->[:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-82
+153-->[:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-82
 154            android:authorities="com.shinewash.flutter.image_provider"
-154-->[:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
+154-->[:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
 155            android:exported="false"
-155-->[:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
+155-->[:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
 156            android:grantUriPermissions="true" >
-156-->[:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
+156-->[:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
 157            <meta-data
-157-->[:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
+157-->[:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
 158                android:name="android.support.FILE_PROVIDER_PATHS"
-158-->[:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
+158-->[:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
 159                android:resource="@xml/flutter_image_picker_file_paths" />
-159-->[:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
+159-->[:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
 160        </provider>
 161
 162        <activity
-162-->[:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:20
+162-->[:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:20
 163            android:name="com.razorpay.CheckoutActivity"
-163-->[:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-57
+163-->[:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-57
 164            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 164-->[com.razorpay:checkout:1.6.10] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\043640bfbbdf043e4ee9ae11140d7226\jetified-checkout-1.6.10\AndroidManifest.xml:20:13-83
 165            android:label="Razorpay Checkout"
-165-->[:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-46
+165-->[:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-46
 166            android:theme="@style/CheckoutTheme" >
 166-->[com.razorpay:checkout:1.6.10] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\043640bfbbdf043e4ee9ae11140d7226\jetified-checkout-1.6.10\AndroidManifest.xml:21:13-49
 167            <intent-filter>
 167-->[com.razorpay:checkout:1.6.10] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\043640bfbbdf043e4ee9ae11140d7226\jetified-checkout-1.6.10\AndroidManifest.xml:22:13-28:29
 168                <action android:name="android.intent.action.MAIN" />
-168-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:44:17-68
-168-->E:\Job\Joob\android\app\src\main\AndroidManifest.xml:44:25-66
+168-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:44:17-68
+168-->E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:44:25-66
 169
 170                <data
-170-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:17-50
+170-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:17-50
 171                    android:host="rzp.io"
 172                    android:scheme="io.rzp" />
-172-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:23-47
+172-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:23-47
 173            </intent-filter>
 174        </activity>
 175
 176        <service
-176-->[:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
+176-->[:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
 177            android:name="com.lyokone.location.FlutterLocationService"
-177-->[:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
+177-->[:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
 178            android:enabled="true"
-178-->[:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
+178-->[:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
 179            android:exported="false"
-179-->[:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+179-->[:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
 180            android:foregroundServiceType="location" />
-180-->[:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
+180-->[:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
 181
 182        <receiver
 182-->[com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:49:9-60:20
@@ -369,8 +369,8 @@
 208            <intent-filter>
 208-->[com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:75:13-77:29
 209                <action android:name="android.intent.action.VIEW" />
-209-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:17-69
-209-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:25-66
+209-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:17-69
+209-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:25-66
 210            </intent-filter>
 211        </activity>
 212
@@ -539,23 +539,23 @@
 298            <intent-filter>
 298-->[com.stripe:payments-core:16.10.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\668b0bed20d417e4fac9b0e05e3eaeb2\jetified-payments-core-16.10.0\AndroidManifest.xml:42:13-53:29
 299                <action android:name="android.intent.action.VIEW" />
-299-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:17-69
-299-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:25-66
+299-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:17-69
+299-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:25-66
 300
 301                <category android:name="android.intent.category.DEFAULT" />
-301-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:17-76
-301-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:27-73
+301-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:17-76
+301-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:27-73
 302                <category android:name="android.intent.category.BROWSABLE" />
-302-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:17-78
-302-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:27-75
+302-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:17-78
+302-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:27-75
 303
 304                <!-- Must match `DefaultReturnUrl#value`. -->
 305                <data
-305-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:17-50
+305-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:17-50
 306                    android:host="payment_return_url"
 307                    android:path="/com.shinewash"
 308                    android:scheme="stripesdk" />
-308-->[:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:23-47
+308-->[:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:23-47
 309            </intent-filter>
 310        </activity>
 311        <activity

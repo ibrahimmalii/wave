@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Job\\Joob\\build\\image_picker\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-de\\values-de.xml",
+            "outputFile": "E:\\Job\\wave\\www\\Shine_Wash\\build\\image_picker\\intermediates\\res\\merged\\debug\\values-de\\values-de.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\c3ee5b9d556b6acb25f45f6e544c4187\\core-1.1.0\\res\\values-de\\values-de.xml",
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "outputFile": "E:\\Job\\Joob\\build\\image_picker\\intermediates\\res\\merged\\debug\\values-de\\values-de.xml",
+            "outputFile": "E:\\Job\\wave\\www\\Shine_Wash\\build\\image_picker\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-de\\values-de.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\c3ee5b9d556b6acb25f45f6e544c4187\\core-1.1.0\\res\\values-de\\values-de.xml",

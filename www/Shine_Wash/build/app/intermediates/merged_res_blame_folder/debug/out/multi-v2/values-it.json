@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Job\\Joob\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-it\\values-it.xml",
+            "outputFile": "E:\\Job\\wave\\www\\Shine_Wash\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-it\\values-it.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\b6cbabf8eb93129946bc40e7c30cf929\\core-1.6.0\\res\\values-it\\values-it.xml",

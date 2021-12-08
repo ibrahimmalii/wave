@@ -1,18 +1,18 @@
 [
     {
-        "merged": "E:\\Job\\Joob\\build\\path_provider_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "merged": "E:\\Job\\wave\\www\\Shine_Wash\\build\\path_provider_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
         "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\c3ee5b9d556b6acb25f45f6e544c4187\\core-1.1.0\\res\\layout-v21\\notification_action.xml"
     },
     {
-        "merged": "E:\\Job\\Joob\\build\\path_provider_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "merged": "E:\\Job\\wave\\www\\Shine_Wash\\build\\path_provider_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\c3ee5b9d556b6acb25f45f6e544c4187\\core-1.1.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "E:\\Job\\wave\\www\\Shine_Wash\\build\\path_provider_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
         "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\c3ee5b9d556b6acb25f45f6e544c4187\\core-1.1.0\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
-        "merged": "E:\\Job\\Joob\\build\\path_provider_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "merged": "E:\\Job\\wave\\www\\Shine_Wash\\build\\path_provider_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
         "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\c3ee5b9d556b6acb25f45f6e544c4187\\core-1.1.0\\res\\layout-v21\\notification_action_tombstone.xml"
-    },
-    {
-        "merged": "E:\\Job\\Joob\\build\\path_provider_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\c3ee5b9d556b6acb25f45f6e544c4187\\core-1.1.0\\res\\layout-v21\\notification_template_custom_big.xml"
     }
 ]

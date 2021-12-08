@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Job\\Joob\\build\\google_maps_flutter\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-af\\values-af.xml",
+            "outputFile": "E:\\Job\\wave\\www\\Shine_Wash\\build\\google_maps_flutter\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-af\\values-af.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\bb4b552affec9ecaf146abd75c594f87\\jetified-play-services-base-17.0.0\\res\\values-af\\values.xml",
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "outputFile": "E:\\Job\\Joob\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\values-af\\values-af.xml",
+            "outputFile": "E:\\Job\\wave\\www\\Shine_Wash\\build\\google_maps_flutter\\intermediates\\res\\merged\\debug\\values-af\\values-af.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\bb4b552affec9ecaf146abd75c594f87\\jetified-play-services-base-17.0.0\\res\\values-af\\values.xml",

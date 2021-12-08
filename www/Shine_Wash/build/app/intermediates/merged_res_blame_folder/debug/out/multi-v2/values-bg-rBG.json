@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Job\\Joob\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bg-rBG\\values-bg-rBG.xml",
+            "outputFile": "E:\\Job\\wave\\www\\Shine_Wash\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bg-rBG\\values-bg-rBG.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\668b0bed20d417e4fac9b0e05e3eaeb2\\jetified-payments-core-16.10.0\\res\\values-bg-rBG\\values-bg-rBG.xml",

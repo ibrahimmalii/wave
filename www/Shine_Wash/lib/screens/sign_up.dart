@@ -208,67 +208,67 @@ class _SignUpState extends State<SignUp> {
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(35.0)),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: containerShadow,
-                                              blurRadius: 2,
-                                              offset: Offset(0, 0),
-                                              spreadRadius: 1,
-                                            )
-                                          ]),
-                                      child: TextFormField(
-                                        controller: _emailController,
-                                        validator: (value) {
-                                          Pattern pattern =
-                                              r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-                                          RegExp regex =
-                                              new RegExp(pattern as String);
-                                          // Null check
-                                          if (value!.isEmpty) {
-                                            return 'please enter your email';
-                                          }
-                                          // Valid email formatting check
-                                          else if (!regex.hasMatch(value)) {
-                                            return 'Enter valid email address';
-                                          }
-                                          // success condition
-                                          return null;
-                                        },
-                                        focusNode: email,
-                                        onFieldSubmitted: (a) {
-                                          email.unfocus();
-                                          FocusScope.of(context)
-                                              .requestFocus(phone);
-                                        },
-                                        enableSuggestions: false,
-                                        keyboardType:
-                                            TextInputType.visiblePassword,
-                                        decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.all(15),
-                                          border: InputBorder.none,
-                                          suffixIcon: SvgPicture.asset(
-                                            'assets/icons/emailicon.svg',
-                                            fit: BoxFit.scaleDown,
-                                          ),
-                                          hintText: 'E-mail Address',
-                                          hintStyle: TextStyle(
-                                            color: darkBlue,
-                                            fontSize: 16,
-                                            fontFamily: 'FivoSansMedium',
-                                          ),
-                                        ),
-                                        style: TextStyle(
-                                          color: darkBlue,
-                                          fontSize: 16,
-                                          fontFamily: 'FivoSansMedium',
-                                        ),
-                                      ),
-                                    ),
+                                    // Container(
+                                    //   decoration: BoxDecoration(
+                                    //       color: Colors.white,
+                                    //       borderRadius: BorderRadius.all(
+                                    //           Radius.circular(35.0)),
+                                    //       boxShadow: [
+                                    //         BoxShadow(
+                                    //           color: containerShadow,
+                                    //           blurRadius: 2,
+                                    //           offset: Offset(0, 0),
+                                    //           spreadRadius: 1,
+                                    //         )
+                                    //       ]),
+                                    //   child: TextFormField(
+                                    //     controller: _emailController,
+                                    //     validator: (value) {
+                                    //       Pattern pattern =
+                                    //           r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                                    //       RegExp regex =
+                                    //           new RegExp(pattern as String);
+                                    //       // Null check
+                                    //       if (value!.isEmpty) {
+                                    //         return 'please enter your email';
+                                    //       }
+                                    //       // Valid email formatting check
+                                    //       else if (!regex.hasMatch(value)) {
+                                    //         return 'Enter valid email address';
+                                    //       }
+                                    //       // success condition
+                                    //       return null;
+                                    //     },
+                                    //     focusNode: email,
+                                    //     onFieldSubmitted: (a) {
+                                    //       email.unfocus();
+                                    //       FocusScope.of(context)
+                                    //           .requestFocus(phone);
+                                    //     },
+                                    //     enableSuggestions: false,
+                                    //     keyboardType:
+                                    //         TextInputType.visiblePassword,
+                                    //     decoration: InputDecoration(
+                                    //       contentPadding: EdgeInsets.all(15),
+                                    //       border: InputBorder.none,
+                                    //       suffixIcon: SvgPicture.asset(
+                                    //         'assets/icons/emailicon.svg',
+                                    //         fit: BoxFit.scaleDown,
+                                    //       ),
+                                    //       hintText: 'E-mail Address',
+                                    //       hintStyle: TextStyle(
+                                    //         color: darkBlue,
+                                    //         fontSize: 16,
+                                    //         fontFamily: 'FivoSansMedium',
+                                    //       ),
+                                    //     ),
+                                    //     style: TextStyle(
+                                    //       color: darkBlue,
+                                    //       fontSize: 16,
+                                    //       fontFamily: 'FivoSansMedium',
+                                    //     ),
+                                    //   ),
+                                    // ),
                                     Container(
                                       decoration: BoxDecoration(
                                           color: Colors.white,
@@ -425,8 +425,8 @@ class _SignUpState extends State<SignUp> {
                                         validator: (value) {
                                           if (value!.isEmpty) {
                                             return "Please Enter Password";
-                                          } else if (value.length < 6) {
-                                            return "Password must be atleast 6 characters long";
+                                          } else if (value.length < 8) {
+                                            return "Password must be atleast 8 characters long";
                                           } else {
                                             return null;
                                           }
@@ -474,7 +474,7 @@ class _SignUpState extends State<SignUp> {
                                         if (_formKey.currentState!.validate()) {
                                           final body = {
                                             "name": _usernameController.text,
-                                            "email": _emailController.text,
+
                                             "password":
                                                 _passwordController.text,
                                             "phone": _phoneController.text,

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Job\\Joob\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sk-rSK\\values-sk-rSK.xml",
+            "outputFile": "E:\\Job\\wave\\www\\Shine_Wash\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sk-rSK\\values-sk-rSK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Tarek\\.gradle\\caches\\transforms-2\\files-2.1\\0c8c7dd0da97649ace7484e8fa9f2f08\\jetified-stripe-3ds2-android-5.3.1\\res\\values-sk-rSK\\values-sk-rSK.xml",

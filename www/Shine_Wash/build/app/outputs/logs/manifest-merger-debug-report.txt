@@ -1,27 +1,27 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:1:1-59:12
-INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:1:1-59:12
-INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:1:1-59:12
-INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:1:1-59:12
-MERGED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:1:1-59:12
-MERGED from [:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
-MERGED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-37:12
-MERGED from [:geolocator_android] E:\Job\Joob\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:google_maps_flutter] E:\Job\Joob\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-19:12
-MERGED from [:flutter_plugin_android_lifecycle] E:\Job\Joob\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:sqflite] E:\Job\Joob\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:path_provider_android] E:\Job\Joob\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:wakelock] E:\Job\Joob\build\wakelock\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:webview_flutter_android] E:\Job\Joob\build\webview_flutter_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:shared_preferences_android] E:\Job\Joob\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:connectivity] E:\Job\Joob\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [:video_player] E:\Job\Joob\build\video_player\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:fluttertoast] E:\Job\Joob\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:onesignal_flutter] E:\Job\Joob\build\onesignal_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
-MERGED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-18:12
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:1:1-59:12
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:1:1-59:12
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:1:1-59:12
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:1:1-59:12
+MERGED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:1:1-59:12
+MERGED from [:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-37:12
+MERGED from [:geolocator_android] E:\Job\wave\www\Shine_Wash\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:google_maps_flutter] E:\Job\wave\www\Shine_Wash\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-19:12
+MERGED from [:flutter_plugin_android_lifecycle] E:\Job\wave\www\Shine_Wash\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:sqflite] E:\Job\wave\www\Shine_Wash\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:path_provider_android] E:\Job\wave\www\Shine_Wash\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:wakelock] E:\Job\wave\www\Shine_Wash\build\wakelock\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:webview_flutter_android] E:\Job\wave\www\Shine_Wash\build\webview_flutter_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:shared_preferences_android] E:\Job\wave\www\Shine_Wash\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:connectivity] E:\Job\wave\www\Shine_Wash\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:video_player] E:\Job\wave\www\Shine_Wash\build\video_player\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:fluttertoast] E:\Job\wave\www\Shine_Wash\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:onesignal_flutter] E:\Job\wave\www\Shine_Wash\build\onesignal_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
+MERGED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-18:12
 MERGED from [com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:2:1-143:12
 MERGED from [com.stripe:stripe-android:16.10.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\e841b1e103c7068cd880bb106d3e0b9d\jetified-stripe-android-16.10.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.stripe:payments-core:16.10.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\668b0bed20d417e4fac9b0e05e3eaeb2\jetified-payments-core-16.10.0\AndroidManifest.xml:2:1-69:12
@@ -110,35 +110,35 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] C:\Users\Tare
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\39dad2a6dad0403f4de0c116c19e59b8\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\ce09f7a1297046fdd7dd5d182283e441\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\54ff403a1d7fed63f94009241932f30f\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml:1:1-7:12
-INJECTED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml:1:1-7:12
-INJECTED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 	package
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:2:5-28
-		INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml
-		INJECTED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:2:5-28
+		INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml
 	android:versionName
-		INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:1:1-59:12
-		INJECTED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml
+		INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:1:1-59:12
+		INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
-		INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:1:1-59:12
-		INJECTED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml
+		INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:1:1-59:12
+		INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:1:11-69
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:1:11-69
 application
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:8:5-53:19
-MERGED from [:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-13:19
-MERGED from [:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-13:19
-MERGED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-35:19
-MERGED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-35:19
-MERGED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-17:19
-MERGED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-17:19
-MERGED from [:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
-MERGED from [:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
-MERGED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
-MERGED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:8:5-53:19
+MERGED from [:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-13:19
+MERGED from [:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-13:19
+MERGED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-35:19
+MERGED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-35:19
+MERGED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-17:19
+MERGED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-17:19
+MERGED from [:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
+MERGED from [:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
+MERGED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
+MERGED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
 MERGED from [com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:48:5-141:19
 MERGED from [com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:48:5-141:19
 MERGED from [com.stripe:payments-core:16.10.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\668b0bed20d417e4fac9b0e05e3eaeb2\jetified-payments-core-16.10.0\AndroidManifest.xml:16:5-67:19
@@ -192,113 +192,113 @@ MERGED from [androidx.room:room-runtime:2.2.5] C:\Users\Tarek\.gradle\caches\tra
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.6.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\b6cbabf8eb93129946bc40e7c30cf929\core-1.6.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:11:9-34
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:11:9-34
 	android:icon
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:12:9-43
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:12:9-43
 	android:theme
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:11:18-74
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:11:18-74
 	android:usesCleartextTraffic
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:10:9-44
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:10:9-44
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:9:9-57
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:9:9-57
 meta-data#com.google.android.geo.API_KEY
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:14:9-15:64
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:14:9-15:64
 	android:value
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:15:13-62
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:15:13-62
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:14:20-65
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:14:20-65
 activity#com.shinewash.MainActivity
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:18:9-47:20
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:18:9-47:20
 	android:launchMode
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:20:13-43
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:20:13-43
 	android:hardwareAccelerated
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:23:13-47
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:23:13-47
 	android:windowSoftInputMode
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:24:13-55
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:24:13-55
 	android:configChanges
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:22:13-163
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:22:13-163
 	android:theme
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:21:13-47
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:21:13-47
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:19:13-41
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:19:13-41
 meta-data#io.flutter.embedding.android.NormalTheme
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:30:13-33:17
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:30:13-33:17
 	android:resource
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:32:15-52
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:32:15-52
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:31:15-70
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:31:15-70
 meta-data#io.flutter.embedding.android.SplashScreenDrawable
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:39:13-42:17
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:39:13-42:17
 	android:resource
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:41:15-61
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:41:15-61
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:40:15-79
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:40:15-79
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:43:13-46:29
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:43:13-46:29
 action#android.intent.action.MAIN
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:44:17-68
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:44:17-68
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:44:25-66
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:44:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:45:17-76
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:45:17-76
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:45:27-74
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:45:27-74
 meta-data#flutterEmbedding
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:50:9-52:33
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:50:9-52:33
 	android:value
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:52:13-30
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:52:13-30
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:51:13-44
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:51:13-44
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:54:5-55:66
-MERGED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-79
-MERGED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-79
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:54:5-55:66
+MERGED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-79
+MERGED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-79
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:55:9-63
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:55:9-63
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:57:5-58:68
-MERGED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-81
-MERGED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-81
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:57:5-58:68
+MERGED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-81
+MERGED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-81
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml:58:9-65
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml:58:9-65
 uses-sdk
-INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml
-INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml
-MERGED from [:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-44
-MERGED from [:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-44
-MERGED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:geolocator_android] E:\Job\Joob\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:geolocator_android] E:\Job\Joob\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:google_maps_flutter] E:\Job\Joob\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:google_maps_flutter] E:\Job\Joob\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:flutter_plugin_android_lifecycle] E:\Job\Joob\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:flutter_plugin_android_lifecycle] E:\Job\Joob\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:sqflite] E:\Job\Joob\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:sqflite] E:\Job\Joob\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:path_provider_android] E:\Job\Joob\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:path_provider_android] E:\Job\Joob\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:wakelock] E:\Job\Joob\build\wakelock\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:wakelock] E:\Job\Joob\build\wakelock\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:webview_flutter_android] E:\Job\Joob\build\webview_flutter_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:webview_flutter_android] E:\Job\Joob\build\webview_flutter_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:shared_preferences_android] E:\Job\Joob\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:shared_preferences_android] E:\Job\Joob\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:connectivity] E:\Job\Joob\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:connectivity] E:\Job\Joob\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:video_player] E:\Job\Joob\build\video_player\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:video_player] E:\Job\Joob\build\video_player\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:fluttertoast] E:\Job\Joob\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:fluttertoast] E:\Job\Joob\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:onesignal_flutter] E:\Job\Joob\build\onesignal_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:onesignal_flutter] E:\Job\Joob\build\onesignal_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml
+MERGED from [:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-44
+MERGED from [:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-44
+MERGED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:geolocator_android] E:\Job\wave\www\Shine_Wash\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:geolocator_android] E:\Job\wave\www\Shine_Wash\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:google_maps_flutter] E:\Job\wave\www\Shine_Wash\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:google_maps_flutter] E:\Job\wave\www\Shine_Wash\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] E:\Job\wave\www\Shine_Wash\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] E:\Job\wave\www\Shine_Wash\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] E:\Job\wave\www\Shine_Wash\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] E:\Job\wave\www\Shine_Wash\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] E:\Job\wave\www\Shine_Wash\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] E:\Job\wave\www\Shine_Wash\build\path_provider_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:wakelock] E:\Job\wave\www\Shine_Wash\build\wakelock\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:wakelock] E:\Job\wave\www\Shine_Wash\build\wakelock\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter_android] E:\Job\wave\www\Shine_Wash\build\webview_flutter_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter_android] E:\Job\wave\www\Shine_Wash\build\webview_flutter_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] E:\Job\wave\www\Shine_Wash\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] E:\Job\wave\www\Shine_Wash\build\shared_preferences_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:connectivity] E:\Job\wave\www\Shine_Wash\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:connectivity] E:\Job\wave\www\Shine_Wash\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:video_player] E:\Job\wave\www\Shine_Wash\build\video_player\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:video_player] E:\Job\wave\www\Shine_Wash\build\video_player\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:fluttertoast] E:\Job\wave\www\Shine_Wash\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:fluttertoast] E:\Job\wave\www\Shine_Wash\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:onesignal_flutter] E:\Job\wave\www\Shine_Wash\build\onesignal_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:onesignal_flutter] E:\Job\wave\www\Shine_Wash\build\onesignal_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:4:5-44
 MERGED from [com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:4:5-44
 MERGED from [com.stripe:stripe-android:16.10.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\e841b1e103c7068cd880bb106d3e0b9d\jetified-stripe-android-16.10.0\AndroidManifest.xml:5:5-7:41
@@ -475,16 +475,16 @@ MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Tarek\.gradle\cache
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\ce09f7a1297046fdd7dd5d182283e441\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\54ff403a1d7fed63f94009241932f30f\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\54ff403a1d7fed63f94009241932f30f\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
-INJECTED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml
-INJECTED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml
+INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml
-		INJECTED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml
+		INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from E:\Job\Joob\android\app\src\main\AndroidManifest.xml
-		INJECTED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml
+		INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml:6:5-66
+ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml:6:5-66
 MERGED from [com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:16:5-67
 MERGED from [com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:16:5-67
 MERGED from [com.google.firebase:firebase-iid:19.0.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\415325658619848c6661fd0bb4ec9947\jetified-firebase-iid-19.0.0\AndroidManifest.xml:23:5-67
@@ -494,75 +494,75 @@ MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\Tarek\.g
 MERGED from [com.razorpay:checkout:1.6.10] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\043640bfbbdf043e4ee9ae11140d7226\jetified-checkout-1.6.10\AndroidManifest.xml:9:5-67
 MERGED from [com.razorpay:checkout:1.6.10] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\043640bfbbdf043e4ee9ae11140d7226\jetified-checkout-1.6.10\AndroidManifest.xml:9:5-67
 	android:name
-		ADDED from E:\Job\Joob\android\app\src\debug\AndroidManifest.xml:6:22-64
+		ADDED from E:\Job\wave\www\Shine_Wash\android\app\src\debug\AndroidManifest.xml:6:22-64
 activity#co.paystack.flutterpaystack.AuthActivity
-ADDED from [:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-12:54
+ADDED from [:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-12:54
 	android:theme
-		ADDED from [:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-51
+		ADDED from [:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-51
 	android:name
-		ADDED from [:flutter_paystack] E:\Job\Joob\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-68
+		ADDED from [:flutter_paystack] E:\Job\wave\www\Shine_Wash\build\flutter_paystack\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-68
 meta-data#com.google.android.gms.wallet.api.enabled
-ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-14:36
+ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-14:36
 	android:value
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-33
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-33
 	android:name
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-69
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-69
 activity#com.gettipsi.stripe.OpenBrowserActivity
-ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-20:75
+ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-20:75
 	android:launchMode
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-44
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-44
 	android:exported
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
 	android:theme
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-72
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-72
 	android:name
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-67
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-67
 activity#com.gettipsi.stripe.RedirectUriReceiver
-ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:21:9-34:20
+ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:21:9-34:20
 	android:launchMode
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-44
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-44
 	android:exported
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-36
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-36
 	android:theme
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:25:13-83
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:25:13-83
 	android:name
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-67
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-67
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:example
-ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:26:13-33:29
+ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:26:13-33:29
 action#android.intent.action.VIEW
-ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:17-69
+ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:17-69
 	android:name
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:25-66
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:27:25-66
 category#android.intent.category.DEFAULT
-ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:17-76
+ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:17-76
 	android:name
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:27-73
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:29:27-73
 category#android.intent.category.BROWSABLE
-ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:17-78
+ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:17-78
 	android:name
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:27-75
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:30:27-75
 data
-ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:17-50
+ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:17-50
 	android:scheme
-		ADDED from [:stripe_payment] E:\Job\Joob\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:23-47
+		ADDED from [:stripe_payment] E:\Job\wave\www\Shine_Wash\build\stripe_payment\intermediates\library_manifest\debug\AndroidManifest.xml:32:23-47
 provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
-ADDED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
+ADDED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
 	android:grantUriPermissions
-		ADDED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
+		ADDED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
 	android:authorities
-		ADDED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
+		ADDED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
 	android:exported
-		ADDED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
+		ADDED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
 	android:name
-		ADDED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-82
+		ADDED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-82
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
+ADDED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
 	android:resource
-		ADDED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
+		ADDED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
 	android:name
-		ADDED from [:image_picker] E:\Job\Joob\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
+		ADDED from [:image_picker] E:\Job\wave\www\Shine_Wash\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:connectivity] E:\Job\Joob\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
+ADDED from [:connectivity] E:\Job\wave\www\Shine_Wash\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
 MERGED from [com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:24:5-79
 MERGED from [com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\4d37387de0980bd90d2fd70b88a412df\jetified-exoplayer-core-2.14.1\AndroidManifest.xml:24:5-79
@@ -576,29 +576,29 @@ MERGED from [androidx.work:work-runtime:2.7.1] C:\Users\Tarek\.gradle\caches\tra
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\03e086296756f7132e5a1adb7624a689\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\03e086296756f7132e5a1adb7624a689\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
 	android:name
-		ADDED from [:connectivity] E:\Job\Joob\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
+		ADDED from [:connectivity] E:\Job\wave\www\Shine_Wash\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
 activity#com.razorpay.CheckoutActivity
-ADDED from [:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:20
+ADDED from [:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:20
 MERGED from [com.razorpay:checkout:1.6.10] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\043640bfbbdf043e4ee9ae11140d7226\jetified-checkout-1.6.10\AndroidManifest.xml:18:9-29:20
 MERGED from [com.razorpay:checkout:1.6.10] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\043640bfbbdf043e4ee9ae11140d7226\jetified-checkout-1.6.10\AndroidManifest.xml:18:9-29:20
 	android:label
-		ADDED from [:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-46
+		ADDED from [:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-46
 	android:configChanges
 		ADDED from [com.razorpay:checkout:1.6.10] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\043640bfbbdf043e4ee9ae11140d7226\jetified-checkout-1.6.10\AndroidManifest.xml:20:13-83
 	android:theme
 		ADDED from [com.razorpay:checkout:1.6.10] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\043640bfbbdf043e4ee9ae11140d7226\jetified-checkout-1.6.10\AndroidManifest.xml:21:13-49
 	android:name
-		ADDED from [:razorpay_flutter] E:\Job\Joob\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-57
+		ADDED from [:razorpay_flutter] E:\Job\wave\www\Shine_Wash\build\razorpay_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-57
 service#com.lyokone.location.FlutterLocationService
-ADDED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
+ADDED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
 	android:enabled
-		ADDED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
+		ADDED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
 	android:exported
-		ADDED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+		ADDED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
 	android:foregroundServiceType
-		ADDED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
+		ADDED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
 	android:name
-		ADDED from [:location] E:\Job\Joob\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
+		ADDED from [:location] E:\Job\wave\www\Shine_Wash\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
 permission#${applicationId}.permission.C2D_MESSAGE
 ADDED from [com.onesignal:OneSignal:4.6.3] C:\Users\Tarek\.gradle\caches\transforms-2\files-2.1\57f3ebe2d088e2e61bd2f5aeb0d466da\jetified-OneSignal-4.6.3\AndroidManifest.xml:7:5-9:47
 	android:protectionLevel
