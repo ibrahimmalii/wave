@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Twilio\Rest\Client;
 
 class User extends Authenticatable
 {
@@ -18,9 +19,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'password',
-        'phone'
+        'name', 'email', 'password', 'phone_number', 'isVerified'
     ];
 
 
@@ -29,17 +28,6 @@ class User extends Authenticatable
     ];
 
 
-    public function hasVerifiedPhone()
-    {
-        return !is_null($this->phone_verified_at);
-    }
-
-    public function markPhoneAsVerified()
-    {
-        return $this->forceFill([
-            'phone_verified_at' => $this->freshTimestamp(),
-        ])->save();
-    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -64,3 +52,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Service::class);
     }
 }
+
+
+
