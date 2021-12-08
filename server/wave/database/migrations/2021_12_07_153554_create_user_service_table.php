@@ -19,9 +19,6 @@ class CreateUserServiceTable extends Migration
             $table->string('service_hour');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('service_id')->constrained();
-
-            // $table->foreign('user_id')->references('id')->on('users');
-            // $table->foreign('service_id')->references('id')->on('services');
             $table->timestamps();
         });
     }

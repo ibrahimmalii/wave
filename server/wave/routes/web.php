@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\testController;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', [testController::class, 'index'])->name('home')->middleware('verifiedphone'); 
 
 Route::get('/test', function () {
     // Get latest day to

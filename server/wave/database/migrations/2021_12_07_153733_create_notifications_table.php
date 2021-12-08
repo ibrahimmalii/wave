@@ -20,8 +20,6 @@ class CreateNotificationsTable extends Migration
             $table->string('sending_time'); // service_day - 1 from user_service table
             $table->boolean('is_read')->default(false);
             $table->foreignId('user_id')->constrained();
-
-            // $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
