@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('/test', function () {
+    // Get latest day to
+    $date = Carbon::now();
+    $date->toDateString();
+    $date->addDay(5);
+    dd($date);
 });
