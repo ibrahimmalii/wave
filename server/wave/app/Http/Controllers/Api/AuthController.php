@@ -34,7 +34,7 @@ class AuthController extends Controller
             'phone_number' => $data['phone_number'],
             'password' => Hash::make($data['password']),
         ]);
-        return response($data['phone_number'], 200)
+        return response(['phone_number'=>$data['phone_number']], 200)
                 ->header('Content-Type', 'text/plain');
     }
 
@@ -62,10 +62,10 @@ class AuthController extends Controller
                 'user' => $user,
             ];
 
-            return response($data, 200)
+            return response(['data'=>$data], 200)
                 ->header('Content-Type', 'text/plain');
         }
-        return response('Invalid verification code entered!', 401)
+        return response(['msg'=>'Invalid verification code entered!'], 401)
                 ->header('Content-Type', 'text/plain');
     }
 
@@ -79,14 +79,19 @@ class AuthController extends Controller
 
 
         if ($validator->fails()) {
-            return response('Phone number not found', 404)
+            return response(['msg'=>'Phone number not found'], 404)
                 ->header('Content-Type', 'text/plain');
         }
 
         $user = User::where('phone_number', $request->phone_number)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response('Invalid password, please check your data and try again!', 401)
+            return response(['msg'=>'Invalid password, please check your data and try again!'], 401)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        if($user->isVerified === 0){
+            return response(['msg'=>'User need to verify his account!'], 401)
                 ->header('Content-Type', 'text/plain');
         }
 
@@ -96,7 +101,7 @@ class AuthController extends Controller
             'user' => $user,
         ];
 
-        return response($data, 200)
+        return response(['data'=>$data], 200)
             ->header('Content-Type', 'text/plain');
     }
 }
