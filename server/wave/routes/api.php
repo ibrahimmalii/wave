@@ -24,9 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/verify', [AuthController::class, 'verify'])->name('verify');
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/forget', [AuthController::class, 'forget'])->name('forget');
 
 
-// Routes for verifiy phone number with call
-// Route::post('build-twiml/{code}', [PhoneVerificationController::class, 'buildTwiMl']);
-// Route::get('phone/verify', [PhoneVerificationController::class, 'show']);
-// Route::post('phone/verify', [PhoneVerificationController::class, 'verify']);
+
