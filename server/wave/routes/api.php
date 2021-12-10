@@ -25,6 +25,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/verify', [AuthController::class, 'verify'])->name('verify');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/forget', [AuthController::class, 'forget'])->name('forget');
+Route::post('/updatePassword', [AuthController::class, 'updatePassword'])->name('updatePassword');
 
 
 
