@@ -28,3 +28,8 @@ Route::get('/test', function () {
     $date->addDay(5);
     dd($date);
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
