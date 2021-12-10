@@ -14,13 +14,8 @@ use Twilio\Rest\Client;
 class AuthController extends Controller
 {
 
-    protected function register(Request $request)
+    public function createAndSendMsg($phone_number)
     {
-        $data = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'phone_number' => ['required', 'numeric', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
-        ]);
         /* Get credentials from .env */
         $token = getenv("TWILIO_AUTH_TOKEN");
         $twilio_sid = getenv("TWILIO_SID");
@@ -28,13 +23,31 @@ class AuthController extends Controller
         $twilio = new Client($twilio_sid, $token);
         $twilio->verify->v2->services($twilio_verify_sid)
             ->verifications
-            ->create($data['phone_number'], "sms");
-        User::create([
-            'name' => $data['name'],
-            'phone_number' => $data['phone_number'],
-            'password' => Hash::make($data['password']),
+            ->create($phone_number, "sms");
+    }
+
+    protected function register(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'phone_number' => ['required', 'numeric', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
-        return response(['phone_number' => $data['phone_number']], 200)
+
+        if ($validator->fails()) {
+            return response(['msg' => 'Phone number is already exist!!'], 403)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        
+        $this->createAndSendMsg($request->phone_number);
+        User::create([
+            'name' => $request->name,
+            'phone_number' => $request->phone_number,
+            'password' => Hash::make($request->password),
+        ]);
+        return response(['phone_number' => $request->phone_number], 200)
             ->header('Content-Type', 'text/plain');
     }
 
@@ -86,7 +99,7 @@ class AuthController extends Controller
         $user = User::where('phone_number', $request->phone_number)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response(['msg' => 'Invalid password, please check your data and try again!'], 401)
+            return response(['msg' => 'Invalid credintials, please check your data and try again!'], 401)
                 ->header('Content-Type', 'text/plain');
         }
 
@@ -125,15 +138,49 @@ class AuthController extends Controller
                 ->header('Content-Type', 'text/plain');
         }
 
-        $token = getenv("TWILIO_AUTH_TOKEN");
-        $twilio_sid = getenv("TWILIO_SID");
-        $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
-        $twilio = new Client($twilio_sid, $token);
-        $twilio->verify->v2->services($twilio_verify_sid)
-            ->verifications
-            ->create($user['phone_number'], "sms");
+        // Create and send msg
+        $this->createAndSendMsg($request->phone_number);
 
         return response(['phone_number' => $user['phone_number']], 200)
+            ->header('Content-Type', 'text/plain');
+    }
+
+    public function updatePasswordFromLogin(Request $request)
+    {
+        $user = User::where('phone_number', $request->phone_number)->update(['password' => Hash::make($request->password)]);;
+
+        if (!$user) {
+            return response(['msg' => 'Account not found!'], 404)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        return response(['msg' => 'password updated successfully'], 200)
+            ->header('Content-Type', 'text/plain');
+    }
+
+    public function updatePasswordFromSetting(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'phone_number' => 'required',
+            'password' => 'required',
+            'new_password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response(['msg' => 'Some data is required!!'], 400)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        $user = User::where('phone_number', $request->phone_number)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response(['msg' => 'Invalid credintials, please check your data and try again!'], 401)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        User::where('phone_number', $request->phone_number)->update(['password' => Hash::make($request->new_password)]);
+
+        return response(['msg' => 'password updated successfully'], 200)
             ->header('Content-Type', 'text/plain');
     }
 }

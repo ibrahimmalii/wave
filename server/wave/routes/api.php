@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\PhoneVerificationController;
+use App\Http\Controllers\TranslateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,11 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/verify', [AuthController::class, 'verify'])->name('verify');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/forget', [AuthController::class, 'forget'])->name('forget');
+Route::post('/updatePasswordFromLogin', [AuthController::class, 'updatePasswordFromLogin']);
+Route::post('/updatePasswordFromSetting', [AuthController::class, 'updatePasswordFromSetting']);
+
+
+Route::get('greeting', [TranslateController::class, 'index'])->middleware('localization');
 
 
 
