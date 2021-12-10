@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     Voyager::routes();
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/home', [testController::class, 'index'])->name('home')->middleware('verifiedphone'); 
 
@@ -29,9 +29,6 @@ Route::get('/test', function () {
     dd($date);
 });
 
-Route::group(['prefix' => '/'], function () {
-    Voyager::routes();
-});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
