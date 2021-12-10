@@ -99,7 +99,7 @@ class AuthController extends Controller
         $user = User::where('phone_number', $request->phone_number)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response(['msg' => 'Invalid password, please check your data and try again!'], 401)
+            return response(['msg' => 'Invalid credintials, please check your data and try again!'], 401)
                 ->header('Content-Type', 'text/plain');
         }
 
@@ -145,7 +145,7 @@ class AuthController extends Controller
             ->header('Content-Type', 'text/plain');
     }
 
-    public function updatePassword(Request $request)
+    public function updatePasswordFromLogin(Request $request)
     {
         $user = User::where('phone_number', $request->phone_number)->update(['password' => Hash::make($request->password)]);;
 
@@ -153,6 +153,32 @@ class AuthController extends Controller
             return response(['msg' => 'Account not found!'], 404)
                 ->header('Content-Type', 'text/plain');
         }
+
+        return response(['msg' => 'password updated successfully'], 200)
+            ->header('Content-Type', 'text/plain');
+    }
+
+    public function updatePasswordFromSetting(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'phone_number' => 'required',
+            'password' => 'required',
+            'new_password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response(['msg' => 'Some data is required!!'], 400)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        $user = User::where('phone_number', $request->phone_number)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response(['msg' => 'Invalid credintials, please check your data and try again!'], 401)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        User::where('phone_number', $request->phone_number)->update(['password' => Hash::make($request->new_password)]);
 
         return response(['msg' => 'password updated successfully'], 200)
             ->header('Content-Type', 'text/plain');
