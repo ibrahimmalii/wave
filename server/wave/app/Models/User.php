@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Twilio\Rest\Client;
 
 class User extends Authenticatable
 {
@@ -18,18 +19,15 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'phone_number'
+        'name', 'email', 'password', 'phone_number', 'isVerified'
     ];
 
-    // protected $guarded = [
-    //     'created_at',
-    //     'updated_at'
-    // ];
 
-    
+    protected $casts = [
+        'phone_verified_at' => 'datetime',
+    ];
+
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -46,14 +44,14 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+
 
 
     public function services()
     {
         return $this->belongsToMany(Service::class);
     }
-
 }
+
+
+

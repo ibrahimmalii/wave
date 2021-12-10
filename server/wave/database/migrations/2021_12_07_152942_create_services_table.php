@@ -17,9 +17,10 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->integer('price');
+            $table->integer('small_price');
+            $table->integer('mid_price');
+            $table->integer('large_price');
             $table->foreignId('service_type_id')->constrained();
-            // $table->foreign('type_id')->references('id')->on('service_types');
             $table->timestamps();
         });
     }
