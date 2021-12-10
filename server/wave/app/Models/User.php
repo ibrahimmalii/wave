@@ -9,11 +9,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Twilio\Rest\Client;
 
-class User extends \TCG\Voyager\Models\User
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
-    
 
     /**
      * The attributes that are mass assignable.
