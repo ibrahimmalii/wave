@@ -17,10 +17,11 @@ class CreateServiceTypesTable extends Migration
         Schema::create('service_types', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('title_subtitle');
             $table->timestamps();
         });
 
-        DB::insert("INSERT INTO service_types (title) VALUES ('main'), ('additional')");
+        DB::insert("INSERT INTO service_types (title, title_subtitle) VALUES ('main', 'أساسية'), ('additional', 'إضافية')");
     }
 
     /**

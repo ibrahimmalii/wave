@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\PhoneVerificationController;
 use App\Http\Controllers\TranslateController;
 use Illuminate\Http\Request;
@@ -29,6 +30,8 @@ Route::post('/forget', [AuthController::class, 'forget'])->name('forget');
 Route::post('/updatePasswordFromLogin', [AuthController::class, 'updatePasswordFromLogin']);
 Route::post('/updatePasswordFromSetting', [AuthController::class, 'updatePasswordFromSetting']);
 
+// Multi languages for getting services
+Route::get('/services/{lang}', [ServiceController::class, 'index']);
 
 Route::get('greeting', [TranslateController::class, 'index'])->middleware('localization');
 

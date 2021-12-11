@@ -1,10 +1,6 @@
 <?php
 
 use App\Http\Controllers\testController;
-use App\Http\Resources\ServiceArabicResource;
-use App\Http\Resources\ServiceEnglishResource;
-use App\Http\Resources\ServiceResource;
-use App\Models\Service;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\App;
@@ -36,11 +32,5 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-// Test multi languages with parameters
-Route::get('/test/{lang}', function($lang){
-    if($lang === 'ar'){
-        return ServiceArabicResource::Collection(Service::all());
-    }
-    return ServiceEnglishResource::collection(Service::all());
-});
+
 
