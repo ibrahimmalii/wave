@@ -8,10 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Twilio\Rest\Client;
+use TCG\Voyager\Traits\Translatable;
 
-class User extends Authenticatable
+
+class User extends \TCG\Voyager\Models\User
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Translatable;
+
+    protected $translatable = ['email', 'name'];
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +25,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password', 'phone_number', 'isVerified'
     ];
+    
 
 
     protected $casts = [
