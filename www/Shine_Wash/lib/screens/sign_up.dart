@@ -11,7 +11,7 @@ import 'package:Shinewash/screens/sign_in.dart';
 import 'package:country_picker/country_picker.dart';
 // import 'package:country_code_picker/country_code_picker.dart';
 import 'otp_screen.dart';
-
+import 'package:http/http.dart' as http;
 const darkBlue = Color(0xFF265E9E);
 const containerShadow = Color(0xFF91B4D8);
 
@@ -171,6 +171,13 @@ class _SignUpState extends State<SignUp> {
                                             )
                                           ]),
                                       child: TextFormField(
+                                        onChanged: (value) {
+                                          if (value.isNotEmpty) {
+                                            "";
+                                          }
+
+                                        },
+
                                         controller: _usernameController,
                                         validator: (value) {
                                           if (value!.isEmpty) {
@@ -178,6 +185,7 @@ class _SignUpState extends State<SignUp> {
                                           }
                                           return null;
                                         },
+
                                         focusNode: username,
                                         onFieldSubmitted: (a) {
                                           username.unfocus();
@@ -420,6 +428,7 @@ class _SignUpState extends State<SignUp> {
                                             )
                                           ]),
                                       child: TextFormField(
+
                                         controller: _passwordController,
                                         obscureText: true,
                                         validator: (value) {
@@ -477,11 +486,13 @@ class _SignUpState extends State<SignUp> {
 
                                             "password":
                                                 _passwordController.text,
-                                            "phone": _phoneController.text,
-                                            "phone_code": _countryCode,
+                                            "phone_number": "${_countryCode+_phoneController.text}",
+                                            // "phone_code": _countryCode,
                                           };
+                                          // print("${_countryCode+_phoneController.text}");
                                           _registration(body);
                                         }
+
                                       },
                                       style: ElevatedButton.styleFrom(
                                         primary: Theme.of(context).primaryColor,
@@ -558,6 +569,7 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
+
   void _registration(data) async {
     setState(() {
       showSnipper = true;
@@ -566,99 +578,131 @@ class _SignUpState extends State<SignUp> {
     var body;
     var resData;
     var userId;
+
     SharedPreferences localStorage = await SharedPreferences.getInstance();
     localStorage.setString('signUp', '0');
     var deviceToken = playerIddd;
     var checkDeviceToken = localStorage.getBool('deviceToken');
     if (checkDeviceToken == true) {
+
       data['device_token'] = deviceToken;
     }
     try {
-      print(data);
-      res = await CallApi().postData(data, 'register');
-      body = json.decode(res.body);
-      print('function body is $body');
-      resData = body['success'];
-      userId = body['data']['id'];
-      if (body['success'] == true) {
-        if (body['data']['is_verified'] == 1) {
-          SharedPreferences localstorage =
-              await SharedPreferences.getInstance();
-          localstorage.setString('token', body['data']['token']);
-          localStorage.setString('user', json.encode(body['data']));
-          showDialog(
-            builder: (context) => AlertDialog(
-              title: Text('Registration Success'),
-              content: Text('congratulation'),
-              actions: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    _usernameController.text = '';
-                    _emailController.text = '';
-                    _phoneController.text = '';
-                    _passwordController.text = '';
-                    Navigator.pop(context);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => OnBoarding(),
-                        ));
-                  },
-                  child: Text('OK'),
-                )
-              ],
-            ),
-            context: context,
-          );
-        } else {
-          showDialog(
-            builder: (context) => AlertDialog(
-              title: Text('Verification Required'),
-              content: Text('Please verify'),
-              actions: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    // print('${body['data']['otp']}');
-                    _usernameController.text = '';
-                    _emailController.text = '';
-                    _phoneController.text = '';
-                    _passwordController.text = '';
-                    Navigator.pop(context);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => OTP(userIdOfOtp: userId),
-                        ));
-                  },
-                  child: Text('OK'),
-                )
-              ],
-            ),
-            context: context,
-          );
-        }
-      } else {
-        showDialog(
-          builder: (context) => AlertDialog(
-            title: Text('Registration Error'),
-            content: Text(body['errors'].toString()),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  setState(() {
+      // res = await CallApi().postData(data,'register');
+res={"phone_number":"+201228845512"};
+localStorage.setString("phone", res["phone_number"]);
+print("Phone ${localStorage.getString("phone")}");
+      // print("body ${res.body['phone_number']}");
+      // body = json.decode(res.body);
+      // if (res.statusCode == 200) {
+      //   setState(() {
+      //     showSnipper=false;
+      //   });
+
+
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => OTP(userIdOfOtp: localStorage.getString("phone"),),
+            ));
+        setState(() {
+          showSnipper = false;
+        });
+      // }
+      // print('function body is ${res.body}');
+      // resData = body['success'];
+      // print('resData $resData');
+      // userId = body['data']['id'];
+      // Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //       builder: (context) => OTP(userIdOfOtp: 15),
+      //     ));
+      // if (body['success'] == true) {
+      //   if (body['data']['is_verified'] == 1) {
+      //     SharedPreferences localstorage =
+      //         await SharedPreferences.getInstance();
+      //     localstorage.setString('token', body['data']['token']);
+      //
+      // localStorage.setString('user', json.encode(body['data']));
+      //
+      //     showDialog(
+      //       builder: (context) => AlertDialog(
+      //         title: Text('Registration Success'),
+      //         content: Text('congratulation'),
+      //         actions: <Widget>[
+      //           TextButton(
+      //             onPressed: () {
+      //               _usernameController.text = '';
+      //               _emailController.text = '';
+      //               _phoneController.text = '';
+      //               _passwordController.text = '';
+      //               Navigator.pop(context);
+      //               Navigator.push(
+      //                   context,
+      //                   MaterialPageRoute(
+      //                     builder: (context) => OnBoarding(),
+      //                   ));
+      //             },
+      //             child: Text('OK'),
+      //           )
+      //         ],
+      //       ),
+      //       context: context,
+      //     );
+      //   }
+      //   else {
+      //     showDialog(
+      //       builder: (context) => AlertDialog(
+      //         title: Text('Verification Required'),
+      //         content: Text('Please verify'),
+      //         actions: <Widget>[
+      //           TextButton(
+      //             onPressed: () {
+      //               // print('${body['data']['otp']}');
+      //               _usernameController.text = '';
+      //               _emailController.text = '';
+      //               _phoneController.text = '';
+      //               _passwordController.text = '';
+      //               Navigator.pop(context);
+      //               Navigator.push(
+      //                   context,
+      //                   MaterialPageRoute(
+      //                     builder: (context) => OTP(userIdOfOtp: userId),
+      //                   ));
+      //             },
+      //             child: Text('OK'),
+      //           )
+      //         ],
+      //       ),
+      //       context: context,
+      //     );
+      //   }
+      // } else {
+      //   showDialog(
+      //     builder: (context) => AlertDialog(
+      //       title: Text('Registration Error'),
+      //       content: Text(body['errors'].toString()),
+      //       actions: <Widget>[
+      //         TextButton(
+      //           onPressed: () {
+      //             Navigator.pop(context);
+      //             setState(() {
+      //               showSnipper = false;
+      //             });
+      //           },
+      //           child: Text('Try Again'),
+      //         )
+      //       ],
+      //     ),
+      //     context: context,
+      //   );
+      // }
+    } catch (e) {
+      print('Error ${e.toString()}');
+      setState(() {
                     showSnipper = false;
                   });
-                },
-                child: Text('Try Again'),
-              )
-            ],
-          ),
-          context: context,
-        );
-      }
-    } catch (e) {
-      print('$e');
       showDialog(
         builder: (context) => AlertDialog(
           title: Text('Registration Error'),
@@ -678,6 +722,7 @@ class _SignUpState extends State<SignUp> {
         context: context,
       );
     }
+
     return userId;
   }
 }

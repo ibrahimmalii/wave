@@ -12,7 +12,7 @@ const containerShadow = Color(0xFF91B4D8);
 const extraDarkBlue = Color(0xFF91B4D8);
 
 class OTP extends StatefulWidget {
-  final int? userIdOfOtp;
+  final String? userIdOfOtp;
   const OTP({Key? key, this.userIdOfOtp}) : super(key: key);
   @override
   _OTPState createState() => _OTPState();
@@ -22,12 +22,12 @@ class _OTPState extends State<OTP> {
   final _otp = TextEditingController();
   var showSnipper = false;
   var _check = '';
-  int? userId;
+  String? userId;
   int? userOtp;
 
   @override
   void initState() {
-    userId = int.parse(widget.userIdOfOtp.toString());
+    // userId = int.parse(widget.userIdOfOtp.toString());
     _checkPath();
     super.initState();
   }
@@ -116,7 +116,7 @@ class _OTPState extends State<OTP> {
                                 Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    'Please enter your email/mobile and we will send an OTP number',
+                                    'Please enter your mobile and we will send an OTP number',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: extraDarkBlue,
@@ -132,7 +132,7 @@ class _OTPState extends State<OTP> {
                                 Padding(
                                     padding: const EdgeInsets.all(15.0),
                                     child: PinCodeTextField(
-                                      maxLength: 4,
+                                      maxLength: 6,
                                       autofocus: true,
                                       controller: _otp,
                                       keyboardType: TextInputType.number,
@@ -142,9 +142,9 @@ class _OTPState extends State<OTP> {
                                       onDone: (text) {
                                         userOtp = int.parse(_otp.text);
                                         final body = {
-                                          "user_id": userId.toString(),
+                                          "phone_number": "${widget.userIdOfOtp.toString()}",
                                           // "user_id": json.encode(194),
-                                          "otp": userOtp.toString(),
+                                          "verification_code": userOtp.toString(),
                                           // "otp": json.encode(2222),
                                         };
                                         _otpCheck(body);
@@ -197,9 +197,9 @@ class _OTPState extends State<OTP> {
                                 onPressed: () {
                                   userOtp = int.parse(_otp.text);
                                   final body = {
-                                    "user_id": userId.toString(),
+                                    "phone_number": widget.userIdOfOtp.toString(),
                                     // "user_id": json.encode(194),
-                                    "otp": userOtp.toString(),
+                                    "verification_code": userOtp.toString(),
                                     // "otp": json.encode(2222),
                                   };
                                   _otpCheck(body);
@@ -243,64 +243,71 @@ class _OTPState extends State<OTP> {
     });
     var res;
     var body;
-    var resData;
+    // var resData;
     try {
-      res = await CallApi().postData(data, 'check_otp');
-      body = json.decode(res.body);
-      resData = body['data'];
+      res = await CallApi().postData(data, 'verify');
+      // body = json.decode(res.body);
+      // resData = body['data'];
+      print('tarek ${data}');
       setState(() {
         showSnipper = false;
       });
-      if (body['success'] == true) {
-        int? checkotpdata = body['data']['otp'];
-        if (checkotpdata == userOtp) {
-          SharedPreferences localStorage =
-              await SharedPreferences.getInstance();
-          localStorage.setString('token', resData['token']);
-          localStorage.setString('user', json.encode(resData));
-          // localStorage.getString('token');
-          localStorage.remove('signUp');
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => OnBoarding(),
-              ));
-        } else {
-          showDialog(
-            builder: (context) => AlertDialog(
-              title: Text('Otp Error'),
-              content: Text(resData.toString()),
-              actions: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    _otp.text = '';
-                  },
-                  child: Text('Try Again'),
-                )
-              ],
-            ),
-            context: context,
-          );
-        }
-      } else {
-        showDialog(
-          builder: (context) => AlertDialog(
-            title: Text('Otp Error'),
-            content: Text(resData.toString()),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  _otp.text = '';
-                },
-                child: Text('Try Again'),
-              )
-            ],
-          ),
-          context: context,
-        );
-      }
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => OnBoarding(),
+          ));
+
+      // if (body['success'] == true) {
+      //   int? checkotpdata = body['data']['otp'];
+      //   if (checkotpdata == userOtp) {
+      //     SharedPreferences localStorage =
+      //         await SharedPreferences.getInstance();
+      //     localStorage.setString('token', resData['token']);
+      //     localStorage.setString('user', json.encode(resData));
+      //     // localStorage.getString('token');
+      //     localStorage.remove('signUp');
+      //     Navigator.push(
+      //         context,
+      //         MaterialPageRoute(
+      //           builder: (context) => OnBoarding(),
+      //         ));
+      //   } else {
+      //     showDialog(
+      //       builder: (context) => AlertDialog(
+      //         title: Text('Otp Error'),
+      //         content: Text(resData.toString()),
+      //         actions: <Widget>[
+      //           TextButton(
+      //             onPressed: () {
+      //               Navigator.pop(context);
+      //               _otp.text = '';
+      //             },
+      //             child: Text('Try Again'),
+      //           )
+      //         ],
+      //       ),
+      //       context: context,
+      //     );
+      //   }
+      // } else {
+      //   showDialog(
+      //     builder: (context) => AlertDialog(
+      //       title: Text('Otp Error'),
+      //       content: Text(resData.toString()),
+      //       actions: <Widget>[
+      //         TextButton(
+      //           onPressed: () {
+      //             Navigator.pop(context);
+      //             _otp.text = '';
+      //           },
+      //           child: Text('Try Again'),
+      //         )
+      //       ],
+      //     ),
+      //     context: context,
+      //   );
+      // }
     } catch (e) {
       showDialog(
         builder: (context) => AlertDialog(

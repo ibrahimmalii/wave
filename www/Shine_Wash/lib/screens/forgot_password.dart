@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:Shinewash/api/api.dart';
+import 'package:Shinewash/screens/otp_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'sign_in.dart';
 
 const darkBlue = Color(0xFF265E9E);
@@ -14,7 +16,7 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
-  final _emailController = TextEditingController();
+  final _phoneController = TextEditingController();
   var showSpinner = false;
   final _formKey = GlobalKey<FormState>();
 
@@ -116,7 +118,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                         )
                                       ]),
                                   child: TextFormField(
-                                    controller: _emailController,
+                                    controller: _phoneController,
                                     validator: (value) {
                                       Pattern pattern =
                                           r'(^(?:[+0]9)?[0-9]{10,12}$)';
@@ -134,7 +136,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                       return null;
                                     },
                                     enableSuggestions: false,
-                                    keyboardType: TextInputType.visiblePassword,
+                                    keyboardType: TextInputType.phone,
+                                    maxLength: 11,
                                     decoration: InputDecoration(
                                       contentPadding: EdgeInsets.all(15),
                                       border: InputBorder.none,
@@ -164,8 +167,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                     onPressed: () async {
                                       if (_formKey.currentState!.validate()) {
                                         final body = {
-                                          "email": _emailController.text,
+                                          "phone_number":"+2${_phoneController.text}",
                                         };
+                                        print(body);
                                         _forgotPassword(body);
                                       }
                                     },
@@ -204,6 +208,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   }
 
   void _forgotPassword(data) async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
     setState(() {
       showSpinner = true;
     });
@@ -211,59 +216,71 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     var body;
     var userId;
     try {
-      res = await CallApi().postData(data, 'forgot_password');
-      body = json.decode(res.body);
-      if (_emailController.text.isNotEmpty) {
-        if (body['success'] == true) {
-          setState(() {
-            showSpinner = false;
-          });
-          userId = body['data']['id'];
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => SignIn(),
-              ));
-        } else {
-          showDialog(
-            builder: (context) => AlertDialog(
-              title: Text('Error'),
-              content: Text(body['data'].toString()),
-              actions: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      showSpinner = false;
-                    });
-                    Navigator.pop(context);
-                  },
-                  child: Text('Try Again'),
-                )
-              ],
-            ),
-            context: context,
-          );
-        }
-      } else {
-        showDialog(
-          builder: (context) => AlertDialog(
-            title: Text('Phone Error'),
-            content: Text('please enter valid Phone'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    showSpinner = false;
-                  });
-                  Navigator.pop(context);
-                },
-                child: Text('Try Again'),
-              )
-            ],
-          ),
-          context: context,
-        );
+      // res = await CallApi().postData(data, 'forget');
+      // body = json.decode(res.body);
+      if (_phoneController.text.isNotEmpty) {
+        setState(() {
+                showSpinner = false;
+              });
+        // localStorage.setString("phone", res["phone_number"]);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => OTP(userIdOfOtp: _phoneController.text),
+            ));
       }
+      // if (_phoneController.text.isNotEmpty) {
+      //   if (body['success'] == true) {
+      //     setState(() {
+      //       showSpinner = false;
+      //     });
+      //     userId = body['data']['id'];
+      //     Navigator.push(
+      //         context,
+      //         MaterialPageRoute(
+      //           builder: (context) => SignIn(),
+      //         ));
+      //   } else {
+      //     showDialog(
+      //       builder: (context) => AlertDialog(
+      //         title: Text('Error'),
+      //         content: Text(body['data'].toString()),
+      //         actions: <Widget>[
+      //           TextButton(
+      //             onPressed: () {
+      //               setState(() {
+      //                 showSpinner = false;
+      //               });
+      //               Navigator.pop(context);
+      //             },
+      //             child: Text('Try Again'),
+      //           )
+      //         ],
+      //       ),
+      //       context: context,
+      //     );
+      //   }
+      // }
+      // else {
+      //   showDialog(
+      //     builder: (context) => AlertDialog(
+      //       title: Text('Phone Error'),
+      //       content: Text('please enter valid Phone'),
+      //       actions: <Widget>[
+      //         TextButton(
+      //           onPressed: () {
+      //             setState(() {
+      //               showSpinner = false;
+      //             });
+      //             Navigator.pop(context);
+      //           },
+      //           child: Text('Try Again'),
+      //         )
+      //       ],
+      //     ),
+      //     context: context,
+      //   );
+      // }
     } catch (e) {
       showDialog(
         builder: (context) => AlertDialog(

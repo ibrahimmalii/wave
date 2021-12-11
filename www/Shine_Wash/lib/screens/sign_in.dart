@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:Shinewash/constant.dart';
+import 'package:Shinewash/models/user_model.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +37,7 @@ class _SignInState extends State<SignIn> {
   @override
   void initState() {
     super.initState();
-    getDeviceToken();
+    // getDeviceToken();
   }
 
   Future<bool> check() async {
@@ -100,59 +102,40 @@ class _SignInState extends State<SignIn> {
           showSnipper = true;
         });
         SharedPreferences localStorage = await SharedPreferences.getInstance();
-        var isFrom = localStorage.getString('isFrom');
-        var navigate;
-        isFrom == 'BookAppointment'
-            ? navigate = Payment()
-            : navigate = HomePage();
-        var deviceToken = playerIddd;
-        var checkDeviceToken = localStorage.getBool('deviceToken');
-        if (checkDeviceToken == true) {
-          data['device_token'] = deviceToken;
-        }
+        // var isFrom = localStorage.getString('isFrom');
+        // var navigate;
+        // isFrom == 'BookAppointment'
+        //     ? navigate = Payment()
+        //     : navigate = HomePage();
+        // var deviceToken = playerIddd;
+        // var checkDeviceToken = localStorage.getBool('deviceToken');
+        // if (checkDeviceToken == true) {
+        //   data['device_token'] = deviceToken;
+        // }
         var res;
         var body;
         var resData;
         var userId;
+        String msg="User need to verify his account!";
+        String msg1="Invalid password, please check your data and try again";
         try {
-          res = await CallApi().postData(data, 'login');
-          body = json.decode(res.body);
-          resData = body['data'];
-          if (body['success'] == true) {
-            if (body['data']['is_verified'] == 1) {
-              _phoneController.text = '';
-              _passwordController.text = '';
-              SharedPreferences localStorage =
-                  await SharedPreferences.getInstance();
-              localStorage.setString('token', resData['token']);
-              localStorage.setString('user', json.encode(resData));
-              // var abc = localStorage.getString('token');
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => navigate,
-                  ));
-            } else {
-              showDialog(
+          // res = await CallApi().postData(data, 'login');
+          // body = json.decode(res.body);
+          body=msg;
+          if(body==msg){
+            showDialog(
                 builder: (context) => AlertDialog(
                   title: Text('Login Error'),
                   content: Text('Please verify your account'),
                   actions: <Widget>[
-                    TextButton(
+                TextButton(
                       onPressed: () async {
-                        _phoneController.text = '';
-                        _passwordController.text = '';
-                        SharedPreferences localStorage =
-                            await SharedPreferences.getInstance();
-                        localStorage.setString('token', resData['token']);
-                        localStorage.setString('user', json.encode(resData));
-                        // localStorage.getString('token');
-                        userId = body['data']['id'];
+
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => OTP(
-                                userIdOfOtp: userId,
+                                userIdOfOtp: localStorage.getString("phone"),
                               ),
                             ));
                       },
@@ -162,26 +145,109 @@ class _SignInState extends State<SignIn> {
                 ),
                 context: context,
               );
-            }
-          } else {
-            print(body['message']);
+          }else if(body==msg1){
             showDialog(
               builder: (context) => AlertDialog(
                 title: Text('Login Error'),
-                content: Text(body['message'].toString()),
+                content: Text('please check your data and try again'),
                 actions: <Widget>[
                   TextButton(
-                    onPressed: () {
-//                Navigator.popAndPushNamed(context, Login.route);
+                    onPressed: () async {
                       Navigator.pop(context);
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => OTP(
+                      //         // userIdOfOtp: userId,
+                      //       ),
+                      //     ));
                     },
-                    child: Text('Try Again'),
+                    child: Text('OK'),
                   )
                 ],
               ),
               context: context,
             );
+          }else{
+
+            body = json.decode(res.body);
+            resData = body['data'];
+            localStorage.setString("access_token", resData["access_token"]);
+            info=userInfo.fromJson(body);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomePage(),
+                ));
+
           }
+
+
+//           resData = body['data'];
+//           if (body['success'] == true) {
+//             if (body['data']['is_verified'] == 1) {
+//               _phoneController.text = '';
+//               _passwordController.text = '';
+//               SharedPreferences localStorage =
+//                   await SharedPreferences.getInstance();
+//               localStorage.setString('token', resData['token']);
+//               localStorage.setString('user', json.encode(resData));
+//               // var abc = localStorage.getString('token');
+//               Navigator.pushReplacement(
+//                   context,
+//                   MaterialPageRoute(
+//                     builder: (context) => navigate,
+//                   ));
+//             } else {
+//               showDialog(
+//                 builder: (context) => AlertDialog(
+//                   title: Text('Login Error'),
+//                   content: Text('Please verify your account'),
+//                   actions: <Widget>[
+//                     TextButton(
+//                       onPressed: () async {
+//                         _phoneController.text = '';
+//                         _passwordController.text = '';
+//                         SharedPreferences localStorage =
+//                             await SharedPreferences.getInstance();
+//                         localStorage.setString('token', resData['token']);
+//                         localStorage.setString('user', json.encode(resData));
+//                         // localStorage.getString('token');
+//                         userId = body['data']['id'];
+//                         Navigator.push(
+//                             context,
+//                             MaterialPageRoute(
+//                               builder: (context) => OTP(
+//                                 // userIdOfOtp: userId,
+//                               ),
+//                             ));
+//                       },
+//                       child: Text('OK'),
+//                     )
+//                   ],
+//                 ),
+//                 context: context,
+//               );
+//             }
+//           } else {
+//             print(body['message']);
+//             showDialog(
+//               builder: (context) => AlertDialog(
+//                 title: Text('Login Error'),
+//                 content: Text(body['message'].toString()),
+//                 actions: <Widget>[
+//                   TextButton(
+//                     onPressed: () {
+// //                Navigator.popAndPushNamed(context, Login.route);
+//                       Navigator.pop(context);
+//                     },
+//                     child: Text('Try Again'),
+//                   )
+//                 ],
+//               ),
+//               context: context,
+//             );
+//           }
         } catch (e) {
           showDialog(
             builder: (context) => AlertDialog(
@@ -373,7 +439,7 @@ class _SignInState extends State<SignIn> {
                                           if (value!.isEmpty) {
                                             return "Please Enter Password";
                                           } else if (value.length < 6) {
-                                            return "Password must be atleast 6 characters long";
+                                            return "Password must be atleast 8 characters long";
                                           } else {
                                             return null;
                                           }
@@ -442,11 +508,12 @@ class _SignInState extends State<SignIn> {
                                       onPressed: () {
                                         if (_formKey.currentState!.validate()) {
                                           final body = {
-                                            "email": _phoneController.text,
+                                            "phone_number":"+2${_phoneController.text}",
                                             "password":
                                                 _passwordController.text,
-                                            "provider": "LOCAL",
+                                            // "provider": "LOCAL",
                                           };
+                                          print("BODY$body");
                                           _login(body);
                                         }
                                       },

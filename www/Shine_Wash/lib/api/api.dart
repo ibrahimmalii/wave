@@ -1,13 +1,25 @@
 import 'dart:convert';
+import 'package:Shinewash/models/user_model.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CallApi {
-  final String _url = 'Enter_your_base_url/api/';
+  final String _url = 'http://10.0.2.2:8000/api/';
+  // final String _url = 'http://localhost:8000/api/';
 
   postData(data, apiUrl) async {
     var fullUrl = Uri.parse(_url + apiUrl);
-    return await http.post(fullUrl, body: data);
+    print("$fullUrl");
+    print(json.encode(data));
+
+    var response = await http.post(fullUrl, body: data);
+
+    print("response ${response.statusCode}");
+    print("response ${response.body}");
+    print( response);
+
+    return response;
   }
 
   postDataWithHeader(data, apiUrl) async {
