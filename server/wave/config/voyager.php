@@ -94,6 +94,7 @@ return [
     | multilingual and what locales are enabled.
     |
     */
+    
 
     'multilingual' => [
         /*

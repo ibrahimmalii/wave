@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,7 @@ class AuthController extends Controller
                 ->header('Content-Type', 'text/plain');
         }
 
-        
+
         $this->createAndSendMsg($request->phone_number);
         User::create([
             'name' => $request->name,
@@ -54,10 +55,22 @@ class AuthController extends Controller
 
     protected function verify(Request $request)
     {
-        $data = $request->validate([
+        $validator = Validator::make($request->all(), [
             'verification_code' => ['required', 'numeric'],
             'phone_number' => ['required', 'string'],
         ]);
+
+        if ($validator->fails()) {
+            return response(['msg' => 'Invalid credintials, please check your data and try again!'], 400)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        $user = new UserResource(User::where('phone_number', $request->phone_number)->first());
+        if(!$user){
+            return response(['msg' => 'Mobile Number Not Found!!'], 404)
+            ->header('Content-Type', 'text/plain');
+        }
+
         /* Get credentials from .env */
         $token = getenv("TWILIO_AUTH_TOKEN");
         $twilio_sid = getenv("TWILIO_SID");
@@ -65,9 +78,9 @@ class AuthController extends Controller
         $twilio = new Client($twilio_sid, $token);
         $verification = $twilio->verify->v2->services($twilio_verify_sid)
             ->verificationChecks
-            ->create($data['verification_code'], array('to' => $data['phone_number']));
+            ->create($request->verification_code, array('to' => $request->phone_number));
         if ($verification->valid) {
-            $user = tap(User::where('phone_number', $data['phone_number']))->update(['isVerified' => true]);
+            $user = tap(User::where('phone_number', $request->phone_number))->update(['isVerified' => true]);
 
             $user = User::where('phone_number', $request->phone_number)->first();
             $token = $user->createToken('auth_token')->plainTextToken;
@@ -97,7 +110,7 @@ class AuthController extends Controller
                 ->header('Content-Type', 'text/plain');
         }
 
-        $user = User::where('phone_number', $request->phone_number)->first();
+        $user = new UserResource(User::where('phone_number', $request->phone_number)->first());
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response(['msg' => 'Invalid credintials, please check your data and try again!'], 401)
