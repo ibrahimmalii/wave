@@ -17,7 +17,6 @@ class CreateServiceTypesTable extends Migration
         Schema::create('service_types', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            // We need to add two rows by seeder
             $table->timestamps();
         });
 
