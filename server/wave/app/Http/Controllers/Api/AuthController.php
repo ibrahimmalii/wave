@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,7 +65,7 @@ class AuthController extends Controller
                 ->header('Content-Type', 'text/plain');
         }
 
-        $user = User::where('phone_number', $request->phone_number)->first();
+        $user = new UserResource(User::where('phone_number', $request->phone_number)->first());
         if(!$user){
             return response(['msg' => 'Mobile Number Not Found!!'], 404)
             ->header('Content-Type', 'text/plain');
@@ -109,7 +110,7 @@ class AuthController extends Controller
                 ->header('Content-Type', 'text/plain');
         }
 
-        $user = User::where('phone_number', $request->phone_number)->first();
+        $user = new UserResource(User::where('phone_number', $request->phone_number)->first());
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response(['msg' => 'Invalid credintials, please check your data and try again!'], 401)

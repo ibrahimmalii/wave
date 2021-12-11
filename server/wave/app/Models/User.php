@@ -13,9 +13,8 @@ use TCG\Voyager\Traits\Translatable;
 
 class User extends \TCG\Voyager\Models\User
 {
-    use HasApiTokens, HasFactory, Notifiable, Translatable;
+    use HasApiTokens, HasFactory, Notifiable;
 
-    protected $translatable = ['email', 'name'];
 
     /**
      * The attributes that are mass assignable.
