@@ -46,6 +46,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'phone_number' => $request->phone_number,
             'password' => Hash::make($request->password),
+            'role_id' => 2
         ]);
         return response(['phone_number' => $request->phone_number], 200)
             ->header('Content-Type', 'text/plain');
