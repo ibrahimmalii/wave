@@ -65,6 +65,7 @@ class AuthController extends Controller
                 ->header('Content-Type', 'text/plain');
         }
 
+        $user = User::where('phone_number', $request->phone_number)->first();
         $user = new UserResource(User::where('phone_number', $request->phone_number)->first());
         if(!$user){
             return response(['msg' => 'Mobile Number Not Found!!'], 404)
@@ -82,7 +83,7 @@ class AuthController extends Controller
         if ($verification->valid) {
             $user = tap(User::where('phone_number', $request->phone_number))->update(['isVerified' => true]);
 
-            $user = User::where('phone_number', $request->phone_number)->first();
+            $user = new UserResource(User::where('phone_number', $request->phone_number)->first());
             $token = $user->createToken('auth_token')->plainTextToken;
             $data = [
                 'access_token' => $token,
