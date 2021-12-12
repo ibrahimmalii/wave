@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class TranslateController extends Controller
 {
-    //
     public function index(Request $request)
     {
         $data = [
