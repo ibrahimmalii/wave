@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:Shinewash/models/localization.dart';
 import 'package:Shinewash/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -64,10 +65,15 @@ class CallApi {
       'Authorization': 'Bearer $token'
     });
   }
+  localizations(apiUrl)async{
+    var fullUrl = Uri.parse(_url + apiUrl);
+    return await http.get(fullUrl, headers:{"X-localization":"en"});
+  }
 
   logout() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
     localStorage.remove('user');
-    localStorage.remove('token');
+    localStorage.remove('access_token');
+    print("remove ${localStorage.getString("access_token")}");
   }
 }

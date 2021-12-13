@@ -188,6 +188,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_locales",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_locales-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_localizations",
+      "rootUri": "file:///C:/src/flutter/packages/flutter_localizations",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_markdown",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_markdown-0.6.8",
       "packageUri": "lib/",
@@ -794,7 +806,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-12-09T12:35:58.370214Z",
+  "generated": "2021-12-13T01:41:40.045202Z",
   "generator": "pub",
   "generatorVersion": "2.14.4"
 }

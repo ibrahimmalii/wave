@@ -9,9 +9,11 @@ import 'package:Shinewash/api/api.dart';
 import 'package:Shinewash/screens/onboarding.dart';
 import 'package:Shinewash/screens/sign_in.dart';
 import 'package:country_picker/country_picker.dart';
+
 // import 'package:country_code_picker/country_code_picker.dart';
 import 'otp_screen.dart';
 import 'package:http/http.dart' as http;
+
 const darkBlue = Color(0xFF265E9E);
 const containerShadow = Color(0xFF91B4D8);
 
@@ -32,9 +34,11 @@ class _SignUpState extends State<SignUp> {
   String _countryCode = "+91";
   var showSnipper = false;
   var playerIddd;
+
   // Country _country;
 
   final _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
@@ -67,11 +71,11 @@ class _SignUpState extends State<SignUp> {
           print('device token is $status');
         });
 
-        var playerId = status!;
-        playerIddd = playerId;
-        print('device token is $playerIddd');
+        // var playerId = status!;
+        // playerIddd = playerId;
+        // print('device token is $playerIddd');
         SharedPreferences localStorage = await SharedPreferences.getInstance();
-        localStorage.setString('device_token', playerId);
+        // localStorage.setString('device_token', playerId);
       } else {
         showDialog(
           builder: (context) => AlertDialog(
@@ -175,9 +179,7 @@ class _SignUpState extends State<SignUp> {
                                           if (value.isNotEmpty) {
                                             "";
                                           }
-
                                         },
-
                                         controller: _usernameController,
                                         validator: (value) {
                                           if (value!.isEmpty) {
@@ -185,7 +187,6 @@ class _SignUpState extends State<SignUp> {
                                           }
                                           return null;
                                         },
-
                                         focusNode: username,
                                         onFieldSubmitted: (a) {
                                           username.unfocus();
@@ -313,8 +314,8 @@ class _SignUpState extends State<SignUp> {
                                               onTap: () {
                                                 showCountryPicker(
                                                   context: context,
-                                                  showPhoneCode:
-                                                      true, // optional. Shows phone code before the country name.
+                                                  showPhoneCode: true,
+                                                  // optional. Shows phone code before the country name.
                                                   onSelect: (Country country) {
                                                     setState(() {
                                                       _countryCode =
@@ -428,7 +429,6 @@ class _SignUpState extends State<SignUp> {
                                             )
                                           ]),
                                       child: TextFormField(
-
                                         controller: _passwordController,
                                         obscureText: true,
                                         validator: (value) {
@@ -486,13 +486,13 @@ class _SignUpState extends State<SignUp> {
 
                                             "password":
                                                 _passwordController.text,
-                                            "phone_number": "${_countryCode+_phoneController.text}",
+                                            "phone_number":
+                                                "${_countryCode + _phoneController.text}",
                                             // "phone_code": _countryCode,
                                           };
                                           // print("${_countryCode+_phoneController.text}");
                                           _registration(body);
                                         }
-
                                       },
                                       style: ElevatedButton.styleFrom(
                                         primary: Theme.of(context).primaryColor,
@@ -569,7 +569,6 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-
   void _registration(data) async {
     setState(() {
       showSnipper = true;
@@ -584,31 +583,34 @@ class _SignUpState extends State<SignUp> {
     var deviceToken = playerIddd;
     var checkDeviceToken = localStorage.getBool('deviceToken');
     if (checkDeviceToken == true) {
-
       data['device_token'] = deviceToken;
     }
     try {
-      // res = await CallApi().postData(data,'register');
-res={"phone_number":"+201228845512"};
-localStorage.setString("phone", res["phone_number"]);
-print("Phone ${localStorage.getString("phone")}");
-      // print("body ${res.body['phone_number']}");
-      // body = json.decode(res.body);
-      // if (res.statusCode == 200) {
-      //   setState(() {
-      //     showSnipper=false;
-      //   });
+      res = await CallApi().postData(data, 'register');
+      // // res = {"phone_number": "+1096121030"};
+      body = json.decode(res.body);
+      // resData=res.body;
 
-
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => OTP(userIdOfOtp: localStorage.getString("phone"),),
-            ));
+      localStorage.setString("phone", body["phone_number"]);
+      print("Phone ${localStorage.getString("phone")}");
+      // // print("body ${res.body['phone_number']}");
+      // // body = json.decode(res.body);
+      if (res.statusCode == 200) {
         setState(() {
-          showSnipper = false;
+          showSnipper=false;
         });
-      // }
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => OTP(
+              userIdOfOtp: localStorage.getString("phone"),
+            ),
+          ));
+      setState(() {
+        showSnipper = false;
+      });
+      }
       // print('function body is ${res.body}');
       // resData = body['success'];
       // print('resData $resData');
@@ -701,12 +703,12 @@ print("Phone ${localStorage.getString("phone")}");
     } catch (e) {
       print('Error ${e.toString()}');
       setState(() {
-                    showSnipper = false;
-                  });
+        showSnipper = false;
+      });
       showDialog(
         builder: (context) => AlertDialog(
           title: Text('Registration Error'),
-          content: Text(e.toString()),
+          content: Text("Phone number is already exist!!"),
           actions: <Widget>[
             TextButton(
               onPressed: () {

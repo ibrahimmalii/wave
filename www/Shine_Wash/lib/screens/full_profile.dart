@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io' as Io;
 import 'dart:io';
 import 'package:Shinewash/api/api.dart';
+import 'package:Shinewash/component/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -209,12 +210,12 @@ class _FullProfileState extends State<FullProfile> {
     setState(() {
       showSnipper = true;
     });
-    var res = await CallApi().getWithToken('user');
-    var body = json.decode(res.body);
-    var theData = body;
-    name = theData['name'];
-    _phone.text = theData['phone'];
-    completeImage = theData['completeImage'];
+    // var res = await CallApi().getWithToken('user');
+    // var body = json.decode(res.body);
+    // var theData = body;
+    // name = theData['name'];
+    // _phone.text = theData['phone'];
+    // completeImage = theData['completeImage'];
     setState(() {
       showSnipper = false;
     });
@@ -331,7 +332,7 @@ class _FullProfileState extends State<FullProfile> {
                                   ),
                                   SizedBox(height: 20.0),
                                   Text(
-                                    name!,
+                                    info!.data!.user!.name.toString(),
                                     style: TextStyle(
                                       fontFamily: 'FivoSansMedium',
                                       fontSize: 18,
@@ -384,7 +385,7 @@ class _FullProfileState extends State<FullProfile> {
                                 changeName = name;
                               },
                               decoration: InputDecoration(
-                                hintText: 'Justin Hayes',
+                                hintText:  info!.data!.user!.name.toString(),
                                 hintStyle: TextStyle(
                                   color: darkBlue,
                                   fontSize: 18,
@@ -433,7 +434,7 @@ class _FullProfileState extends State<FullProfile> {
                                     ),
                                   ),
                                 ),
-                                hintText: '+1 903 698 8574',
+                                hintText:  info!.data!.user!.phoneNumber.toString(),
                                 hintStyle: TextStyle(
                                   color: darkBlue,
                                   fontSize: 18,
@@ -516,7 +517,7 @@ class _FullProfileState extends State<FullProfile> {
                                         if (value!.isEmpty) {
                                           return "Please Enter Password";
                                         } else if (value.length < 6) {
-                                          return "Password must be atleast 6 characters long";
+                                          return "Password must be atleast 8 characters long";
                                         } else {
                                           return null;
                                         }

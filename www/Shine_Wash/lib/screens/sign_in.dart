@@ -1,11 +1,13 @@
 import 'dart:convert';
-import 'package:Shinewash/constant.dart';
+import 'package:Shinewash/component/constant.dart';
 import 'package:Shinewash/models/user_model.dart';
+import 'package:Shinewash/test/test.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -116,36 +118,36 @@ class _SignInState extends State<SignIn> {
         var body;
         var resData;
         var userId;
-        String msg="User need to verify his account!";
-        String msg1="Invalid password, please check your data and try again";
+        String msg = "User need to verify his account!";
+        String msg1 = "Invalid password, please check your data and try again";
+        // String msg3 = "33";
         try {
-          // res = await CallApi().postData(data, 'login');
-          // body = json.decode(res.body);
-          body=msg;
-          if(body==msg){
+          res = await CallApi().postData(data, 'login');
+          body = json.decode(res.body);
+          // body = msg3;
+          if (msg == body['msg']) {
             showDialog(
-                builder: (context) => AlertDialog(
-                  title: Text('Login Error'),
-                  content: Text('Please verify your account'),
-                  actions: <Widget>[
-                TextButton(
-                      onPressed: () async {
-
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => OTP(
-                                userIdOfOtp: localStorage.getString("phone"),
-                              ),
-                            ));
-                      },
-                      child: Text('OK'),
-                    )
-                  ],
-                ),
-                context: context,
-              );
-          }else if(body==msg1){
+              builder: (context) => AlertDialog(
+                title: Text('Login Error'),
+                content: Text('Please verify your account'),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () async {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OTP(
+                              userIdOfOtp: localStorage.getString("phone"),
+                            ),
+                          ));
+                    },
+                    child: Text('OK'),
+                  )
+                ],
+              ),
+              context: context,
+            );
+          } else if (msg1==body['msg']) {
             showDialog(
               builder: (context) => AlertDialog(
                 title: Text('Login Error'),
@@ -158,7 +160,7 @@ class _SignInState extends State<SignIn> {
                       //     context,
                       //     MaterialPageRoute(
                       //       builder: (context) => OTP(
-                      //         // userIdOfOtp: userId,
+                      //         userIdOfOtp: localStorage.getString("phone"),
                       //       ),
                       //     ));
                     },
@@ -168,20 +170,29 @@ class _SignInState extends State<SignIn> {
               ),
               context: context,
             );
-          }else{
-
-            body = json.decode(res.body);
-            resData = body['data'];
-            localStorage.setString("access_token", resData["access_token"]);
-            info=userInfo.fromJson(body);
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomePage(),
-                ));
-
+          } else {
+            // body = json.decode(res.body);
+            // resData = body['data'];
+            // localStorage.setString("access_token", resData["access_token"]);
+            info = UserModel.fromJson(body);
+            print("Info ${info!.data!.user!.name}");
+            print("Info ${info!.data!.accessToken}");
+            if (info!.data!.user!.roleId== 2) {
+              localStorage.setString(
+                  "access_token", "${info!.data!.accessToken}");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ));
+            } else {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ));
+            }
           }
-
 
 //           resData = body['data'];
 //           if (body['success'] == true) {
@@ -338,7 +349,7 @@ class _SignInState extends State<SignIn> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text(
-                                'Signin',
+                                '${localModel!.content!.signin}',
                                 style: TextStyle(
                                   color: darkBlue,
                                   fontSize: 20.0,
@@ -406,7 +417,7 @@ class _SignInState extends State<SignIn> {
                                           //   fit: BoxFit.scaleDown,
                                           // ),
 
-                                          hintText: 'Phone Number',
+                                          hintText: '${localModel!.content!.phoneNumber}',
                                           hintStyle: TextStyle(
                                             color: darkBlue,
                                             fontSize: 16,
@@ -456,7 +467,7 @@ class _SignInState extends State<SignIn> {
                                             'assets/icons/lockicon.svg',
                                             fit: BoxFit.scaleDown,
                                           ),
-                                          hintText: 'Password',
+                                          hintText: '${localModel!.content!.password}',
                                           hintStyle: TextStyle(
                                             color: darkBlue,
                                             fontSize: 16,
@@ -482,7 +493,7 @@ class _SignInState extends State<SignIn> {
                                               ));
                                         },
                                         child: Text(
-                                          'Forgot Password?',
+                                          '${localModel!.content!.forgetPassword}',
                                           style: TextStyle(
                                             color: extraDarkBlue,
                                             fontFamily: 'FivoSansRegular',
@@ -508,7 +519,8 @@ class _SignInState extends State<SignIn> {
                                       onPressed: () {
                                         if (_formKey.currentState!.validate()) {
                                           final body = {
-                                            "phone_number":"+2${_phoneController.text}",
+                                            "phone_number":
+                                                "+2${_phoneController.text}",
                                             "password":
                                                 _passwordController.text,
                                             // "provider": "LOCAL",
@@ -527,7 +539,7 @@ class _SignInState extends State<SignIn> {
                                         ),
                                       ),
                                       child: Text(
-                                        'Signin',
+                                        '${localModel!.content!.signin}',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 18,
@@ -541,36 +553,31 @@ class _SignInState extends State<SignIn> {
                                     children: [
                                       FittedBox(
                                         child: Text(
-                                          'If you are new user?',
+                                          '${localModel!.content!.newUser}',
                                           style: TextStyle(
                                               color: darkBlue,
                                               fontSize: 18,
                                               fontFamily: 'FivoSansRegular'),
                                         ),
                                       ),
-                                      Container(
-                                        height: 35,
-                                        width: 80,
-                                        child: IconButton(
-                                          icon: FittedBox(
-                                            fit: BoxFit.contain,
-                                            child: Text(
-                                              'Sign up',
-                                              style: TextStyle(
-                                                color: Color(0xFF004695),
-                                                fontSize: 25,
-                                                fontFamily: 'FivoSansMedium',
-                                              ),
-                                            ),
+                                      SizedBox(width: 15.0,),
+                                      TextButton(
+                                        child: Text(
+                                          '${localModel!.content!.signup}',
+                                          style: TextStyle(
+                                            color: Color(0xFF004695),
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'FivoSansMedium',
                                           ),
-                                          onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        SignUp()));
-                                          },
                                         ),
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      SignUp()));
+                                        },
                                       ),
                                     ],
                                   ),

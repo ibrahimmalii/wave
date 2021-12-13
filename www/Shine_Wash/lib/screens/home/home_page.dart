@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:Shinewash/component/constant.dart';
 import 'dart:convert';
 import 'package:Shinewash/api/api.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -268,7 +269,7 @@ class _HomePageState extends State<HomePage> {
           ),
           backgroundColor: Theme.of(context).primaryColor,
           title: Text(
-            _isLoggedIn == false ? 'Justin Hayes' : _userName!,
+            "${info!.data!.user!.name}"==null? "":"${info!.data!.user!.name}",
             // 'Justin Hayes',
             style: TextStyle(
               color: Colors.white,

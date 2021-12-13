@@ -216,17 +216,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     var body;
     var userId;
     try {
-      // res = await CallApi().postData(data, 'forget');
-      // body = json.decode(res.body);
+      res = await CallApi().postData(data, 'forget');
+      body = json.decode(res.body);
       if (_phoneController.text.isNotEmpty) {
         setState(() {
                 showSpinner = false;
               });
-        // localStorage.setString("phone", res["phone_number"]);
+        localStorage.setString("phone", body["phone_number"]);
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => OTP(userIdOfOtp: _phoneController.text),
+              builder: (context) => OTP(userIdOfOtp: localStorage.getString("phone")),
             ));
       }
       // if (_phoneController.text.isNotEmpty) {

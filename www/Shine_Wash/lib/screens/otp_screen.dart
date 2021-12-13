@@ -1,4 +1,7 @@
 import 'dart:convert';
+import 'package:Shinewash/component/constant.dart';
+import 'package:Shinewash/models/user_model.dart';
+import 'package:Shinewash/test/test.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 import 'package:pin_code_text_field/pin_code_text_field.dart';
@@ -13,7 +16,9 @@ const extraDarkBlue = Color(0xFF91B4D8);
 
 class OTP extends StatefulWidget {
   final String? userIdOfOtp;
+
   const OTP({Key? key, this.userIdOfOtp}) : super(key: key);
+
   @override
   _OTPState createState() => _OTPState();
 }
@@ -116,7 +121,7 @@ class _OTPState extends State<OTP> {
                                 Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    'Please enter your mobile and we will send an OTP number',
+                                    'Please enter your Code number',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: extraDarkBlue,
@@ -142,9 +147,11 @@ class _OTPState extends State<OTP> {
                                       onDone: (text) {
                                         userOtp = int.parse(_otp.text);
                                         final body = {
-                                          "phone_number": "${widget.userIdOfOtp.toString()}",
+                                          "phone_number":
+                                              "${widget.userIdOfOtp.toString()}",
                                           // "user_id": json.encode(194),
-                                          "verification_code": userOtp.toString(),
+                                          "verification_code":
+                                              userOtp.toString(),
                                           // "otp": json.encode(2222),
                                         };
                                         _otpCheck(body);
@@ -197,7 +204,8 @@ class _OTPState extends State<OTP> {
                                 onPressed: () {
                                   userOtp = int.parse(_otp.text);
                                   final body = {
-                                    "phone_number": widget.userIdOfOtp.toString(),
+                                    "phone_number":
+                                        widget.userIdOfOtp.toString(),
                                     // "user_id": json.encode(194),
                                     "verification_code": userOtp.toString(),
                                     // "otp": json.encode(2222),
@@ -238,25 +246,109 @@ class _OTPState extends State<OTP> {
   }
 
   void _otpCheck(data) async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
     setState(() {
       showSnipper = true;
     });
     var res;
-    var body;
-    // var resData;
+    var bodyy;
+    var resData;
     try {
+      // res = userData;
+      // // body=json.decode(res);
+      // resData = res['data'];
+      // print(resData);
+      // if(resData!=null){
+      //   print("yes");
+      //     info=UserModel.fromJson(res);
+      //       localStorage.setString( "access_token", "${info!.data!.accessToken}");
+      //       print("${localStorage.get("access_token")}");
+      //       Navigator.push(
+      //             context,
+      //             MaterialPageRoute(
+      //               builder: (context) => OnBoarding(),
+      //             ));
+      //
+      // }
+
       res = await CallApi().postData(data, 'verify');
-      // body = json.decode(res.body);
-      // resData = body['data'];
-      print('tarek ${data}');
+      bodyy = json.decode(res.body);
+
+
+
       setState(() {
         showSnipper = false;
       });
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => OnBoarding(),
-          ));
+      if (bodyy != null) {
+        print('yes');
+        info = UserModel.fromJson(bodyy);
+        localStorage.setString("access_token", "${info!.data!.accessToken}");
+        setState(() {
+          showSnipper = false;
+        });
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => OnBoarding(),
+            ));
+      } else {
+        showDialog(
+          builder: (context) => AlertDialog(
+            title: Text('Value empty'),
+            content: Text('Invalid verification code entered!'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    showSnipper = false;
+                  });
+                  Navigator.pop(context);
+                  _otp.text = '';
+                },
+                child: Text('Try Again'),
+              )
+            ],
+          ),
+          context: context,
+        );
+      }
+
+      // if(res.statusCode==200){
+      //   resData = body['data'];
+      //   // if( localStorage.getString("access_token") != null)
+      //   info=UserModel.fromJson(resData);
+      //   localStorage.setString( "access_token", "${info!.data!.accessToken}");
+      //   print('tarek ${resData}');
+      //   setState(() {
+      //     showSnipper = false;
+      //   });
+      //   Navigator.push(
+      //       context,
+      //       MaterialPageRoute(
+      //         builder: (context) => OnBoarding(),
+      //       ));
+      // }
+      // else{
+      //   showDialog(
+      //     builder: (context) => AlertDialog(
+      //       title: Text('Value empty'),
+      //       content: Text('Please check your inputs'),
+      //       actions: <Widget>[
+      //         TextButton(
+      //           onPressed: () {
+      //             setState(() {
+      //               showSnipper = false;
+      //             });
+      //             Navigator.pop(context);
+      //             _otp.text = '';
+      //           },
+      //           child: Text('Try Again'),
+      //         )
+      //       ],
+      //     ),
+      //     context: context,
+      //   );
+      // }
 
       // if (body['success'] == true) {
       //   int? checkotpdata = body['data']['otp'];
@@ -312,7 +404,7 @@ class _OTPState extends State<OTP> {
       showDialog(
         builder: (context) => AlertDialog(
           title: Text('Value empty'),
-          content: Text('${e.toString()}'),
+          content: Text('Something Wrong'),
           actions: <Widget>[
             TextButton(
               onPressed: () {

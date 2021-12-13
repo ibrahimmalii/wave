@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:Shinewash/api/api.dart';
+import 'package:Shinewash/component/constant.dart';
 
 import 'all_appointment.dart';
 import 'faq.dart';
@@ -100,7 +101,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   Future<void> _getLoginInfo() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
-    var user = localStorage.getString('user');
+    var user = localStorage.getString('access_token');
     if (user != null) {
       setState(() {
         _isLoggedIn = true;
@@ -190,7 +191,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                       Radius.circular(50.0),
                                     ),
                                     child: Image(
-                                      image: (_isLoggedInagain == false
+                                      image: (info!.data!.accessToken == null
                                               ? AssetImage(
                                                   'assets/icons/profile_picture.png')
                                               : _completeImage!.isNotEmpty
@@ -206,12 +207,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                 ),
                               ),
                               SizedBox(
-                                  height: MediaQuery.of(context).size.height *
-                                      0.03),
+                                height:
+                                    MediaQuery.of(context).size.height * 0.03,
+                              ),
                               Text(
-                                _isLoggedInagain == false
-                                    ? 'Justine Hayes'
-                                    : _userName!,
+                                info!.data!.accessToken == null
+                                    ? 'User Name'
+                                    : info!.data!.user!.name.toString(),
                                 style: TextStyle(
                                   fontFamily: 'FivoSansMedium',
                                   fontSize: 18,
@@ -237,9 +239,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              _isLoggedInagain == true
-                                  ? items[index]
-                                  : itemss[index],
+                              info!.data!.accessToken == null
+                                  ? itemss[index]
+                                  : items[index],
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: tappedIndex == index

@@ -219,6 +219,20 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_locales">
+          <value>
+            <list>
+              <option value="C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_locales-2.0.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="flutter_localizations">
+          <value>
+            <list>
+              <option value="C:/src/flutter/packages/flutter_localizations/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_markdown">
           <value>
             <list>
@@ -952,6 +966,7 @@
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_credit_card-2.0.0/lib" />
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_html-2.2.0/lib" />
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_layout_grid-1.0.3/lib" />
+      <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_locales-2.0.0/lib" />
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_markdown-0.6.8/lib" />
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_math_fork-0.4.2+2/lib" />
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_paystack-1.0.5+1/lib" />
@@ -1051,6 +1066,7 @@
       <root url="file://C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/xml-5.3.1/lib" />
       <root url="file://C:/src/flutter/bin/cache/pkg/sky_engine/lib" />
       <root url="file://C:/src/flutter/packages/flutter/lib" />
+      <root url="file://C:/src/flutter/packages/flutter_localizations/lib" />
       <root url="file://C:/src/flutter/packages/flutter_test/lib" />
       <root url="file://C:/src/flutter/packages/flutter_web_plugins/lib" />
     </CLASSES>
