@@ -36,10 +36,10 @@ class UserServiceController extends Controller
         }
 
 
-        dd($request->service_hour[1]);
+        // dd($request->service_hour[1]);
         UserService::create([
             'service_day' => $request->service_day,
-            'service_hour'=> $request->service_hour,
+            'service_hour'=> $request->service_hour[1],
             'location'=> $request->location,
             'user_id'=> $request->user_id,
             'service_id'=> $request->service_id,
@@ -50,15 +50,15 @@ class UserServiceController extends Controller
         
         //1==> Increace counter value
         // Get current counter in avaliable times table
-        $currentCounterValue = $request->service_hour.'_counter';
+        $currentCounterValue = $request->service_hour[0].'_counter';
         // dd($currentCounterValue);
 
         // Get current avaliable employees
         $employeesCounter = User::where('role_id', 3)->count();
 
-        // DB::table('avaliable_times')
-        //       ->where('daily_date', $request->service_day)
-        //       ->update([$request->service_hour.'_counter' => $request->service_hour.'_counter' + 1]);
+        DB::table('avaliable_times')
+              ->where('daily_date', $request->service_day)
+              ->update([$request->service_hour[0].'_counter' => $request->service_hour[0].'_counter' + 1]);
 
         // $currentCounter = DB::select("SELECT * from avaliable_times WHERE first="9.5-10.5" AND daily_date="2021-12-14 22:38:37"")
 
