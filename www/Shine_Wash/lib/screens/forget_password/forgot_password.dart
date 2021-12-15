@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:Shinewash/api/api.dart';
 import 'package:Shinewash/app/cubit/cubit.dart';
+import 'package:Shinewash/component/constant.dart';
 import 'package:Shinewash/screens/forget_password/cubit/cubit.dart';
 import 'package:Shinewash/screens/forget_password/cubit/state.dart';
 import 'package:Shinewash/screens/otp/otp_screen.dart';
@@ -22,7 +23,7 @@ class ForgotPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = ForgetPasswordCubit();
-    var cubit1 = AppCubit.get(context).model;
+
     return BlocProvider(
       create: (context) => ForgetPasswordCubit(),
       child: BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
@@ -116,7 +117,7 @@ class ForgotPassword extends StatelessWidget {
                                       Column(
                                         children: [
                                           Text(
-                                            '${cubit1!.content!.forgetPassword}',
+                                            '${model!.content!.forgetPassword}',
                                             style: TextStyle(
                                               color: darkBlue,
                                               fontSize: 20.0,
@@ -175,7 +176,7 @@ class ForgotPassword extends StatelessWidget {
                                           decoration: InputDecoration(
                                             contentPadding: EdgeInsets.all(15),
                                             border: InputBorder.none,
-                                            hintText: '${cubit1.content!.mobile}',
+                                            hintText: '${model!.content!.mobile}',
                                             hintStyle: TextStyle(
                                               color: extraDarkBlue,
                                               fontSize: 16,
@@ -224,7 +225,7 @@ class ForgotPassword extends StatelessWidget {
                                               ),
                                               elevation: 2.0),
                                           child: Text(
-                                            '${cubit1.content!.send}',
+                                            '${model!.content!.send}',
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 18,

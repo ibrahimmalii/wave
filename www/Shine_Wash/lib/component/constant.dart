@@ -3,7 +3,7 @@ import 'package:Shinewash/models/user_model.dart';
 
 UserModel? info;
 
-LocalizationsModel? localModel;
+LocalizationsModel? model;
 var accessToken;
 String? language;
 var Data;

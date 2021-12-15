@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:Shinewash/app/cubit/cubit.dart';
+import 'package:Shinewash/component/constant.dart';
 import 'package:Shinewash/screens/sign_up/cubit/cubit.dart';
 import 'package:Shinewash/screens/sign_up/cubit/state.dart';
 import 'package:connectivity/connectivity.dart';
@@ -63,7 +64,7 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    var cubit=AppCubit.get(context).model;
+
     return BlocProvider(
       create: (context) => SignUpCubit(),
       child: BlocConsumer<SignUpCubit, SignUpState>(
@@ -114,7 +115,7 @@ class _SignUpState extends State<SignUp> {
                                       MainAxisAlignment.spaceAround,
                                   children: <Widget>[
                                     Text(
-                                      '${cubit!.content!.signup}',
+                                      '${model!.content!.signup}',
                                       style: TextStyle(
                                         color: darkBlue,
                                         fontSize: 20.0,
@@ -169,7 +170,7 @@ class _SignUpState extends State<SignUp> {
                                                   'assets/icons/usericon.svg',
                                                   fit: BoxFit.scaleDown,
                                                 ),
-                                                hintText: '${cubit.content!.userName}',
+                                                hintText: '${model!.content!.userName}',
                                                 hintStyle: TextStyle(
                                                   color: darkBlue,
                                                   fontSize: 16,
@@ -361,7 +362,7 @@ class _SignUpState extends State<SignUp> {
                                                       contentPadding:
                                                           EdgeInsets.all(15),
                                                       border: InputBorder.none,
-                                                      hintText: '${cubit.content!.phoneNumber}',
+                                                      hintText: '${model!.content!.phoneNumber}',
                                                       counterText: '',
                                                       hintStyle: TextStyle(
                                                         color: darkBlue,
@@ -428,7 +429,7 @@ class _SignUpState extends State<SignUp> {
                                                   'assets/icons/lockicon.svg',
                                                   fit: BoxFit.scaleDown,
                                                 ),
-                                                hintText: '${cubit.content!.password}',
+                                                hintText: '${model!.content!.password}',
                                                 hintStyle: TextStyle(
                                                   color: darkBlue,
                                                   fontSize: 16,
@@ -487,7 +488,7 @@ class _SignUpState extends State<SignUp> {
                                               ),
                                             ),
                                             child: Text(
-                                              '${cubit.content!.signup}',
+                                              '${model!.content!.signup}',
                                               style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 18,
@@ -502,7 +503,7 @@ class _SignUpState extends State<SignUp> {
                                           children: [
                                             FittedBox(
                                               child: Text(
-                                                '${cubit.content!.alreadyUser}',
+                                                '${model!.content!.alreadyUser}',
                                                 style: TextStyle(
                                                     color: darkBlue,
                                                     fontSize: 18,
@@ -513,7 +514,7 @@ class _SignUpState extends State<SignUp> {
                                             SizedBox(width: 15.0,),
                                             TextButton(
                                               child: Text(
-                                                '"${cubit.content!.signin}"',
+                                                '"${model!.content!.signin}"',
                                                 style: TextStyle(
                                                   color: Color(0xFF004695),
                                                   fontSize: 20,

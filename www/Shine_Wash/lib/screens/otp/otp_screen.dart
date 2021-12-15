@@ -59,7 +59,7 @@ class _OTPState extends State<OTP> {
 
   @override
   Widget build(BuildContext context) {
-    var cubit=AppCubit.get(context).model;
+
     return BlocProvider(create: (context)=>OTPCubit(),
       child: BlocConsumer<OTPCubit,OTPState>(
         listener: (context,state){
@@ -188,7 +188,7 @@ class _OTPState extends State<OTP> {
                                           icon: FittedBox(
                                             fit: BoxFit.contain,
                                             child: Text(
-                                              '${cubit!.content!.resend}?',
+                                              '${model!.content!.resend}?',
                                               style: TextStyle(
                                                 color: Color(0xFF004695),
                                                 fontSize: 16,
@@ -238,7 +238,7 @@ class _OTPState extends State<OTP> {
                                         elevation: 2.0,
                                       ),
                                       child: Text(
-                                        '${cubit.content!.submit}',
+                                        '${model!.content!.submit}',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 18,

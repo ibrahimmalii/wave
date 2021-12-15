@@ -231,7 +231,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-var cubit=AppCubit.get(context).model;
+
     return WillPopScope(
       child: Scaffold(
         appBar: AppBar(
@@ -280,8 +280,8 @@ var cubit=AppCubit.get(context).model;
           ),
           backgroundColor: Theme.of(context).primaryColor,
           title: Text(
-            // "${info!.data!.user!.name}",
-            'Justin Hayes',
+            "${info!.data!.user!.name}",
+            // 'Justin Hayes',
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'FivoSansMedium',
@@ -358,7 +358,7 @@ var cubit=AppCubit.get(context).model;
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 15.0),
                                   child: Text(
-                                    '${cubit!.content!.welcomeMessage}',
+                                    '${model!.content!.welcomeMessage}',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'FivoSansMedium',
@@ -500,7 +500,7 @@ var cubit=AppCubit.get(context).model;
   }
 
   Widget get theCategory {
-    var cubit=AppCubit().model;
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15.0),
       height: MediaQuery.of(context).size.height / 5.25,
@@ -513,7 +513,7 @@ var cubit=AppCubit.get(context).model;
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'category',
+                '${model!.content!.category}',
                 style: TextStyle(
                   color: darkBlue,
                   fontFamily: 'FivoSansMedium',
@@ -651,7 +651,7 @@ var cubit=AppCubit.get(context).model;
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'specialist',
+                  '${model!.content!.specialist}',
                   style: TextStyle(
                     color: darkBlue,
                     fontFamily: 'FivoSansMedium',
@@ -662,7 +662,7 @@ var cubit=AppCubit.get(context).model;
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      'viewAll',
+                      '${model!.content!.viewAll}',
                       style: TextStyle(
                         color: darkBlue,
                         fontFamily: 'FivoSansMedium',
@@ -876,7 +876,7 @@ var cubit=AppCubit.get(context).model;
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Text(
-              'offers',
+              '${model!.content!.offers}',
               style: TextStyle(
                 color: darkBlue,
                 fontFamily: 'FivoSansMedium',

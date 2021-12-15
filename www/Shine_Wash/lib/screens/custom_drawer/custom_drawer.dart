@@ -60,24 +60,24 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
 
-    var cubit=AppCubit.get(context).model;
+    model;
     List<String> items = [
-      '${cubit!.content!.home}',
-      '${cubit.content!.map}',
-      '${cubit.content!.appointments}',
-      '${cubit.content!.notification}',
-      '${cubit.content!.privacyPolicies}',
-      '${cubit.content!.faq}',
-      '${cubit.content!.logout}',
+      '${model!.content!.home}',
+      '${model!.content!.map}',
+      '${model!.content!.appointments}',
+      '${model!.content!.notification}',
+      '${model!.content!.privacyPolicies}',
+      '${model!.content!.faq}',
+      '${model!.content!.logout}',
     ];
     List<String> itemss = [
-      '${cubit.content!.home}',
-      '${cubit.content!.map}',
-      '${cubit.content!.appointments}',
-      '${cubit.content!.notification}',
-      '${cubit.content!.privacyPolicies}',
-      '${cubit.content!.faq}',
-      '${cubit.content!.login}',
+      '${model!.content!.home}',
+      '${model!.content!.map}',
+      '${model!.content!.appointments}',
+      '${model!.content!.notification}',
+      '${model!.content!.privacyPolicies}',
+      '${model!.content!.faq}',
+      '${model!.content!.login}',
     ];
     return BlocProvider(
       create: (context) => CustomDrawerCubit(),

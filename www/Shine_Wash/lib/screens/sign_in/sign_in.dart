@@ -619,8 +619,7 @@ class SignIn extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    var cubit = AppCubit.get(context).model;
-    var cubit1 = AppCubit.get(context).model;
+
     return BlocProvider(
       create: (BuildContext context)=>LoginCubit(),
       child: BlocConsumer<LoginCubit,LoginState>(
@@ -677,7 +676,7 @@ class SignIn extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
                                        Text(
-                                        '${cubit!.content!.signin}',
+                                        '${model!.content!.signin}',
                                         style: TextStyle(
                                           color: darkBlue,
                                           fontSize: 20.0,
@@ -821,7 +820,7 @@ class SignIn extends StatelessWidget {
                                                       ));
                                                 },
                                                 child: Text(
-                                                  '${cubit.content!.forgetPassword}',
+                                                  '${model!.content!.forgetPassword}',
                                                   style: TextStyle(
                                                     color: extraDarkBlue,
                                                     fontFamily: 'FivoSansRegular',
@@ -867,7 +866,7 @@ class SignIn extends StatelessWidget {
                                                 ),
                                               ),
                                               child: Text(
-                                                "${cubit.content!.signin}",
+                                                "${model!.content!.signin}",
                                                 style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 18,
@@ -881,7 +880,7 @@ class SignIn extends StatelessWidget {
                                             children: [
                                               FittedBox(
                                                 child: Text(
-                                                  '${cubit.content!.newUser}',
+                                                  '${model!.content!.newUser}',
                                                   style: TextStyle(
                                                       color: darkBlue,
                                                       fontSize: 18,
@@ -891,7 +890,7 @@ class SignIn extends StatelessWidget {
                                               SizedBox(width: 15.0,),
                                               TextButton(
                                                 child: Text(
-                                                  '"${cubit.content!.signup}"',
+                                                  '"${model!.content!.signup}"',
                                                   style: TextStyle(
                                                     color: Color(0xFF004695),
                                                     fontSize: 20,

@@ -21,7 +21,7 @@ class AppCubit extends Cubit<AppState> {
   static AppCubit get(context) => BlocProvider.of(context);
 
 
-  LocalizationsModel? model;
+
 
   getLanguage(String lang,[context])async {
     emit(AppLoadingState());
