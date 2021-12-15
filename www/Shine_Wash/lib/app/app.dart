@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:Shinewash/app/cubit/cubit.dart';
 import 'package:Shinewash/app/cubit/state.dart';
 import 'package:Shinewash/models/user_model.dart';
+import 'package:Shinewash/screens/home/cubit/cubit.dart';
 import 'package:Shinewash/screens/sign_in/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -161,10 +162,19 @@ class _SplashScreenState extends State<SplashScreen> {
     return new Timer(_duration, navigationPage);
   }
 
-  void navigationPage() async{
+  Future<void> navigationPage() async{
     SharedPreferences local=await SharedPreferences.getInstance();
     String? lang= local.getString("language");
+    phone = local.getString("phone");
+    password = local.getString("password");
+
+    var body = {
+      "phone_number":"$phone",
+      "password":"$password",};
+
+    await HomeCubit()..getUserDate(body,context);
     AppCubit().getLanguage(lang!);
+
     Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
   }
 

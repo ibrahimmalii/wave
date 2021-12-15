@@ -3,7 +3,11 @@ import 'package:Shinewash/app/cubit/cubit.dart';
 import 'package:Shinewash/component/constant.dart';
 import 'dart:convert';
 import 'package:Shinewash/api/api.dart';
+import 'package:Shinewash/screens/home/cubit/cubit.dart';
+import 'package:Shinewash/screens/home/cubit/state.dart';
 import 'package:Shinewash/screens/otp/cubit/cubit.dart';
+import 'package:Shinewash/screens/sign_in/cubit/cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
@@ -53,7 +57,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-  //   geData();
+    geData();
   //   appId = widget.appId;
   //   _getImage();
   //   paymentSettingData();
@@ -69,8 +73,14 @@ class _HomePageState extends State<HomePage> {
   var Data;
  geData()async{
     SharedPreferences localStorage=await SharedPreferences.getInstance();
-    Data=localStorage;
-    print("الداتا جت تاني ");
+    phone = localStorage.getString("phone");
+    password = localStorage.getString("password");
+
+    var body = {
+      "phone_number":"$phone",
+      "password":"$password",};
+
+    HomeCubit()..getUserDate(body,context);
   }
 
   Future<bool> check() async {
@@ -232,178 +242,184 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return WillPopScope(
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          leading: Row(
-            children: [
-              SizedBox(
-                width: 13.0,
-              ),
-              Container(
-                margin: EdgeInsets.all(5.5),
-                height: 30.0,
-                width: 30.0,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.white, width: 1.5),
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.white,
-                      blurRadius: 1,
-                      spreadRadius: 1.0,
-                    ),
-                  ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Image(
-                    image: (_isLoggedIn == false
-                            ? AssetImage(
-                                'assets/icons/profile_picture.png',
-                              )
-                            : _userImage!.isNotEmpty
-                                ? NetworkImage(
-                                    _userImage!,
-                                  )
-                                : AssetImage('assets/images/no_image.png'))
-                        as ImageProvider<Object>,
+    return BlocProvider(create: (context)=>HomeCubit(),
+    child: BlocConsumer<HomeCubit,HomeState>(
+      listener: (context,state){},
+      builder: (context,state){
+        return WillPopScope(
+          child: Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              leading: Row(
+                children: [
+                  SizedBox(
+                    width: 13.0,
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(5.5),
                     height: 30.0,
                     width: 30.0,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          backgroundColor: Theme.of(context).primaryColor,
-          title: Text(
-            "${info!.data!.user!.name}",
-            // 'Justin Hayes',
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'FivoSansMedium',
-              fontSize: 18.0,
-            ),
-          ),
-          actionsIconTheme: IconThemeData(color: Colors.white),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CustomDrawer(),
-                      ));
-                },
-                icon: Icon(
-                  FontAwesomeIcons.bars,
-                  size: 22,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ],
-        ),
-        body: RefreshIndicator(
-
-          // backgroundColor: Colors.green,
-          color: Theme.of(context).primaryColor,
-          onRefresh: _getData,
-          child: SafeArea(
-            top: true,
-            bottom: true,
-            left: false,
-            right: false,
-            child: ModalProgressHUD(
-              //handle it to true
-              inAsyncCall: false,
-              child: Stack(
-                children: [
-                  ListView(
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      //welcome
-                      GestureDetector(
-                        onTap: () {
-                          print('Mama');
-                          FocusScopeNode currentFocus = FocusScope.of(context);
-
-                          if (!currentFocus.hasPrimaryFocus) {
-                            currentFocus.unfocus();
-                          }
-                        },
-                        child: Container(
-                          height: MediaQuery.of(context).size.height / 6,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            // Theme.of(context).primaryColor,
-                            borderRadius: BorderRadiusDirectional.vertical(
-                              bottom: Radius.circular(40.0),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(height: 18.0),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 15.0),
-                                  child: Text(
-                                    '${model!.content!.welcomeMessage}',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'FivoSansMedium',
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 15.0),
-                                  child: Text(
-                                    'Shine Wash',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Nadillas',
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.white, width: 1.5),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white,
+                          blurRadius: 1,
+                          spreadRadius: 1.0,
                         ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Image(
+                        image: (_isLoggedIn == false
+                            ? AssetImage(
+                          'assets/icons/profile_picture.png',
+                        )
+                            : _userImage!.isNotEmpty
+                            ? NetworkImage(
+                          _userImage!,
+                        )
+                            : AssetImage('assets/images/no_image.png'))
+                        as ImageProvider<Object>,
+                        height: 30.0,
+                        width: 30.0,
+                        fit: BoxFit.fill,
                       ),
-                      SizedBox(height: 20.0),
-                      theCategory,
-                      SizedBox(height: 20.0),
-                      //specialist
-                      specialist,
-                      SizedBox(height: 20.0),
-                      //offer
-                      offer,
-                      SizedBox(height: 10.0),
-                      //category
-                      // Category(),
-                    ],
+                    ),
                   ),
                 ],
               ),
+              backgroundColor: Theme.of(context).primaryColor,
+              title: Text(
+                "${info!.data!.user!.name}",
+                // 'Justin Hayes',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'FivoSansMedium',
+                  fontSize: 18.0,
+                ),
+              ),
+              actionsIconTheme: IconThemeData(color: Colors.white),
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CustomDrawer(),
+                          ));
+                    },
+                    icon: Icon(
+                      FontAwesomeIcons.bars,
+                      size: 22,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            body: RefreshIndicator(
+
+              // backgroundColor: Colors.green,
+              color: Theme.of(context).primaryColor,
+              onRefresh: _getData,
+              child: SafeArea(
+                top: true,
+                bottom: true,
+                left: false,
+                right: false,
+                child: ModalProgressHUD(
+                  //handle it to true
+                  inAsyncCall: false,
+                  child: Stack(
+                    children: [
+                      ListView(
+                        scrollDirection: Axis.vertical,
+                        children: [
+                          //welcome
+                          GestureDetector(
+                            onTap: () {
+                              print('Mama');
+                              FocusScopeNode currentFocus = FocusScope.of(context);
+
+                              if (!currentFocus.hasPrimaryFocus) {
+                                currentFocus.unfocus();
+                              }
+                            },
+                            child: Container(
+                              height: MediaQuery.of(context).size.height / 6,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                // Theme.of(context).primaryColor,
+                                borderRadius: BorderRadiusDirectional.vertical(
+                                  bottom: Radius.circular(40.0),
+                                ),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 18.0),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15.0),
+                                      child: Text(
+                                        '${model!.content!.welcomeMessage}',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'FivoSansMedium',
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15.0),
+                                      child: Text(
+                                        'Shine Wash',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'Nadillas',
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20.0),
+                          theCategory,
+                          SizedBox(height: 20.0),
+                          //specialist
+                          specialist,
+                          SizedBox(height: 20.0),
+                          //offer
+                          offer,
+                          SizedBox(height: 10.0),
+                          //category
+                          // Category(),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
-        ),
-      ),
-      onWillPop: onWillPop,
-    );
+          onWillPop: onWillPop,
+        );
+      },
+    ),);
   }
 
   //category no data

@@ -7,6 +7,7 @@ import 'package:Shinewash/app/cubit/state.dart';
 import 'package:Shinewash/bloc_observer.dart';
 import 'package:Shinewash/component/constant.dart';
 import 'package:Shinewash/models/localization.dart';
+import 'package:Shinewash/screens/home/cubit/cubit.dart';
 import 'package:Shinewash/screens/home/home_page.dart';
 import 'package:Shinewash/screens/sign_in/sign_in.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,14 @@ void main() async {
   if (accessToken != null) {
     print('tokken $accessToken');
     language=local.getString("language");
+    phone = local.getString("phone");
+    password = local.getString("password");
+
+    var body = {
+      "phone_number":"$phone",
+      "password":"$password",};
+
+    await HomeCubit()..getUserDate(body);
     startWidget = SplashScreen();
   } else {
     language=local.getString("language");

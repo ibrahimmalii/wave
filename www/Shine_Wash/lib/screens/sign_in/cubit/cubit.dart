@@ -50,12 +50,12 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginSuccessState(info!));
         emit(LoginStopSpinner());
         localStorage.setString(
-            "accessToken", " ${info!.data!.accessToken}");
+            "accessToken","${info!.data!.accessToken}");
         accessToken = info!.data!.accessToken;
         localStorage.setString(
-            "phone", " ${info!.data!.user!.phoneNumber}");
+            "phone","${info!.data!.user!.phoneNumber}");
         localStorage.setString(
-            "password", " ${data['password']}");
+            "password","${data['password']}");
         print(info!.data!.accessToken);
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => HomePage()));
@@ -64,4 +64,7 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginErrorState(e.toString()));
     }
   }
+
+
+
 }

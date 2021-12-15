@@ -5,6 +5,8 @@ UserModel? info;
 
 LocalizationsModel? model;
 var accessToken;
+String? phone;
+String? password;
 String? language;
 var Data;
 var showSnipper = false;
