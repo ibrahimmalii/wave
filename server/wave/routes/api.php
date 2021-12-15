@@ -29,8 +29,10 @@ Route::post('/forget', [AuthController::class, 'forget'])->name('forget');
 Route::post('/updatePasswordFromLogin', [AuthController::class, 'updatePasswordFromLogin']);
 Route::post('/updatePasswordFromSetting', [AuthController::class, 'updatePasswordFromSetting']);
 
+// Multi languages for getting services
+Route::get('/services/{lang}', [ServiceController::class, 'index'])->middleware('auth:sanctum');
 
-Route::get('greeting', [TranslateController::class, 'index'])->middleware('localization');
+Route::get('content', [TranslateController::class, 'index'])->middleware('localization');
 
 
 
