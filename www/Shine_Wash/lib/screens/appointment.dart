@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
-import 'custom_drawer.dart';
+import 'custom_drawer/custom_drawer.dart';
 
 const darkBlue = Color(0xFF265E9E);
 const extraDarkBlue = Color(0xFF91B4D8);

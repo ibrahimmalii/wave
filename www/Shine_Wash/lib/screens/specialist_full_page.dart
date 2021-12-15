@@ -6,7 +6,7 @@ import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 import 'package:Shinewash/api/api.dart';
 import 'package:Shinewash/models/coworkerM.dart';
 import 'package:Shinewash/models/employee_profile_skills.dart';
-import 'package:Shinewash/screens/custom_drawer.dart';
+import 'package:Shinewash/screens/custom_drawer/custom_drawer.dart';
 import 'package:Shinewash/screens/employee_profile.dart';
 import 'package:connectivity/connectivity.dart';
 

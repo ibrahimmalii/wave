@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:Shinewash/component/constant.dart';
 import 'package:Shinewash/models/localization.dart';
 import 'package:Shinewash/models/user_model.dart';
 import 'package:flutter/material.dart';
@@ -65,9 +66,10 @@ class CallApi {
       'Authorization': 'Bearer $token'
     });
   }
-  localizations(apiUrl)async{
+  localizations(apiUrl,lang)async{
+print(lang);
     var fullUrl = Uri.parse(_url + apiUrl);
-    return await http.get(fullUrl, headers:{"X-localization":"en"});
+    return await http.get(fullUrl, headers:{"X-localization":"$lang"});
   }
 
   logout() async {

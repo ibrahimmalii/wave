@@ -11,7 +11,7 @@ import 'package:Shinewash/models/category_wise_service_coworker.dart';
 import 'package:Shinewash/models/coworkerM.dart';
 import 'package:Shinewash/models/home_category.dart';
 import 'package:Shinewash/screens/book_appointment.dart';
-import 'package:Shinewash/screens/custom_drawer.dart';
+import 'package:Shinewash/screens/custom_drawer/custom_drawer.dart';
 import 'package:Shinewash/screens/employee_profile.dart';
 
 const darkBlue = Color(0xFF265E9E);

@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'package:Shinewash/app/cubit/cubit.dart';
 import 'package:Shinewash/component/constant.dart';
 import 'dart:convert';
 import 'package:Shinewash/api/api.dart';
+import 'package:Shinewash/screens/otp/cubit/cubit.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
@@ -13,7 +15,7 @@ import 'package:Shinewash/models/coworkerM.dart';
 import 'package:Shinewash/models/employee_profile_skills.dart';
 import 'package:Shinewash/models/home_category.dart';
 import 'package:Shinewash/models/home_offer.dart';
-import 'package:Shinewash/screens/custom_drawer.dart';
+import 'package:Shinewash/screens/custom_drawer/custom_drawer.dart';
 import '../employee_profile.dart';
 import '../services.dart';
 import '../specialist_full_page.dart';
@@ -51,17 +53,24 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    appId = widget.appId;
-    _getImage();
-    paymentSettingData();
-    getLatlong();
-    //category
-    _getDataCategories();
-    _getDataSpecialist();
-    //specialist
-    _getDataSpecial();
-    //offer
-    _getDataOffer();
+  //   geData();
+  //   appId = widget.appId;
+  //   _getImage();
+  //   paymentSettingData();
+  //   getLatlong();
+  //   //category
+  //   _getDataCategories();
+  //   _getDataSpecialist();
+  //   //specialist
+  //   _getDataSpecial();
+  //   //offer
+  //   _getDataOffer();
+  }
+  var Data;
+ geData()async{
+    SharedPreferences localStorage=await SharedPreferences.getInstance();
+    Data=localStorage;
+    print("الداتا جت تاني ");
   }
 
   Future<bool> check() async {
@@ -216,11 +225,13 @@ class _HomePageState extends State<HomePage> {
       Fluttertoast.showToast(msg: 'Press again to exit');
       return Future.value(false);
     }
+
     return Future.value(true);
   }
 
   @override
   Widget build(BuildContext context) {
+var cubit=AppCubit.get(context).model;
     return WillPopScope(
       child: Scaffold(
         appBar: AppBar(
@@ -269,8 +280,8 @@ class _HomePageState extends State<HomePage> {
           ),
           backgroundColor: Theme.of(context).primaryColor,
           title: Text(
-            "${info!.data!.user!.name}"==null? "":"${info!.data!.user!.name}",
-            // 'Justin Hayes',
+            // "${info!.data!.user!.name}",
+            'Justin Hayes',
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'FivoSansMedium',
@@ -347,7 +358,7 @@ class _HomePageState extends State<HomePage> {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 15.0),
                                   child: Text(
-                                    'Welcome to',
+                                    '${cubit!.content!.welcomeMessage}',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'FivoSansMedium',
@@ -374,9 +385,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: 20.0),
                       theCategory,
-                      SizedBox(height: 10.0),
+                      SizedBox(height: 20.0),
                       //specialist
                       specialist,
+                      SizedBox(height: 20.0),
                       //offer
                       offer,
                       SizedBox(height: 10.0),
@@ -488,6 +500,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget get theCategory {
+    var cubit=AppCubit().model;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15.0),
       height: MediaQuery.of(context).size.height / 5.25,
@@ -500,7 +513,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Category',
+                'category',
                 style: TextStyle(
                   color: darkBlue,
                   fontFamily: 'FivoSansMedium',
@@ -638,7 +651,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Specialist',
+                  'specialist',
                   style: TextStyle(
                     color: darkBlue,
                     fontFamily: 'FivoSansMedium',
@@ -649,7 +662,7 @@ class _HomePageState extends State<HomePage> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      'View all',
+                      'viewAll',
                       style: TextStyle(
                         color: darkBlue,
                         fontFamily: 'FivoSansMedium',
@@ -853,7 +866,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget get offer {
     return Container(
-      height: MediaQuery.of(context).size.height / 4.7,
+      height: MediaQuery.of(context).size.height / 4.5,
       width: MediaQuery.of(context).size.width,
       // color: Colors.red,
       child: Column(
@@ -863,7 +876,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Text(
-              'Offer',
+              'offers',
               style: TextStyle(
                 color: darkBlue,
                 fontFamily: 'FivoSansMedium',

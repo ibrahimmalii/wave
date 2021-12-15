@@ -3,7 +3,7 @@ import 'package:Shinewash/api/api.dart';
 import 'package:Shinewash/models/cancel_appointment.dart';
 import 'package:Shinewash/models/complete_appointment.dart';
 import 'package:Shinewash/models/pending_appointment.dart';
-import 'package:Shinewash/screens/sign_in.dart';
+import 'package:Shinewash/screens/sign_in/sign_in.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -11,7 +11,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'appointment.dart';
-import 'custom_drawer.dart';
+import 'custom_drawer/custom_drawer.dart';
 import '../models/all_appointment.dart';
 
 const darkBlue = Color(0xFF265E9E);

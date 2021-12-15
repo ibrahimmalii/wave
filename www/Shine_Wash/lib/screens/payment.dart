@@ -10,7 +10,7 @@ import 'package:logger/logger.dart';
 import 'package:modal_progress_hud_alt/modal_progress_hud_alt.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:Shinewash/api/api.dart';
-import 'package:Shinewash/screens/custom_drawer.dart';
+import 'package:Shinewash/screens/custom_drawer/custom_drawer.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:Shinewash/screens/stripe.dart';

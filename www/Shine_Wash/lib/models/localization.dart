@@ -1,9 +1,9 @@
-class localizationsModel {
+class LocalizationsModel {
   Content? content;
 
-  localizationsModel({this.content});
+  LocalizationsModel({this.content});
 
-  localizationsModel.fromJson(Map<String, dynamic> json) {
+  LocalizationsModel.fromJson(Map<String, dynamic> json) {
     content =
         json['content'] != null ? new Content.fromJson(json['content']) : null;
   }

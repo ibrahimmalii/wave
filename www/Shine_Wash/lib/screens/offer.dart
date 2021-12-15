@@ -7,7 +7,7 @@ import 'package:Shinewash/api/api.dart';
 import 'package:Shinewash/models/addvalueforservice.dart';
 import 'package:Shinewash/models/offer.dart';
 import 'package:Shinewash/screens/appointment_review.dart';
-import 'package:Shinewash/screens/custom_drawer.dart';
+import 'package:Shinewash/screens/custom_drawer/custom_drawer.dart';
 
 const darkBlue = Color(0xFF265E9E);
 const extraDarkBlue = Color(0xFF91B4D8);
