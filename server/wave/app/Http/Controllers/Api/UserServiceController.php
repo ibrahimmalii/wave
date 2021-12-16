@@ -30,11 +30,10 @@ class UserServiceController extends Controller
             'service_id' => 'required|exists:services,id',
         ]);
 
-        if($validator->fails()){
-            return response(['msg' => 'Bad request, missing data!'], 400)
+        if($validator->fails() || ($request->service_day === 'unavaliable date')){
+            return response(['msg' => 'Bad request, missing data or date invalid!'], 400)
                 ->header('Content-Type', 'text/plain');
         }
-
 
         UserService::create([
             'service_day' => $request->service_day,
@@ -44,32 +43,37 @@ class UserServiceController extends Controller
             'service_id'=> $request->service_id,
         ]);
 
-        
-        
-        
+                
         // Get current counter in avaliable times table
         $currentCounterName = $request->service_hour[0].'_counter';
 
         // Get current avaliable employees ==> Counter limit
-        $employeesCounter = User::where('role_id', 3)->count();
+        $measureEmployeesNumber = User::where('role_id', 3)->count();
 
         //1==> Increace counter value
         DB::table('avaliable_times')
               ->where('daily_date', $request->service_day)
               ->increment($currentCounterName);
         
+        // Get current day
+        $currentDay = DB::select("select * from avaliable_times where daily_date='$request->service_day'");
+        $currentCounterValue = $currentDay[0]->$currentCounterName;
 
         //2==> Check if counter less than emp counter or not 
-        
-
+        if($currentCounterValue >= $measureEmployeesNumber){
+            DB::table('avaliable_times')
+              ->where('daily_date', $request->service_day)
+              ->update([$request->service_hour[0] => 'unavaliable date']);
+            //********* Update colum in avaliable time to unavaliable */
+            return response(['msg' => 'Now this date became unavaliable in this day'], 200)
+                ->header('Content-Type', 'text/plain');
+        }
 
 
 
         return response(['msg' => 'Service stored successfully'], 200)
             ->header('Content-Type', 'text/plain');
 
-        //1- Check if time is avaliable from avaliable table
-        //2- remove time from avaliable table if counter == employees number
 
     }
 
