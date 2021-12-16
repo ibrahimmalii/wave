@@ -42,18 +42,19 @@ $date->addMonths(1);
                     </div>
                     @endif
 
-                    <div class="panel-body">
+                    <div class="panel-body" style="direction:rtl">
                         <div class="form-group">
+                            <label for="email"> إسم المستخدم</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('voyager::generic.name') }}" value="{{ old('name', $dataTypeContent->name ?? '') }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="email">{{ __('voyager::generic.email') }}</label>
-                            <input type="text" class="form-control" id="email" name="email" placeholder="Just write the email if you want the person to access your control panel :)" value="">
+                            <label for="email">البريد الإلكترونى</label>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="فقط اكتب البريد الإلكتروني إذا كنت تريد أن يصل الشخص إلى لوحة التحكم الخاصة بك :)" value="{{ old('name', $dataTypeContent->email ?? '') }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="phone_number">Phone Number</label>
+                            <label for="phone_number">رقم الهاتف</label>
                             <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="+96683478739" value="{{ old('phone_number', $dataTypeContent->phone_number ?? '') }}">
                         </div>
 
@@ -62,17 +63,17 @@ $date->addMonths(1);
                         </div>
 
                         <div class="form-group">
-                            <label for="password">{{ __('voyager::generic.password') }}</label>
+                            <label for="password">كلمة المرور</label>
                             @if(isset($dataTypeContent->password))
                             <br>
-                            <small>{{ __('voyager::profile.password_hint') }}</small>
+                            <small>اترك الحقل فارغا اذا لم ترد تغيير كلمة المرور</small>
                             @endif
                             <input type="password" class="form-control" id="password" name="password" value="" autocomplete="new-password">
                         </div>
 
                         @can('editRoles', $dataTypeContent)
                         <div class="form-group">
-                            <label for="default_role">{{ __('voyager::profile.role_default') }}</label>
+                            <label for="default_role">الدور الافتراضي</label>
                             @php
                             $dataTypeRows = $dataType->{(isset($dataTypeContent->id) ? 'editRows' : 'addRows' )};
 
@@ -82,7 +83,7 @@ $date->addMonths(1);
                             @include('voyager::formfields.relationship')
                         </div>
                         <div class="form-group">
-                            <label for="additional_roles">{{ __('voyager::profile.roles_additional') }}</label>
+                            <label for="additional_roles">الدور الاضافى</label>
                             @php
                             $row = $dataTypeRows->where('field', 'user_belongstomany_role_relationship')->first();
                             $options = $row->details;
@@ -99,7 +100,7 @@ $date->addMonths(1);
 
                         @endphp
                         <div class="form-group">
-                            <label for="locale">{{ __('voyager::generic.locale') }}</label>
+                            <label for="locale">لغة</label>
                             <select class="form-control select2" id="locale" name="locale">
                                 @foreach (Voyager::getLocales() as $locale)
                                 <option value="{{ $locale }}" {{ ($locale == $selected_locale ? 'selected' : '') }}>{{ $locale }}</option>
@@ -125,7 +126,7 @@ $date->addMonths(1);
         </div>
 
         <button type="submit" class="btn btn-primary pull-right save">
-            {{ __('voyager::generic.save') }}
+            حفظ
         </button>
     </form>
 

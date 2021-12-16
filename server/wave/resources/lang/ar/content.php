@@ -8,7 +8,7 @@ return [
     "signup" => "إنشاء حساب",
     "user_name" => "الإسم",
     "already_user" => "لديك حساب بالفعل", 
-    "welcome_message" => "مرحباً الى",
+    "welcome_message" => "مرحباً فى",
     "category" => "الفئة",
     "specialist" => "متخصص",
     "view_all" => "عرض الكل",

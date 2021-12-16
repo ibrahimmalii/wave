@@ -19,13 +19,21 @@ class CreateAvaliableTimesTable extends Migration
             $table->id();
             // Need to create 30 row with seeder
             $table->string('first')->default('9.5-10.5');
+            $table->integer('first_counter')->default(0);
             $table->string('second')->default('10.5-11.5');
+            $table->integer('second_counter')->default(0);
             $table->string('third')->default('11.5-12.5');
+            $table->integer('third_counter')->default(0);
             $table->string('fourth')->default('12.5-1.5');
+            $table->integer('fourth_counter')->default(0);
             $table->string('fifth')->default('1.5-2.5');
+            $table->integer('fifth_counter')->default(0);
             $table->string('sixth')->default('2.5-3.5');
+            $table->integer('sixth_counter')->default(0);
             $table->string('seventh')->default('3.5-4.5');
+            $table->integer('seventh_counter')->default(0);
             $table->string('eighth')->default('4.5-5.5');
+            $table->integer('eighth_counter')->default(0);
 
             $date = Carbon::now();
             $date->toDateString();
