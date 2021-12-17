@@ -20,6 +20,11 @@ class ServiceController extends Controller
 
     function show($id, $lang)
     {
+        $service = Service::find($id);
+        if(!$service){
+            return response(['msg'=> 'Service not found'], 404)
+                ->header('Content-Type', 'text-plain');
+        }
         if($lang === 'ar'){
             return new ServiceArabicResource(Service::findOrFail($id));
         }
