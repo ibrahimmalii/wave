@@ -127,7 +127,7 @@ class ForgotPassword extends StatelessWidget {
                                           Padding(
                                             padding: const EdgeInsets.all(20.0),
                                             child: Text(
-                                              'Please enter your mobile and we will send an OTP number',
+                                              '${model!.content!.enterNumber}',
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                 color: extraDarkBlue,

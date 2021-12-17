@@ -3,6 +3,7 @@ import 'package:Shinewash/app/cubit/cubit.dart';
 import 'package:Shinewash/component/constant.dart';
 import 'dart:convert';
 import 'package:Shinewash/api/api.dart';
+import 'package:Shinewash/models/service_model.dart';
 import 'package:Shinewash/screens/home/cubit/cubit.dart';
 import 'package:Shinewash/screens/home/cubit/state.dart';
 import 'package:Shinewash/screens/otp/cubit/cubit.dart';
@@ -41,23 +42,25 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var showSpinner = false;
-  bool _folded = true;
-  String? _userImage = "";
-  String? _theImage;
-  String? _userName = '';
+  // bool _folded = true;
+  // String? _userImage = "";
+  // String? _theImage;
+  // String? _userName = '';
   var _isLoggedIn = false;
-  var appId;
-  bool? checkConnectivity;
+  // var appId;
+  // bool? checkConnectivity;
   DateTime? currentBackPressTime;
-  late double _currentLatitude;
-  late double _currentLongitude;
-  late double _shopLatitude;
-  late double _shopLongitude;
+  // late double _currentLatitude;
+  // late double _currentLongitude;
+  // late double _shopLatitude;
+  // late double _shopLongitude;
 
   @override
   void initState() {
     super.initState();
     geData();
+    AppCubit()..getAllService();
+    // getService();
   //   appId = widget.appId;
   //   _getImage();
   //   paymentSettingData();
@@ -92,101 +95,117 @@ class _HomePageState extends State<HomePage> {
     }
     return false;
   }
+// List<serviceModel>? serModel=[];
+//
+//   Future<void>getService()async {
+//
+//     var res=await CallApi().get('services');
+//     var body=json.decode(res.body);
+//     print("ser ${body['data'][0]}");
+//    body['data'].forEach((ele){
+//      print("kkk");
+//      serModel!.add(serviceModel.fromJson(ele));
+//
+//    });
+//    //    print('BoDY $serModel');
+//
+//
+//   }
 
-  Future<void> _getImage() async {
-    // print('get image calling');
-    check().then((internet) async {
-      if (internet != null && internet) {
-        // Internet Present Case
-        SharedPreferences localStorage = await SharedPreferences.getInstance();
-        var user = localStorage.getString('user');
-        if (user != null) {
-          setState(() {
-            _isLoggedIn = true;
-          });
-        } else {
-          _isLoggedIn = false;
-        }
-        setState(() {
-          showSpinner = true;
-        });
-        var res = await CallApi().getWithToken('user');
-        var body = json.decode(res.body);
-        // print('the body response from homepage $body');
-        var theData = body;
-        if (theData != null) {
-          _userName = theData['name'];
-          _userImage = theData['completeImage'];
-          // _theImage = _userImagePath + _userImage;
-        }
-        setState(() {
-          showSpinner = false;
-        });
-      }
-      // No-Internet Case
-      else {
-        showDialog(
-          builder: (context) => AlertDialog(
-            title: Text('Internet connection'),
-            content: Text('Check your internet connection'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () async {
-                  Navigator.pop(context);
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ));
-                },
-                child: Text('OK'),
-              )
-            ],
-          ),
-          context: context,
-        );
-      }
-    });
-  }
+  // Future<void> _getImage() async {
+  //   // print('get image calling');
+  //   check().then((internet) async {
+  //     if (internet != null && internet) {
+  //       // Internet Present Case
+  //       SharedPreferences localStorage = await SharedPreferences.getInstance();
+  //       var user = localStorage.getString('user');
+  //       if (user != null) {
+  //         setState(() {
+  //           _isLoggedIn = true;
+  //         });
+  //       } else {
+  //         _isLoggedIn = false;
+  //       }
+  //       setState(() {
+  //         showSpinner = true;
+  //       });
+  //       var res = await CallApi().getWithToken('user');
+  //       var body = json.decode(res.body);
+  //       // print('the body response from homepage $body');
+  //       var theData = body;
+  //       if (theData != null) {
+  //         _userName = theData['name'];
+  //         _userImage = theData['completeImage'];
+  //         // _theImage = _userImagePath + _userImage;
+  //       }
+  //       setState(() {
+  //         showSpinner = false;
+  //       });
+  //     }
+  //     // No-Internet Case
+  //     else {
+  //       showDialog(
+  //         builder: (context) => AlertDialog(
+  //           title: Text('Internet connection'),
+  //           content: Text('Check your internet connection'),
+  //           actions: <Widget>[
+  //             TextButton(
+  //               onPressed: () async {
+  //                 Navigator.pop(context);
+  //                 Navigator.push(
+  //                     context,
+  //                     MaterialPageRoute(
+  //                       builder: (context) => HomePage(),
+  //                     ));
+  //               },
+  //               child: Text('OK'),
+  //             )
+  //           ],
+  //         ),
+  //         context: context,
+  //       );
+  //     }
+  //   });
+  // }
 
-  Future<void> paymentSettingData() async {
-    check().then((internet) async {
-      if (internet != null && internet) {
-        // Internet Present Case
-        var res = await CallApi().getWithToken('payment_setting');
-        var body = json.decode(res.body);
-        var theData = body['data'];
-        var stripePublishKey = theData['stripe_publish_key'];
-        // print('stripe key$stripePublishKey');
-        var stripeSecretKey = theData['stripe_secret_key'];
-        SharedPreferences localStorage = await SharedPreferences.getInstance();
-        localStorage.setString('stripePublishKey', stripePublishKey);
-        localStorage.setString('stripeSecretKey', stripeSecretKey);
-      } else {
-        showDialog(
-          builder: (context) => AlertDialog(
-            title: Text('Internet connection'),
-            content: Text('Check your internet connection'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () async {
-                  Navigator.pop(context);
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ));
-                },
-                child: Text('OK'),
-              )
-            ],
-          ),
-          context: context,
-        );
-      }
-      // No-Internet Case
-    });
-  }
+  // Future<void> paymentSettingData() async {
+  //   check().then((internet) async {
+  //     if (internet != null && internet) {
+  //       // Internet Present Case
+  //       var res = await CallApi().getWithToken('payment_setting');
+  //       var body = json.decode(res.body);
+  //       var theData = body['data'];
+  //       var stripePublishKey = theData['stripe_publish_key'];
+  //       // print('stripe key$stripePublishKey');
+  //       var stripeSecretKey = theData['stripe_secret_key'];
+  //       SharedPreferences localStorage = await SharedPreferences.getInstance();
+  //       localStorage.setString('stripePublishKey', stripePublishKey);
+  //       localStorage.setString('stripeSecretKey', stripeSecretKey);
+  //     } else {
+  //       showDialog(
+  //         builder: (context) => AlertDialog(
+  //           title: Text('Internet connection'),
+  //           content: Text('Check your internet connection'),
+  //           actions: <Widget>[
+  //             TextButton(
+  //               onPressed: () async {
+  //                 Navigator.pop(context);
+  //                 Navigator.push(
+  //                     context,
+  //                     MaterialPageRoute(
+  //                       builder: (context) => HomePage(),
+  //                     ));
+  //               },
+  //               child: Text('OK'),
+  //             )
+  //           ],
+  //         ),
+  //         context: context,
+  //       );
+  //     }
+  //     // No-Internet Case
+  //   });
+  // }
 
   Future<void> _getData() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
@@ -197,35 +216,35 @@ class _HomePageState extends State<HomePage> {
     } else {
       _isLoggedIn = false;
     }
-    _getImage();
+    // _getImage();
   }
 
-  Future<void> getLatlong() async {
-    setState(() {
-      showSpinner = true;
-    });
-    var res = await CallApi().getWithToken('setting');
-    var body = json.decode(res.body);
-    var theData = body['data'];
-    var apiLat = theData['latitude'];
-    var apiLong = theData['longitude'];
-    _shopLatitude = double.parse(apiLat.toString());
-    _shopLongitude = double.parse(apiLong.toString());
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
-    var lat = position.latitude;
-    var long = position.longitude;
-    _currentLatitude = double.parse(lat.toString());
-    _currentLongitude = double.parse(long.toString());
-    SharedPreferences localStorage = await SharedPreferences.getInstance();
-    localStorage.setDouble('currentLatitude', _currentLatitude);
-    localStorage.setDouble('currentLongitude', _currentLongitude);
-    localStorage.setDouble('shopLatitude', _shopLatitude);
-    localStorage.setDouble('shopLongitude', _shopLongitude);
-    setState(() {
-      showSpinner = false;
-    });
-  }
+  // Future<void> getLatlong() async {
+  //   setState(() {
+  //     showSpinner = true;
+  //   });
+  //   var res = await CallApi().getWithToken('setting');
+  //   var body = json.decode(res.body);
+  //   var theData = body['data'];
+  //   var apiLat = theData['latitude'];
+  //   var apiLong = theData['longitude'];
+  //   _shopLatitude = double.parse(apiLat.toString());
+  //   _shopLongitude = double.parse(apiLong.toString());
+  //   Position position = await Geolocator.getCurrentPosition(
+  //       desiredAccuracy: LocationAccuracy.high);
+  //   var lat = position.latitude;
+  //   var long = position.longitude;
+  //   _currentLatitude = double.parse(lat.toString());
+  //   _currentLongitude = double.parse(long.toString());
+  //   SharedPreferences localStorage = await SharedPreferences.getInstance();
+  //   localStorage.setDouble('currentLatitude', _currentLatitude);
+  //   localStorage.setDouble('currentLongitude', _currentLongitude);
+  //   localStorage.setDouble('shopLatitude', _shopLatitude);
+  //   localStorage.setDouble('shopLongitude', _shopLongitude);
+  //   setState(() {
+  //     showSpinner = false;
+  //   });
+  // }
 
   Future<bool> onWillPop() {
     DateTime now = DateTime.now();
@@ -274,16 +293,9 @@ class _HomePageState extends State<HomePage> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0),
                       child: Image(
-                        image: (_isLoggedIn == false
-                            ? AssetImage(
-                          'assets/icons/profile_picture.png',
-                        )
-                            : _userImage!.isNotEmpty
-                            ? NetworkImage(
-                          _userImage!,
-                        )
-                            : AssetImage('assets/images/no_image.png'))
-                        as ImageProvider<Object>,
+                        image:  AssetImage(
+                          'assets/icons/profile_picture.png'),
+
                         height: 30.0,
                         width: 30.0,
                         fit: BoxFit.fill,
@@ -398,13 +410,13 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           SizedBox(height: 20.0),
-                          theCategory,
+                          theCategory(),
                           SizedBox(height: 20.0),
                           //specialist
-                          specialist,
+                          specialist(),
                           SizedBox(height: 20.0),
                           //offer
-                          offer,
+                          offer(),
                           SizedBox(height: 10.0),
                           //category
                           // Category(),
@@ -489,37 +501,38 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  Future<void> getData(passTheData, index, categories) async {
-    setState(() {
-      showSpinner = true;
-    });
-    var res =
-        await CallApi().postData(passTheData, 'category_wise_service_coworker');
-    var body = json.decode(res.body);
-    var theData = body['data'];
-    selectedSkills = theData.length;
-    if (selectedSkills != null) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Services(
-              index: index,
-              categoryId: categories,
-              selecetedSkill: selectedSkills,
-              previuosSpeId: passId,
-            ),
-          ));
-    }
-    setState(() {
-      showSpinner = false;
-    });
-  }
+  // Future<void> getData(passTheData, index, categories) async {
+  //   setState(() {
+  //     showSpinner = true;
+  //   });
+  //   var res =
+  //       await CallApi().postData(passTheData, 'category_wise_service_coworker');
+  //   var body = json.decode(res.body);
+  //   var theData = body['data'];
+  //   selectedSkills = theData.length;
+  //   if (selectedSkills != null) {
+  //     Navigator.push(
+  //         context,
+  //         MaterialPageRoute(
+  //           builder: (context) => Services(
+  //             index: index,
+  //             categoryId: categories,
+  //             selecetedSkill: selectedSkills,
+  //             previuosSpeId: passId,
+  //           ),
+  //         ));
+  //   }
+  //   setState(() {
+  //     showSpinner = false;
+  //   });
+  // }
 
-  Widget get theCategory {
 
+  Widget  theCategory() {
+var x=AppCubit.get(context).serModel;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15.0),
-      height: MediaQuery.of(context).size.height / 5.25,
+      height: MediaQuery.of(context).size.height / 4.95,
       width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -542,18 +555,20 @@ class _HomePageState extends State<HomePage> {
             height: MediaQuery.of(context).size.height / 6.2, //115.0
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: ct.length,
+              itemCount:x!.length,
               itemBuilder: (context, index) {
-                Categories categories = ct[index];
+
                 return GestureDetector(
                   onTap: () {
-                    previousCatId = categories.id;
-                    previousSpeId = passId;
-                    passTheData = {
-                      "coworker_id": '$previousSpeId',
-                      "category_id": '$previousCatId'
-                    };
-                    getData(passTheData, index, categories.id);
+                    // previousCatId = ser.id;
+                    // previousSpeId = passId;
+                    // passTheData = {
+                    //   "coworker_id": '$previousSpeId',
+                    //   "category_id": '$previousCatId'
+                    // };
+                    // getData(passTheData, index, categories.id);
+                    AppCubit.get(context).getOnlyService("${x[index].id}");
+
                   },
                   child: Column(
                     children: [
@@ -570,14 +585,15 @@ class _HomePageState extends State<HomePage> {
                           fit: BoxFit.scaleDown,
                           height: 28,
                           width: 27,
-                          image: NetworkImage('${categories.image}'),
+                          image:  NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiPOhjw8yIS79wuiRyDuCQ9_YSCMo2GbIUR8exBkgE-wpRGUzOnQzkDu8rIKDPsoAsNRs&usqp=CAU"),
+                          // NetworkImage('${categories.image}'),
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10.0),
                         color: Colors.white,
                         child: Text(
-                          categories.categoryName!,
+                          "${x[index].title}",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: darkBlue,
@@ -596,6 +612,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
 
   //specialist no data
   Future<void> _getDataSpecial() async {
@@ -654,7 +671,7 @@ class _HomePageState extends State<HomePage> {
   CoworkerM s = new CoworkerM();
   List<Skill> sk = <Skill>[];
 
-  Widget get specialist {
+  Widget  specialist(){
     return Container(
       height: MediaQuery.of(context).size.height / 3.1,
       width: MediaQuery.of(context).size.width,
@@ -880,7 +897,7 @@ class _HomePageState extends State<HomePage> {
   List<Offers> of = <Offers>[];
   Offers o = Offers();
 
-  Widget get offer {
+  Widget  offer() {
     return Container(
       height: MediaQuery.of(context).size.height / 4.5,
       width: MediaQuery.of(context).size.width,

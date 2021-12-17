@@ -83,14 +83,14 @@ class _ServicesState extends State<Services> {
       "coworker_id": '$coworkerId',
       "category_id": '$previousCatId'
     };
-    servicelength = widget.selecetedSkill;
+    // servicelength = widget.selecetedSkill;
     setState(() {
-      if (0 < servicelength) {
-        dataFound = true;
-        for (int a = 0; a < servicelength; a++) {
-          checkboxBool.add(false);
-        }
-      }
+      // if (0 < servicelength) {
+      //   dataFound = true;
+      //   for (int a = 0; a < servicelength; a++) {
+      //     checkboxBool.add(false);
+      //   }
+      // }
     });
     verified = 0;
     verifiedCat = widget.index;

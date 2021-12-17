@@ -96,7 +96,7 @@ final String? lang;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (BuildContext context) => AppCubit()..getLanguage(lang!,context),
+        create: (BuildContext context) => AppCubit()..getAllService()..getLanguage(lang!,context),
         child: BlocConsumer<AppCubit, AppState>(
           listener: (context, state) {
             // if (state is! AppLoadingState) {

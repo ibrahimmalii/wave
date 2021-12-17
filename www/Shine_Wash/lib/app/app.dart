@@ -1,20 +1,22 @@
 import 'dart:async';
-import 'dart:convert';
+
 import 'package:Shinewash/app/cubit/cubit.dart';
 import 'package:Shinewash/app/cubit/state.dart';
-import 'package:Shinewash/models/user_model.dart';
+
 import 'package:Shinewash/screens/home/cubit/cubit.dart';
 import 'package:Shinewash/screens/sign_in/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
-import '../api/api.dart';
+
 import '../component/constant.dart';
-import '../screens/all_appointment.dart';
+
 import '../screens/home/home_page.dart';
-import 'package:Shinewash/models/localization.dart';
+
+
+
 // class Application extends StatefulWidget {
 //   @override
 //   _ApplicationState createState() => _ApplicationState();
@@ -158,7 +160,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   startTime() async {
     // fun();
-    var _duration = new Duration(seconds: 3);
+    var _duration = new Duration(seconds:6);
     return new Timer(_duration, navigationPage);
   }
 

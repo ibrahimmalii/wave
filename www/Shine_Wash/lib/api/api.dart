@@ -1,8 +1,5 @@
 import 'dart:convert';
-import 'package:Shinewash/component/constant.dart';
-import 'package:Shinewash/models/localization.dart';
-import 'package:Shinewash/models/user_model.dart';
-import 'package:flutter/material.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -44,7 +41,14 @@ class CallApi {
     var fullUrl = Uri.parse(_url + apiUrl);
     return await http.get(fullUrl, headers: _setHeader());
   }
+get(apiUrl,[lang])async{
 
+SharedPreferences local=await SharedPreferences.getInstance();
+var lang=local.getString("language");
+  var fullUrl = Uri.parse(_url + apiUrl+"/$lang");
+  print(fullUrl);
+  return await http.get(fullUrl);
+}
   _setHeaders() => {
         'Content-Type': 'application/json;charset=UTF-8',
         'Charset': 'utf-8',

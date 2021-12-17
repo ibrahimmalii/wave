@@ -5,10 +5,11 @@ import 'package:Shinewash/app/app.dart';
 import 'package:Shinewash/app/cubit/state.dart';
 import 'package:Shinewash/component/constant.dart';
 import 'package:Shinewash/models/localization.dart';
+import 'package:Shinewash/models/service_model.dart';
 import 'package:Shinewash/models/user_model.dart';
 import 'package:Shinewash/screens/home/home_page.dart';
 import 'package:Shinewash/screens/otp/otp_screen.dart';
-import 'package:Shinewash/screens/sign_in/sign_in.dart';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +22,6 @@ class AppCubit extends Cubit<AppState> {
   static AppCubit get(context) => BlocProvider.of(context);
 
 
-
-
   getLanguage(String lang,[context])async {
     emit(AppLoadingState());
     try {
@@ -31,13 +30,63 @@ class AppCubit extends Cubit<AppState> {
       print("res $res");
       var body=json.decode(res.body);
       model=LocalizationsModel.fromJson(body);
-print("Hoda ${model!.content!.password}");
+      print("Hoda ${model!.content!.password}");
       emit(AppSuccessState());
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashScreen()));
+      SharedPreferences local=await SharedPreferences.getInstance();
+      local.setString("language","$lang");
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashScreen()));
     } catch (e) {
       emit(AppErrorState(e.toString()));
     }
   }
+
+
+// get all service
+  List<serviceModel>? serModel=[];
+  getAllService()async {
+    serModel=[];
+    SharedPreferences local=await SharedPreferences.getInstance();
+    var lang =local.getString('language');
+      print('sarah $lang');
+    emit(AllServiceLoadingState());
+    try {
+      print('langgggg $lang');
+      var res = await CallApi().get('services', lang);
+      var body = json.decode(res.body);
+      print("ser ${body['data'][0]}");
+      body['data'].forEach((ele) {
+        print("kkk");
+        serModel!.add(serviceModel.fromJson(ele));
+      });
+      emit(AllServiceSuccessState());
+      //    print('BoDY $serModel');
+    }catch(e){
+      emit(AllServiceErrorState(e.toString()));
+    }
+  }
+
+  serviceModel? servicemodel;
+  getOnlyService(index)async{
+    SharedPreferences local=await SharedPreferences.getInstance();
+    var lang =local.getString('language');
+
+    emit(ServiceLoadingState());
+
+    try{
+      var res =await CallApi().get('services/$index',lang);
+      var body=json.decode(res.body);
+      servicemodel=serviceModel.fromJson(body);
+      emit(ServiceSuccessState());
+
+      print("only service $servicemodel");
+    }
+    catch(e){
+      emit(ServiceErrorState(e.toString()));
+    }
+  }
+
+
+
   userLogin(data, context) async {
 
 
