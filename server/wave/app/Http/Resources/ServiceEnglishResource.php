@@ -16,6 +16,7 @@ class ServiceEnglishResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
             'small_price' => $this->small_price,

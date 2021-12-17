@@ -15,6 +15,7 @@ class ServiceArabicResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'title' => $this->title_subtitle,
             'description' => $this->description_subtitle,
             'small_price' => $this->small_price,

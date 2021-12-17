@@ -17,4 +17,12 @@ class ServiceController extends Controller
         }
         return ServiceEnglishResource::collection(Service::all());
     }
+
+    function show($id, $lang)
+    {
+        if($lang === 'ar'){
+            return new ServiceArabicResource(Service::findOrFail($id));
+        }
+        return new ServiceEnglishResource(Service::findOrFail($id));
+    }
 }
