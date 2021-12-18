@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\AvaliableTimeController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\UserServiceController;
 use App\Http\Controllers\PhoneVerificationController;
 use App\Http\Controllers\TranslateController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +45,9 @@ Route::get('/userServices', [UserServiceController::class, 'index']);
 Route::post('/userServices', [UserServiceController::class, 'create']);
 Route::post('/userServices/{id}', [UserServiceController::class, 'update']);
 Route::delete('/userServices/{id}', [UserServiceController::class, 'delete']);
+
+// Avaliable times
+Route::get('/avaliableTime', [AvaliableTimeController::class, 'index']);
 
 
 
