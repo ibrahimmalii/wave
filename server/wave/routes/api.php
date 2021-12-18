@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AvaliableTimeController;
+use App\Http\Controllers\Api\notifiedUserController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\UserServiceController;
 use App\Http\Controllers\PhoneVerificationController;
@@ -48,6 +49,9 @@ Route::delete('/userServices/{id}', [UserServiceController::class, 'delete']);
 
 // Avaliable times
 Route::get('/avaliableTime', [AvaliableTimeController::class, 'index']);
+
+// About notified user 
+Route::get('/pickup/{id}', [notifiedUserController::class, 'pickup']);
 
 
 
