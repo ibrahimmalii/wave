@@ -7,6 +7,7 @@ use App\Http\Resources\ServiceArabicResource;
 use App\Http\Resources\ServiceEnglishResource;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {

@@ -32,26 +32,26 @@ Route::post('/verify', [AuthController::class, 'verify'])->name('verify');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/forget', [AuthController::class, 'forget'])->name('forget');
 Route::post('/updatePasswordFromLogin', [AuthController::class, 'updatePasswordFromLogin']);
-Route::post('/updatePasswordFromSetting', [AuthController::class, 'updatePasswordFromSetting']);
+Route::post('/updatePasswordFromSetting', [AuthController::class, 'updatePasswordFromSetting'])->middleware('auth:sanctum');
 
 // Multi languages for getting services
-// Route::get('/services/{lang}', [ServiceController::class, 'index'])->middleware('auth:sanctum');
-Route::get('/services/{lang}', [ServiceController::class, 'index']);
-Route::get('/services/{id}/{lang}', [ServiceController::class, 'show']);
+Route::get('/services/{lang}', [ServiceController::class, 'index'])->middleware('auth:sanctum');
+// Route::get('/services/{lang}', [ServiceController::class, 'index']);
+Route::get('/services/{id}/{lang}', [ServiceController::class, 'show'])->middleware('auth:sanctum');
 
 Route::get('content', [TranslateController::class, 'index'])->middleware('localization');
 
 // Crud for user services 
-Route::get('/userServices', [UserServiceController::class, 'index']);
-Route::post('/userServices', [UserServiceController::class, 'create']);
-Route::post('/userServices/{id}', [UserServiceController::class, 'update']);
-Route::delete('/userServices/{id}', [UserServiceController::class, 'delete']);
+Route::get('/userServices', [UserServiceController::class, 'index'])->middleware('auth:sanctum');
+Route::post('/userServices', [UserServiceController::class, 'create'])->middleware('auth:sanctum');
+Route::post('/userServices/{id}', [UserServiceController::class, 'update'])->middleware('auth:sanctum');
+Route::delete('/userServices/{id}', [UserServiceController::class, 'delete'])->middleware('auth:sanctum');
 
 // Avaliable times
-Route::get('/avaliableTime', [AvaliableTimeController::class, 'index']);
+Route::get('/avaliableTime', [AvaliableTimeController::class, 'index'])->middleware('auth:sanctum');
 
 // About notified user 
-Route::get('/pickup/{id}', [notifiedUserController::class, 'pickup']);
+Route::get('/pickup/{id}', [notifiedUserController::class, 'pickup'])->middleware('auth:sanctum');
 
 
 

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\UserService;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -25,11 +26,12 @@ class UserServiceController extends Controller
 
     public function create(Request $request)
     {
+        $user_id = Auth::user()->id;
+
         $validator = Validator::make($request->all(), [
             'service_day' => ['required', 'string', 'max:255'],
             'service_hour' => ['required',  'max:255'],
             'location' => ['required', 'string', 'max:255'],
-            'user_id' => 'required|exists:users,id',
             'service_id' => 'required|exists:services,id',
         ]);
 
@@ -42,7 +44,7 @@ class UserServiceController extends Controller
             'service_day' => $request->service_day,
             'service_hour' => $request->service_hour[1],
             'location' => $request->location,
-            'user_id' => $request->user_id,
+            'user_id' => $user_id,
             'service_id' => $request->service_id,
         ]);
 
@@ -63,20 +65,19 @@ class UserServiceController extends Controller
         $currentCounterValue = $currentDay[0]->$currentCounterName;
 
         //2==> Check if counter less than emp counter or not 
-        $id = $request->user_id;
         if ($currentCounterValue >= $measureEmployeesNumber) {
             DB::table('avaliable_times')
                 ->where('daily_date', $request->service_day)
                 ->update([$request->service_hour[0] => 'unavaliable date']);
 
-            $this->pickup($id);
+            $this->pickup($user_id);
 
             //********* Update colum in avaliable time to unavaliable */
             return response(['msg' => 'Now this date became unavaliable in this day'], 200)
                 ->header('Content-Type', 'text/plain');
         }
 
-        $this->pickup($id);
+        $this->pickup($user_id);
 
         return response(['msg' => 'Service stored successfully'], 200)
             ->header('Content-Type', 'text/plain');
