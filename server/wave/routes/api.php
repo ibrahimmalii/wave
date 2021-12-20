@@ -36,7 +36,6 @@ Route::post('/updatePasswordFromSetting', [AuthController::class, 'updatePasswor
 
 // Multi languages for getting services
 Route::get('/services/{lang}', [ServiceController::class, 'index'])->middleware('auth:sanctum');
-// Route::get('/services/{lang}', [ServiceController::class, 'index']);
 Route::get('/services/{id}/{lang}', [ServiceController::class, 'show'])->middleware('auth:sanctum');
 
 Route::get('content', [TranslateController::class, 'index'])->middleware('localization');

@@ -16,13 +16,24 @@ class AvaliableTimeResource extends JsonResource
     {
         return [
             'daily_date' => $this->daily_date,
-            'first' => $this->first,
-            'second' => $this->second,
-            'fourth' => $this->fourth,
-            'fifth' => $this->fifth,
-            'sixth' => $this->sixth,
-            'seventh' => $this->seventh,
-            'eighth' => $this->eighth
+            'hours' => [
+                'first' => $this->first,
+                'second' => $this->second,
+                'third' => $this->third,
+                'fourth' => $this->fourth,
+                'fifth' => $this->fifth,
+                'sixth' => $this->sixth,
+                'seventh' => $this->seventh,
+                'eighth' => $this->eighth
+            ]
+            // 'first' => $this->first,
+            // 'second' => $this->second,
+            // 'third' => $this->third,
+            // 'fourth' => $this->fourth,
+            // 'fifth' => $this->fifth,
+            // 'sixth' => $this->sixth,
+            // 'seventh' => $this->seventh,
+            // 'eighth' => $this->eighth
         ];
     }
 }
