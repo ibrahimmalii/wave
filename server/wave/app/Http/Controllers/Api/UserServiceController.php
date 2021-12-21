@@ -55,6 +55,11 @@ class UserServiceController extends Controller
         // Get current avaliable employees ==> Counter limit
         $measureEmployeesNumber = User::where('role_id', 3)->count();
 
+        if(!$measureEmployeesNumber){
+            return response(['msg' => 'No services avaliable now'], 400)
+                ->header('Content-Type', 'text/plain');
+        }
+
         //1==> Increace counter value
         DB::table('avaliable_times')
             ->where('daily_date', $request->service_day)
