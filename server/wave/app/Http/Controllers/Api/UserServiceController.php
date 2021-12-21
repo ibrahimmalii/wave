@@ -30,7 +30,9 @@ class UserServiceController extends Controller
 
         $validator = Validator::make($request->all(), [
             'service_day' => ['required', 'string', 'max:255'],
-            'service_hour' => ['required',  'max:255'],
+            // 'service_hour' => ['required',  'max:255'],
+            'service_hour_name' => ['required',  'max:255'],
+            'service_hour_value' => ['required',  'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'service_id' => 'required|exists:services,id',
         ]);
@@ -42,7 +44,7 @@ class UserServiceController extends Controller
 
         UserService::create([
             'service_day' => $request->service_day,
-            'service_hour' => $request->service_hour[1],
+            'service_hour' => $request->service_hour_value,
             'location' => $request->location,
             'user_id' => $user_id,
             'service_id' => $request->service_id,
@@ -50,7 +52,7 @@ class UserServiceController extends Controller
 
 
         // Get current counter in avaliable times table
-        $currentCounterName = $request->service_hour[0] . '_counter';
+        $currentCounterName = $request->service_hour_name . '_counter';
 
         // Get current avaliable employees ==> Counter limit
         $measureEmployeesNumber = User::where('role_id', 3)->count();
@@ -73,7 +75,7 @@ class UserServiceController extends Controller
         if ($currentCounterValue >= $measureEmployeesNumber) {
             DB::table('avaliable_times')
                 ->where('daily_date', $request->service_day)
-                ->update([$request->service_hour[0] => 'unavaliable date']);
+                ->update([$request->service_hour_name => 'unavaliable date']);
 
             $this->pickup($user_id);
 
