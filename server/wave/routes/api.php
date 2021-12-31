@@ -43,7 +43,7 @@ Route::get('content', [TranslateController::class, 'index'])->middleware('locali
 // Crud for user services 
 Route::get('/userServices', [UserServiceController::class, 'index'])->middleware('auth:sanctum');
 Route::post('/userServices', [UserServiceController::class, 'create'])->middleware('auth:sanctum');
-Route::post('/userServices/{id}', [UserServiceController::class, 'update'])->middleware('auth:sanctum');
+Route::post('/userServices/update', [UserServiceController::class, 'update'])->middleware('auth:sanctum');
 Route::delete('/userServices/{id}', [UserServiceController::class, 'delete'])->middleware('auth:sanctum');
 
 // Avaliable times
@@ -51,7 +51,3 @@ Route::get('/avaliableTime', [AvaliableTimeController::class, 'index'])->middlew
 
 // About notified user 
 Route::get('/pickup/{id}', [notifiedUserController::class, 'pickup'])->middleware('auth:sanctum');
-
-
-
-

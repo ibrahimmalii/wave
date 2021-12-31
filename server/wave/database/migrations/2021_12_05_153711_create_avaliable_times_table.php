@@ -42,18 +42,14 @@ class CreateAvaliableTimesTable extends Migration
             $table->string('daily_date');
             $table->timestamps();
         });
-        // To add migration seed
-        // $date->toDateString();
-        
+
         $day_date = Carbon::now();
-        for ($i=0; $i < 31; $i++) { 
-            
+        for ($i = 0; $i < 31; $i++) {
+
             DB::table('avaliable_times')->insertOrIgnore([
-                ['daily_date' => $day_date->addDays(1)]
+                ['daily_date' => $day_date->addDays(1)->format('d/m/y')]
             ]);
-
         };
-
     }
 
     /**

@@ -30,7 +30,6 @@ class UserServiceController extends Controller
 
         $validator = Validator::make($request->all(), [
             'service_day' => ['required', 'string', 'max:255'],
-            // 'service_hour' => ['required',  'max:255'],
             'service_hour_name' => ['required',  'max:255'],
             'service_hour_value' => ['required',  'max:255'],
             'location' => ['required', 'string', 'max:255'],
@@ -42,6 +41,7 @@ class UserServiceController extends Controller
                 ->header('Content-Type', 'text/plain');
         }
 
+        //* Create a new record in userServices table
         UserService::create([
             'service_day' => $request->service_day,
             'service_hour' => $request->service_hour_value,
@@ -57,7 +57,7 @@ class UserServiceController extends Controller
         // Get current avaliable employees ==> Counter limit
         $measureEmployeesNumber = User::where('role_id', 3)->count();
 
-        if(!$measureEmployeesNumber){
+        if (!$measureEmployeesNumber) {
             return response(['msg' => 'No services avaliable now'], 400)
                 ->header('Content-Type', 'text/plain');
         }
@@ -94,9 +94,6 @@ class UserServiceController extends Controller
     {
         $client = new Client(getenv("TWILIO_SID"), getenv("TWILIO_AUTH_TOKEN"));
         $user = User::find($id);
-        // $user->status = 'Shipped';
-        // $user->notification_status = 'queued';
-        // $user->save();
 
         $callbackUrl = str_replace('/pickup', '', 'http://www.facebook.com');
 
@@ -107,8 +104,6 @@ class UserServiceController extends Controller
             'You have successfully subscribed to the service :)',
             $callbackUrl
         );
-        // return response(['msg' => 'Service stored successfully :)'], 200)
-        //     ->header('Content-Type', 'text/plain');
     }
 
 
@@ -127,5 +122,86 @@ class UserServiceController extends Controller
         } catch (Exception $e) {
             Log::error($e->getMessage());
         }
+    }
+
+    //! for change the time
+    public function update(Request $request)
+    {
+        // dd($request);
+        $user_id = Auth::user()->id;
+
+        $validator = Validator::make($request->all(), [
+            'old_service_day' => ['required', 'string', 'max:255'],
+            'old_service_hour_name' => ['required',  'max:255'],
+            'old_service_hour_value' => ['required',  'max:255'],
+            // 'old_location' => ['required', 'string', 'max:255'],
+            'new_service_day' => ['required', 'string', 'max:255'],
+            'new_service_hour_name' => ['required',  'max:255'],
+            'new_service_hour_value' => ['required',  'max:255'],
+            'new_location' => ['required', 'string', 'max:255'],
+            'service_id' => 'required|exists:services,id',
+        ]);
+
+        if ($validator->fails() || ($request->service_day === 'unavaliable date')) {
+            return response(['msg' => 'Bad request, missing data or date invalid!'], 400)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        $currentTime = tap(UserService::where(['service_id' => $request->service_id, 'user_id' => $user_id, 'service_day' => $request->old_service_day]))
+            ->update(['service_day' => $request->new_service_day, 'service_hour' => $request->new_service_hour_name, 'location' => $request->new_location]); //* Done
+
+        //! update in avaliable time table
+
+        //*1- decrement counter to latest time
+        $oldCounterName = $request->old_service_hour_name . '_counter';
+        DB::table('avaliable_times')
+            ->where('daily_date', $request->old_service_day)
+            ->decrement($oldCounterName);
+
+        $latestDay = DB::select("select * from avaliable_times where daily_date='$request->old_service_day'");
+        $latestCounterValue = $latestDay[0]->$oldCounterName;
+
+        DB::table('avaliable_times')
+            ->where('daily_date', $request->old_service_day)
+            ->update([$request->old_service_hour_name => $request->old_service_hour_value]);
+
+
+        //*2- Make some changes in new times
+        $currentCounterName = $request->new_service_hour_name . '_counter';
+
+        // Get current avaliable employees ==> Counter limit
+        $measureEmployeesNumber = User::where('role_id', 3)->count();
+
+        if (!$measureEmployeesNumber) {
+            return response(['msg' => 'No services avaliable now'], 400)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        //1==> Increace counter value
+        DB::table('avaliable_times')
+            ->where('daily_date', $request->new_service_day)
+            ->increment($currentCounterName);
+
+        // Get current day
+        $currentDay = DB::select("select * from avaliable_times where daily_date='$request->new_service_day'");
+        $currentCounterValue = $currentDay[0]->$currentCounterName;
+
+        //2==> Check if counter less than emp counter or not 
+        if ($currentCounterValue >= $measureEmployeesNumber) {
+            DB::table('avaliable_times')
+                ->where('daily_date', $request->new_service_day)
+                ->update([$request->new_service_hour_name => 'unavaliable date']);
+
+            $this->pickup($user_id);
+
+            //********* Update colum in avaliable time to unavaliable */
+            return response(['msg' => 'Now this date became unavaliable in this day'], 200)
+                ->header('Content-Type', 'text/plain');
+        }
+
+        $this->pickup($user_id);
+
+        return response(['msg' => 'Service stored successfully'], 200)
+            ->header('Content-Type', 'text/plain');
     }
 }
