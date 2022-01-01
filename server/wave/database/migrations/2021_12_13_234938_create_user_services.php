@@ -17,6 +17,7 @@ class CreateUserServices extends Migration
             $table->id();
             $table->string('service_day'); // like columns in avaliable_times && create same date - one day in notifications table
             $table->string('service_hour');
+            $table->integer('service_amount');
             $table->text('location');
             $table->string('arrived_at')->default('waiting');
             $table->string('completed_at')->default('waiting');

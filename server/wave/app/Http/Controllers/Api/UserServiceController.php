@@ -32,6 +32,7 @@ class UserServiceController extends Controller
             'service_day' => ['required', 'string', 'max:255'],
             'service_hour_name' => ['required',  'max:255'],
             'service_hour_value' => ['required',  'max:255'],
+            'service_amount' => ['required',  'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'service_id' => 'required|exists:services,id',
         ]);
@@ -45,12 +46,14 @@ class UserServiceController extends Controller
         UserService::create([
             'service_day' => $request->service_day,
             'service_hour' => $request->service_hour_value,
+            'service_amount' => $request->service_amount,
             'location' => $request->location,
             'user_id' => $user_id,
             'service_id' => $request->service_id,
         ]);
 
 
+        //* process to update in avaliable times
         // Get current counter in avaliable times table
         $currentCounterName = $request->service_hour_name . '_counter';
 
@@ -134,7 +137,6 @@ class UserServiceController extends Controller
             'old_service_day' => ['required', 'string', 'max:255'],
             'old_service_hour_name' => ['required',  'max:255'],
             'old_service_hour_value' => ['required',  'max:255'],
-            // 'old_location' => ['required', 'string', 'max:255'],
             'new_service_day' => ['required', 'string', 'max:255'],
             'new_service_hour_name' => ['required',  'max:255'],
             'new_service_hour_value' => ['required',  'max:255'],
