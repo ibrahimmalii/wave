@@ -47,7 +47,7 @@ class CreateAvaliableTimesTable extends Migration
         for ($i = 0; $i < 31; $i++) {
 
             DB::table('avaliable_times')->insertOrIgnore([
-                ['daily_date' => $day_date->addDays(1)->format('d/m/y')]
+                ['daily_date' => $day_date->addDays(1)->format('d/m/Y')]
             ]);
         };
     }

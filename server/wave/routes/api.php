@@ -48,6 +48,7 @@ Route::delete('/userServices/{id}', [UserServiceController::class, 'delete'])->m
 
 // Avaliable times
 Route::get('/avaliableTime', [AvaliableTimeController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/avaliableTime', [AvaliableTimeController::class, 'index']);
 
 // About notified user 
 Route::get('/pickup/{id}', [notifiedUserController::class, 'pickup'])->middleware('auth:sanctum');
