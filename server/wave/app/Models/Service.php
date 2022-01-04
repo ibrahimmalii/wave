@@ -12,7 +12,7 @@ class Service extends Model
     protected $fillable = [
         'title', 'title_subtitle', 'description', 'description_subtitle'
     ];
-     
+
 
     public function users()
     {
