@@ -45,6 +45,7 @@ Route::get('/userServices', [UserServiceController::class, 'index'])->middleware
 Route::post('/userServices', [UserServiceController::class, 'create'])->middleware('auth:sanctum');
 Route::post('/userServices/update', [UserServiceController::class, 'update'])->middleware('auth:sanctum');
 Route::delete('/userServices/{id}', [UserServiceController::class, 'delete'])->middleware('auth:sanctum');
+Route::get('/userServicesProfile', [UserServiceController::class, 'show'])->middleware('auth:sanctum');
 
 // Avaliable times
 Route::get('/avaliableTime', [AvaliableTimeController::class, 'index'])->middleware('auth:sanctum');

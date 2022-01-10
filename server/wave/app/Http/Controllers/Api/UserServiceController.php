@@ -206,4 +206,11 @@ class UserServiceController extends Controller
         return response(['msg' => 'Service stored successfully'], 200)
             ->header('Content-Type', 'text/plain');
     }
+
+    public function show(){
+        $user_id = Auth::user()->id;
+        $userServiceProfileData = UserService::where('user_id', $user_id)->get();
+        return response(['data' => $userServiceProfileData], 200)
+            ->header('Content-Type', 'text/plain');
+    }
 }
