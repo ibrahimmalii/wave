@@ -2,11 +2,15 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AvaliableTimeController;
+use App\Http\Controllers\api\EmployeesProfileController;
 use App\Http\Controllers\Api\notifiedUserController;
 use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\api\UserProfileController;
 use App\Http\Controllers\Api\UserServiceController;
 use App\Http\Controllers\PhoneVerificationController;
 use App\Http\Controllers\TranslateController;
+use App\Models\User;
+use App\Models\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -45,7 +49,6 @@ Route::get('/userServices', [UserServiceController::class, 'index'])->middleware
 Route::post('/userServices', [UserServiceController::class, 'create'])->middleware('auth:sanctum');
 Route::post('/userServices/update', [UserServiceController::class, 'update'])->middleware('auth:sanctum');
 Route::delete('/userServices/{id}', [UserServiceController::class, 'delete'])->middleware('auth:sanctum');
-Route::get('/userServicesProfile', [UserServiceController::class, 'show'])->middleware('auth:sanctum');
 
 // Avaliable times
 Route::get('/avaliableTime', [AvaliableTimeController::class, 'index'])->middleware('auth:sanctum');
@@ -53,3 +56,21 @@ Route::get('/avaliableTime', [AvaliableTimeController::class, 'index']);
 
 // About notified user 
 Route::get('/pickup/{id}', [notifiedUserController::class, 'pickup'])->middleware('auth:sanctum');
+
+//Employee profile
+Route::get('/employeesServicesProfile', [EmployeesProfileController::class, 'index'])->middleware('auth:sanctum');
+
+//Normal user profile 
+Route::get('/userServicesProfile/{lang}', [UserProfileController::class, 'index'])->middleware('auth:sanctum');
+
+
+Route::get('/testGetServices', function(){
+    // $loans=DB::select('select * , id , phone_number from user_services, users left join users on ( user_services.user_id = users.id)');
+    // $loans=DB::select("select *, phone_number from user_services , users");
+    // ("SELECT d.name, e.name, e.email, ... FROM deparments d INNER JOIN employees e ON d.id = e.department_id")
+    //* To show data in employees page
+    $loans=DB::select("SELECT us.service_id,  us.service_day, us.service_hour, us.service_amount, us.location, s.title, s.title_subtitle from user_services us INNER JOIN services s ON user_id = 3");
+
+    return response(['data' => $loans], 200)
+            ->header('Content-Type', 'text/plain');
+});
