@@ -177,6 +177,7 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'phone_number' => 'required',
+            'name' => 'required | min:4 | max: 50',
             'password' => 'required',
             'new_password' => 'required',
         ]);
@@ -193,9 +194,11 @@ class AuthController extends Controller
                 ->header('Content-Type', 'text/plain');
         }
 
-        User::where('phone_number', $request->phone_number)->update(['password' => Hash::make($request->new_password)]);
+        User::where('phone_number', $request->phone_number)->update(['password' => Hash::make($request->new_password),
+        'name' => $request->name
+    ]);
 
-        return response(['msg' => 'password updated successfully'], 200)
+        return response(['msg' => 'data updated successfully'], 200)
             ->header('Content-Type', 'text/plain');
     }
 }

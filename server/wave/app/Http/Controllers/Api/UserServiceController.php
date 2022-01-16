@@ -50,6 +50,7 @@ class UserServiceController extends Controller
             'location' => $request->location,
             'user_id' => $user_id,
             'service_id' => $request->service_id,
+            'additional_services' => $request->additional_services
         ]);
 
 

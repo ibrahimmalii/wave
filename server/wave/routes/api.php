@@ -12,6 +12,7 @@ use App\Http\Controllers\TranslateController;
 use App\Models\User;
 use App\Models\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -64,13 +65,30 @@ Route::get('/employeesServicesProfile', [EmployeesProfileController::class, 'ind
 Route::get('/userServicesProfile/{lang}', [UserProfileController::class, 'index'])->middleware('auth:sanctum');
 
 
-Route::get('/testGetServices', function(){
-    // $loans=DB::select('select * , id , phone_number from user_services, users left join users on ( user_services.user_id = users.id)');
-    // $loans=DB::select("select *, phone_number from user_services , users");
-    // ("SELECT d.name, e.name, e.email, ... FROM deparments d INNER JOIN employees e ON d.id = e.department_id")
-    //* To show data in employees page
-    $loans=DB::select("SELECT us.service_id,  us.service_day, us.service_hour, us.service_amount, us.location, s.title, s.title_subtitle from user_services us INNER JOIN services s ON user_id = 3");
+Route::get('/testGetServices/{lang}', function($lang){
+    $id = Auth::id();
+    $user = User::where('id', $id)->first();
 
-    return response(['data' => $loans], 200)
+    if(!$user){
+        $msg = 'Authentication field';
+        return response(['msg' => $msg], 403)
+        ->header('Content-Type', 'text/plain');
+    }
+
+    if ($user->role_id == 2 && $lang === 'ar') {
+        //* To show data in user profile
+        $services = DB::select("SELECT us.service_id,  us.service_day, us.service_hour, us.service_amount, us.location, s.title_subtitle from user_services us INNER JOIN services s ON user_id = 3");
+
+        return response(['data' => $services], 200)
             ->header('Content-Type', 'text/plain');
-});
+    }else if ($user->role_id == 2 && $lang === 'en'){
+        $services = DB::select("SELECT us.service_id,  us.service_day, us.service_hour, us.service_amount, us.location, s.title from user_services us INNER JOIN services s ON user_id = 3");
+
+        return response(['data' => $services], 200)
+            ->header('Content-Type', 'text/plain');
+    }
+
+    $msg = 'these data avaliable for only employees';
+    return response(['msg' => $msg], 403)
+        ->header('Content-Type', 'text/plain');
+})->middleware('auth:sanctum');

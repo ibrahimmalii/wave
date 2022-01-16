@@ -18,6 +18,11 @@ class UserService extends Model
         'arrived_at',
         'completed_at',
         'service_performer',
-        'service_amount'
+        'service_amount',
+        'additional_services'
+    ];
+
+    protected $casts = [
+        'additional_services' => 'array',
     ];
 }

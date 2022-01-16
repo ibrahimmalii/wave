@@ -22,6 +22,7 @@ class CreateUserServices extends Migration
             $table->string('arrived_at')->default('waiting');
             $table->string('completed_at')->default('waiting');
             $table->string('service_performer')->nullable();
+            $table->json('additional_services')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('service_id')->constrained();
             $table->timestamps();
