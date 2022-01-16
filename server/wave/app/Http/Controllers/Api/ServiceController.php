@@ -11,12 +11,22 @@ use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
-    function index($lang)
+    function index_ess($lang)
     {
         if($lang === 'ar'){
-            return ServiceArabicResource::Collection(Service::all());
+            // $services = Service::where('service_type_id', 1);
+            return ServiceArabicResource::Collection(Service::where('service_type_id', 1)->get());
         }
-        return ServiceEnglishResource::collection(Service::all());
+        return ServiceEnglishResource::collection(Service::where('service_type_id', 1)->get());
+    }
+
+    function index_add($lang)
+    {
+        if($lang === 'ar'){
+            // $services = Service::where('service_type_id', 1);
+            return ServiceArabicResource::Collection(Service::where('service_type_id', 2)->get());
+        }
+        return ServiceEnglishResource::collection(Service::where('service_type_id', 2)->get());
     }
 
     function show($id, $lang)

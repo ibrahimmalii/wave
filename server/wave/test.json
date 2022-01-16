@@ -1,6 +1,6 @@
 {
     "data": [{
-            "service_id": 1,
+            "id": 6,
             "service_day": "28/01/2022",
             "service_hour": "9.5-10.5",
             "service_amount": 300,
@@ -32,10 +32,13 @@
                     "updated_at": "2022-01-16T20:51:54.000000Z"
                 }
             ],
-            "title_subtitle": "غسيل سيارات"
+            "arrived_at": "waiting",
+            "completed_at": "waiting",
+            "client_name": "ibrahim",
+            "phone_number": "+201096121030"
         },
         {
-            "service_id": 1,
+            "id": 7,
             "service_day": "29/01/2022",
             "service_hour": "9.5-10.5",
             "service_amount": 300,
@@ -53,10 +56,13 @@
                 "created_at": "2022-01-16T20:48:59.000000Z",
                 "updated_at": "2022-01-16T20:48:59.000000Z"
             }],
-            "title_subtitle": "غسيل سيارات"
+            "arrived_at": "waiting",
+            "completed_at": "waiting",
+            "client_name": "ibrahim",
+            "phone_number": "+201096121030"
         },
         {
-            "service_id": 1,
+            "id": 8,
             "service_day": "29/01/2022",
             "service_hour": "10.5-11.5",
             "service_amount": 300,
@@ -88,7 +94,48 @@
                     "updated_at": "2022-01-16T20:51:54.000000Z"
                 }
             ],
-            "title_subtitle": "غسيل سيارات"
+            "arrived_at": "waiting",
+            "completed_at": "waiting",
+            "client_name": "ali",
+            "phone_number": "+3487348787"
+        },
+        {
+            "id": 9,
+            "service_day": "30/01/2022",
+            "service_hour": "10.5-11.5",
+            "service_amount": 300,
+            "location": "test second location",
+            "additional_services": [{
+                    "id": 3,
+                    "title": "third add",
+                    "title_subtitle": "third add",
+                    "description": "test",
+                    "description_subtitle": "this is test three",
+                    "small_price": 100,
+                    "mid_price": 300,
+                    "large_price": 400,
+                    "service_type_id": 2,
+                    "created_at": "2022-01-16T20:51:54.000000Z",
+                    "updated_at": "2022-01-16T20:51:54.000000Z"
+                },
+                {
+                    "id": 2,
+                    "title": "غسيل اضافى",
+                    "title_subtitle": "مسح السيارة",
+                    "description": "this is for delete cars",
+                    "description_subtitle": "هذة الخدمة الخاصة بمسح السيارات",
+                    "small_price": 200,
+                    "mid_price": 300,
+                    "large_price": 400,
+                    "service_type_id": 2,
+                    "created_at": "2022-01-16T20:48:59.000000Z",
+                    "updated_at": "2022-01-16T20:48:59.000000Z"
+                }
+            ],
+            "arrived_at": "waiting",
+            "completed_at": "waiting",
+            "client_name": "ali",
+            "phone_number": "+3487348787"
         }
     ]
 }

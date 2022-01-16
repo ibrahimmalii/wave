@@ -40,7 +40,8 @@ Route::post('/updatePasswordFromLogin', [AuthController::class, 'updatePasswordF
 Route::post('/updatePasswordFromSetting', [AuthController::class, 'updatePasswordFromSetting'])->middleware('auth:sanctum');
 
 // Multi languages for getting services
-Route::get('/services/{lang}', [ServiceController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/essintial_services/{lang}', [ServiceController::class, 'index_ess'])->middleware('auth:sanctum');
+Route::get('/additional_services/{lang}', [ServiceController::class, 'index_add'])->middleware('auth:sanctum');
 Route::get('/services/{id}/{lang}', [ServiceController::class, 'show'])->middleware('auth:sanctum');
 
 Route::get('content', [TranslateController::class, 'index'])->middleware('localization');
