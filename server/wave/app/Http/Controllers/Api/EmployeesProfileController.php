@@ -21,11 +21,6 @@ class EmployeesProfileController extends Controller
             ->header('Content-Type', 'text/plain');
         }
 
-        //For loop in services
-        //For in each additional service
-        //PUsh in a new array 
-        //Add into his ess service
-
         if($user->role_id == 3){
             $services=DB::select("SELECT us.id, us.service_day, us.service_hour, us.service_amount, us.location, us.additional_services, us.arrived_at, us.completed_at, u.name as client_name, u.phone_number FROM user_services us INNER JOIN users u ON us.user_id = u.id");
             for ($x = 0; $x < count($services); $x++) {

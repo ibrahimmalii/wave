@@ -1,14 +1,17 @@
 <?php
 
+use App\Events\Notify;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AvaliableTimeController;
 use App\Http\Controllers\api\EmployeesProfileController;
 use App\Http\Controllers\Api\notifiedUserController;
+use App\Http\Controllers\api\ProfileController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\api\UserProfileController;
 use App\Http\Controllers\Api\UserServiceController;
 use App\Http\Controllers\PhoneVerificationController;
 use App\Http\Controllers\TranslateController;
+use App\Models\MyEvent;
 use App\Models\User;
 use App\Models\UserService;
 use Illuminate\Http\Request;
@@ -60,10 +63,22 @@ Route::get('/avaliableTime', [AvaliableTimeController::class, 'index']);
 Route::get('/pickup/{id}', [notifiedUserController::class, 'pickup'])->middleware('auth:sanctum');
 
 //Employee profile
-Route::get('/employeesServicesProfile', [EmployeesProfileController::class, 'index'])->middleware('auth:sanctum');
+// Route::get('/employeesServicesProfile', [EmployeesProfileController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/employeesServicesProfile', [AvaliableTimeController::class, 'index_emp'])->middleware('auth:sanctum');
+Route::post('/arrivedAt', [AvaliableTimeController::class, 'updateArrivedAt'])->middleware('auth:sanctum');
+Route::post('/completedAt', [AvaliableTimeController::class, 'updateCompletedAt'])->middleware('auth:sanctum');
 
 //Normal user profile 
-Route::get('/userServicesProfile/{lang}', [UserProfileController::class, 'index'])->middleware('auth:sanctum');
+// Route::get('/userServicesProfile/{lang}', [UserProfileController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/userServicesProfile/{lang}', [AvaliableTimeController::class, 'index_user'])->middleware('auth:sanctum');
+
+
+//* About notifications 
+Route::get('/push', function(){
+    return event(new Notify('hello world'));
+    // return 'done';
+});
+
 
 
 Route::get('/testGetServices/{lang}', function($lang){

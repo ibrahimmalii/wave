@@ -67,9 +67,9 @@ class AuthController extends Controller
 
         $user = User::where('phone_number', $request->phone_number)->first();
         $user = new UserResource(User::where('phone_number', $request->phone_number)->first());
-        if(!$user){
+        if (!$user) {
             return response(['msg' => 'Mobile Number Not Found!!'], 404)
-            ->header('Content-Type', 'text/plain');
+                ->header('Content-Type', 'text/plain');
         }
 
         /* Get credentials from .env */
@@ -194,9 +194,11 @@ class AuthController extends Controller
                 ->header('Content-Type', 'text/plain');
         }
 
-        User::where('phone_number', $request->phone_number)->update(['password' => Hash::make($request->new_password),
-        'name' => $request->name
-    ]);
+        User::where('phone_number', $request->phone_number)
+            ->update([
+                'password' => Hash::make($request->new_password),
+                'name' => $request->name
+            ]);
 
         return response(['msg' => 'data updated successfully'], 200)
             ->header('Content-Type', 'text/plain');
