@@ -9,6 +9,7 @@ use App\Http\Controllers\api\ProfileController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\api\UserProfileController;
 use App\Http\Controllers\Api\UserServiceController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PhoneVerificationController;
 use App\Http\Controllers\TranslateController;
 use App\Models\MyEvent;
@@ -43,7 +44,8 @@ Route::post('/updatePasswordFromLogin', [AuthController::class, 'updatePasswordF
 Route::post('/updatePasswordFromSetting', [AuthController::class, 'updatePasswordFromSetting'])->middleware('auth:sanctum');
 
 // Multi languages for getting services
-Route::get('/essintial_services/{lang}', [ServiceController::class, 'index_ess'])->middleware('auth:sanctum');
+Route::get('/essintial_services/{lang}', [ServiceController::class, 'index_ess']);
+// ->middleware('auth:sanctum');
 Route::get('/additional_services/{lang}', [ServiceController::class, 'index_add'])->middleware('auth:sanctum');
 Route::get('/services/{id}/{lang}', [ServiceController::class, 'show'])->middleware('auth:sanctum');
 
@@ -74,21 +76,21 @@ Route::get('/userServicesProfile/{lang}', [AvaliableTimeController::class, 'inde
 
 
 //* About notifications 
-Route::get('/push', function(){
+Route::get('/push', function () {
     return event(new Notify('hello world'));
     // return 'done';
 });
 
 
 
-Route::get('/testGetServices/{lang}', function($lang){
+Route::get('/testGetServices/{lang}', function ($lang) {
     $id = Auth::id();
     $user = User::where('id', $id)->first();
 
-    if(!$user){
+    if (!$user) {
         $msg = 'Authentication field';
         return response(['msg' => $msg], 403)
-        ->header('Content-Type', 'text/plain');
+            ->header('Content-Type', 'text/plain');
     }
 
     if ($user->role_id == 2 && $lang === 'ar') {
@@ -97,7 +99,7 @@ Route::get('/testGetServices/{lang}', function($lang){
 
         return response(['data' => $services], 200)
             ->header('Content-Type', 'text/plain');
-    }else if ($user->role_id == 2 && $lang === 'en'){
+    } else if ($user->role_id == 2 && $lang === 'en') {
         $services = DB::select("SELECT us.service_id,  us.service_day, us.service_hour, us.service_amount, us.location, s.title from user_services us INNER JOIN services s ON user_id = 3");
 
         return response(['data' => $services], 200)
@@ -108,3 +110,8 @@ Route::get('/testGetServices/{lang}', function($lang){
     return response(['msg' => $msg], 403)
         ->header('Content-Type', 'text/plain');
 })->middleware('auth:sanctum');
+
+
+//* About offers 
+Route::get('/offers/{lang}', [OfferController::class, 'index']);
+// ->middleware('auth:sanctum');

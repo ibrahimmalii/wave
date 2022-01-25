@@ -21,8 +21,7 @@ class ServiceArabicResource extends JsonResource
             'small_price' => $this->small_price,
             'mid_price' => $this->mid_price,
             'large_price' => $this->large_price,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'discount' => $this->discount
         ];
     }
 }

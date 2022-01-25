@@ -42,19 +42,18 @@ $date->addMonths(1);
                     </div>
                     @endif
 
-                    <div class="panel-body" style="direction:rtl">
+                    <div class="panel-body">
                         <div class="form-group">
-                            <label for="email"> إسم المستخدم</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('voyager::generic.name') }}" value="{{ old('name', $dataTypeContent->name ?? '') }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="email">البريد الإلكترونى</label>
-                            <input type="text" class="form-control" id="email" name="email" placeholder="فقط اكتب البريد الإلكتروني إذا كنت تريد أن يصل الشخص إلى لوحة التحكم الخاصة بك :)" value="{{ old('name', $dataTypeContent->email ?? '') }}">
+                            <label for="email">{{ __('voyager::generic.email') }}</label>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Just write the email if you want the person to access your control panel :)" value="">
                         </div>
 
                         <div class="form-group">
-                            <label for="phone_number">رقم الهاتف</label>
+                            <label for="phone_number">Phone Number</label>
                             <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="+96683478739" value="{{ old('phone_number', $dataTypeContent->phone_number ?? '') }}">
                         </div>
 
@@ -63,27 +62,26 @@ $date->addMonths(1);
                         </div>
 
                         <div class="form-group">
-                            <label for="password">كلمة المرور</label>
+                            <label for="password">{{ __('voyager::generic.password') }}</label>
                             @if(isset($dataTypeContent->password))
                             <br>
-                            <small>اترك الحقل فارغا اذا لم ترد تغيير كلمة المرور</small>
+                            <small>{{ __('voyager::profile.password_hint') }}</small>
                             @endif
                             <input type="password" class="form-control" id="password" name="password" value="" autocomplete="new-password">
                         </div>
 
                         @can('editRoles', $dataTypeContent)
                         <div class="form-group">
-                            <label for="default_role">الدور الافتراضي</label>
+                            <label for="default_role">{{ __('voyager::profile.role_default') }}</label>
                             @php
                             $dataTypeRows = $dataType->{(isset($dataTypeContent->id) ? 'editRows' : 'addRows' )};
-
                             $row = $dataTypeRows->where('field', 'user_belongsto_role_relationship')->first();
                             $options = $row->details;
                             @endphp
                             @include('voyager::formfields.relationship')
                         </div>
                         <div class="form-group">
-                            <label for="additional_roles">الدور الاضافى</label>
+                            <label for="additional_roles">{{ __('voyager::profile.roles_additional') }}</label>
                             @php
                             $row = $dataTypeRows->where('field', 'user_belongstomany_role_relationship')->first();
                             $options = $row->details;
@@ -97,10 +95,9 @@ $date->addMonths(1);
                         } else {
                         $selected_locale = config('app.locale', 'en');
                         }
-
                         @endphp
                         <div class="form-group">
-                            <label for="locale">لغة</label>
+                            <label for="locale">{{ __('voyager::generic.locale') }}</label>
                             <select class="form-control select2" id="locale" name="locale">
                                 @foreach (Voyager::getLocales() as $locale)
                                 <option value="{{ $locale }}" {{ ($locale == $selected_locale ? 'selected' : '') }}>{{ $locale }}</option>
@@ -114,19 +111,19 @@ $date->addMonths(1);
             <div class="col-md-4">
                 <div class="panel panel panel-bordered panel-warning">
                     <div class="panel-body">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             @if(isset($dataTypeContent->avatar))
                             <img src="{{ filter_var($dataTypeContent->avatar, FILTER_VALIDATE_URL) ? $dataTypeContent->avatar : Voyager::image( $dataTypeContent->avatar ) }}" style="width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;" />
                             @endif
                             <input type="file" data-name="avatar" name="avatar">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
 
         <button type="submit" class="btn btn-primary pull-right save">
-            حفظ
+            {{ __('voyager::generic.save') }}
         </button>
     </form>
 
