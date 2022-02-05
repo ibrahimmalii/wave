@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use App\Models\User;
 use App\Models\UserService;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +25,21 @@ class UserServiceController extends Controller
             ->header('Content-Type', 'text/plain');
     }
 
+    /**
+     * @param $id
+     * @param $service_day
+     * To store notification
+     */
+    public function storeNotification($id, $service_day){
+        $storedDate = Carbon::parse('09/02/2022')->subDay();
+
+        Notification::create([
+            'title' => 'service alert',
+            'body' => 'Your service will be tomorrow',
+            'sending_time' => $storedDate,
+            'user_id' => $id
+        ]);
+    }
 
     public function create(Request $request)
     {
@@ -82,6 +99,7 @@ class UserServiceController extends Controller
                 ->update([$request->service_hour_name => 'unavaliable date']);
 
             $this->pickup($user_id);
+            $this->storeNotification($user_id, $request->service_day);
 
             //********* Update colum in avaliable time to unavaliable */
             return response(['msg' => 'Now this date became unavaliable in this day'], 200)
@@ -89,6 +107,8 @@ class UserServiceController extends Controller
         }
 
         $this->pickup($user_id);
+
+        $this->storeNotification($user_id, $request->service_day);
 
         return response(['msg' => 'Service stored successfully'], 200)
             ->header('Content-Type', 'text/plain');
@@ -198,11 +218,13 @@ class UserServiceController extends Controller
             $this->pickup($user_id);
 
             //********* Update colum in avaliable time to unavaliable */
+            $this->storeNotification($user_id, $request->service_day);
             return response(['msg' => 'Now this date became unavaliable in this day'], 200)
                 ->header('Content-Type', 'text/plain');
         }
 
         $this->pickup($user_id);
+        $this->storeNotification($user_id, $request->service_day);
 
         return response(['msg' => 'Service stored successfully'], 200)
             ->header('Content-Type', 'text/plain');
